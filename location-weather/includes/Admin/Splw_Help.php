@@ -175,6 +175,8 @@ class Splw_Help {
 						$image_type = 'jpg';
 						break;
 					case 'location-weather':
+					case 'testimonial-free':
+					case 'easy-accordion-free':
 					case 'gallery-slider-for-woocommerce':
 						$image_type = 'gif';
 						break;
@@ -690,7 +692,7 @@ class Splw_Help {
 							</a>
 							<a target="_blank" class="splw-our-plugin-list-box" href="https://realtestimonials.io/">
 								<i class="splw-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/testimonial-free/assets/icon-256x256.png" alt="">
+								<img src="https://ps.w.org/testimonial-free/assets/icon-256x256.gif" alt="">
 								<h4>Real Testimonials</h4>
 								<p>Simply collect, manage, and display Testimonials on your website and boost conversions.</p>
 							</a>
@@ -708,7 +710,7 @@ class Splw_Help {
 							</a>
 							<a target="_blank" class="splw-our-plugin-list-box" href="https://shapedplugin.com/plugin/woocommerce-gallery-slider-pro/">
 								<i class="splw-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/gallery-slider-for-woocommerce/assets/icon-256x256.png" alt="">
+								<img src="https://ps.w.org/gallery-slider-for-woocommerce/assets/icon-256x256.gif" alt="">
 								<h4>Gallery Slider for WooCommerce</h4>
 								<p>Product gallery slider and additional variation images gallery for WooCommerce and boost your sales.</p>
 							</a>

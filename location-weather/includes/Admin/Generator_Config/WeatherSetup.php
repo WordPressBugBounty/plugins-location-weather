@@ -242,7 +242,7 @@ SPLW::createSection(
 					__( 'Custom Location Name', 'location-weather' ),
 					'<strong>',
 					'</strong>',
-					__( 'Open Docs', 'location-weather' ),
+					__( 'Open Docs', 'location-weather' )
 				),
 			),
 			array(
@@ -283,7 +283,12 @@ SPLW::createSection(
 					'none'      => __( 'Degree Symbol (°)', 'location-weather' ),
 				),
 				'default'    => 'metric',
-				'desc'       => 'This is a <a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank">Pro feature!</a>',
+				'desc'       => sprintf(
+					/* translators: 1: start link tag, 2: close tag. */
+					__( 'This is a %1$sPro feature!%2$s', 'location-weather' ),
+					'<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank">',
+					'</a>'
+				),
 			),
 			array(
 				'id'         => 'active-lw-units',
@@ -296,7 +301,12 @@ SPLW::createSection(
 					'imperial' => __( '°F ', 'location-weather' ),
 					'auto'     => __( 'Auto', 'location-weather' ),
 				),
-				'desc'       => 'This is a <a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank">Pro feature!</a>',
+				'desc'       => sprintf(
+					/* translators: 1: start link tag, 2: close tag. */
+					__( 'This is a %1$sPro feature!%2$s', 'location-weather' ),
+					'<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank">',
+					'</a>'
+				),
 				'default'    => 'auto',
 				'dependency' => array( 'lw-units', 'any', 'auto,none', true ),
 			),

@@ -2,8 +2,8 @@
 Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather widget, live weather map, hourly forecast, daily forecast
 Requires at least: 4.7
-Tested up to: 6.6.1
-Stable tag: 2.0.10
+Tested up to: 6.6.2
+Stable tag: 2.0.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -413,6 +413,12 @@ The WordPress codex contains <a href="https://wordpress.org/documentation/articl
 
 
 == Changelog ==
+
+= 2.0.11 - Oct 09, 2024 =
+* Fix: Some strings translation issue
+* Fix: The PHP 7.2 compatibility issue.
+* Updated: The language (.pot) file.
+* Tested: WordPress 6.6.2 compatibility.
 
 = 2.0.10 - Aug 26, 2024 =
 * Fix: The weather icon and the SG Optimizer plugin lazyload conflict issue.

@@ -536,8 +536,12 @@ SPLW::createSection(
 							array(
 								'type'    => 'notice',
 								'style'   => 'normal',
-								/* translators: %1$s: anchor tag start, %$s: anchor tag end. */
-								'content' => sprintf( __( 'To gain access to additional weather data, %1$sUpgrade to Pro!%2$s', 'location-weather' ), '<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>', '</strong></a>' ),
+								'content' => sprintf(
+									/* translators: %1$s: anchor tag start, %2$s: anchor tag end. */
+									__( 'To gain access to additional weather data, %1$sUpgrade to Pro!%2$s', 'location-weather' ),
+									'<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>',
+									'</strong></a>'
+								),
 							),
 						),
 					),
@@ -672,7 +676,7 @@ SPLW::createSection(
 									'<div class="lw-info-label">%s</div><div class="lw-short-content">%s</div><div class="info-button"><a class="lw-open-docs" href="https://locationweather.io/docs/how-to-choose-weather-additional-data-icon/" target="_blank">%s</a></div>',
 									__( 'Icon Type', 'location-weather' ),
 									__( 'Choose an icon set of three distinct sets of icons for displaying additional weather data. These icon sets enhance the visual presentation of additional weather data nicely.', 'location-weather' ),
-									__( 'Open Docs', 'location-weather' ),
+									__( 'Open Docs', 'location-weather' )
 								),
 								'default'    => 'icon_set_one',
 								'dependency' => array( 'lw-weather-icons', '==', 'true', true ),
@@ -869,7 +873,14 @@ SPLW::createSection(
 								'type'    => 'notice',
 								'style'   => 'normal',
 								'class'   => 'forecast-pro-notice',
-								'content' => 'To display advanced <a href="https://locationweather.io/demos/daily-hourly-weather-forecast/" target="_blank">Weather Forecast Data</a> with customizable options, <a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>Upgrade to Pro!</strong></a>',
+								'content' => sprintf(
+									/* translators: 1: start link tag, 2: close link tag 3: start link and strong tag. 4: close link and strong tag. */
+									__( 'To display advanced %1$sWeather Forecast Data%2$s with customizable options, %3$sUpgrade to Pro!%4$s', 'location-weather' ),
+									'<a href="https://locationweather.io/demos/daily-hourly-weather-forecast/" target="_blank">',
+									'</a>',
+									'<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>',
+									'</strong></a>'
+								),
 							),
 							array(
 								'id'         => 'lw-enable-forecast',

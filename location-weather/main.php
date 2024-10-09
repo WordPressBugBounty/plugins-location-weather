@@ -13,7 +13,7 @@
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           2.0.10
+ * Version:           2.0.11
  * Requires at least: 4.7
  * Requires PHP:      5.6
  * License:           GPL v2 or later
@@ -54,7 +54,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.9';
+	public $version = '2.0.11';
 
 	/**
 	 * The unique slug of this plugin.
@@ -200,7 +200,7 @@ final class Location_Weather {
 			$new_links       = array(
 				sprintf( '<a href="%s">%s</a>', admin_url( 'edit.php?post_type=location_weather&page=lw-settings' ), __( 'Settings', 'location-weather' ) ),
 			);
-			$links['go_pro'] = sprintf( '<a target="_blank" href="%1$s" style="color: #35b747; font-weight: 700;">Go Pro!</a>', 'https://locationweather.io/pricing/?ref=1' );
+			$links['go_pro'] = '<a target="_blank" href="https://locationweather.io/pricing/?ref=1" style="color: #35b747; font-weight: 700;">' . __( 'Go Pro!', 'location-weather' ) . '</a>';
 			return array_merge( $new_links, $links );
 		}
 
