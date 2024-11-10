@@ -1,8 +1,7 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Location Weather v2.0.9\n"
-"POT-Creation-Date: 2024-09-30 16:09+0600\n"
+"Project-Id-Version: Location Weather v2.0.11\n"
+"POT-Creation-Date: 2024-11-08 10:27+0600\n"
 "PO-Revision-Date: 2024-05-27 15:49+0600\n"
 "Last-Translator: \n"
 "Language-Team: ShapedPlugin <support@shapedplugin.com>\n"
@@ -2165,36 +2164,36 @@ msgstr ""
 msgid "Get Help"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:207
+#: includes/Admin/Splw_Help.php:209
 msgid "Activate"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:214
+#: includes/Admin/Splw_Help.php:216
 msgid "Install Now"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:219
+#: includes/Admin/Splw_Help.php:221
 #, php-format
 msgid "More information about %s"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:220
+#: includes/Admin/Splw_Help.php:222
 msgid "More Details"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:251
+#: includes/Admin/Splw_Help.php:253
 msgid "Version:"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:260
+#: includes/Admin/Splw_Help.php:262
 msgid "+ Active Installations"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:268
+#: includes/Admin/Splw_Help.php:270
 msgid "Last Updated:"
 msgstr ""
 
-#: includes/Admin/Splw_Help.php:269
+#: includes/Admin/Splw_Help.php:271
 #, php-format
 msgid "%s ago"
 msgstr ""

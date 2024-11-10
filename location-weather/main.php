@@ -13,7 +13,7 @@
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           2.0.11
+ * Version:           2.0.12
  * Requires at least: 4.7
  * Requires PHP:      5.6
  * License:           GPL v2 or later
@@ -54,7 +54,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.11';
+	public $version = '2.0.12';
 
 	/**
 	 * The unique slug of this plugin.
