@@ -20,7 +20,7 @@ class Admin {
 	public function __construct() {
 		new Admin\Post_Type();
 		new Admin\Splw_Help();
-		new Admin\Review_Notice();
+		new Admin\Admin_Notices();
 		new Admin\Scripts();
 		new Admin\Updater();
 		new Admin\Preview\LW_Preview();
