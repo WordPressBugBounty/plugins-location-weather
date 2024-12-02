@@ -103,8 +103,7 @@ if ( ! class_exists( 'SPLW' ) ) {
 			do_action( 'splwt_init' );
 
 			// Init translation in framework.
-			self::textdomain();
-
+			add_action( 'init', array( 'SPLW', 'textdomain' ) );
 			// Set directory constants.
 			self::constants();
 
@@ -118,8 +117,8 @@ if ( ! class_exists( 'SPLW' ) ) {
 			add_action( 'wp_enqueue_scripts', array( 'SPLW', 'add_typography_enqueue_styles' ), 80 );
 			add_action( 'wp_head', array( 'SPLW', 'add_custom_css' ), 80 );
 			add_filter( 'admin_body_class', array( 'SPLW', 'add_admin_body_class' ) );
-
 		}
+
 		/**
 		 * Setup textdomain.
 		 *
@@ -136,7 +135,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 		 * @return void
 		 */
 		public static function setup() {
-
 			// Setup admin option framework.
 			$params = array();
 			if ( ! empty( self::$args['admin_options'] ) ) {
@@ -169,7 +167,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 			}
 
 			do_action( 'splwt_loaded' );
-
 		}
 
 		/**
@@ -214,7 +211,7 @@ if ( ! class_exists( 'SPLW' ) ) {
 		public static function constants() {
 
 			// We need this path-finder code for set URL of framework.
-			$dirname        = wp_normalize_path( dirname( dirname( __FILE__ ) ) );
+			$dirname        = wp_normalize_path( dirname( __DIR__ ) );
 			$theme_dir      = wp_normalize_path( get_parent_theme_file_path() );
 			$plugin_dir     = wp_normalize_path( WP_PLUGIN_DIR );
 			$located_plugin = ( preg_match( '#' . self::sanitize_dirname( $plugin_dir ) . '#', self::sanitize_dirname( $dirname ) ) ) ? true : false;
@@ -226,7 +223,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 
 			self::$dir = $dirname;
 			self::$url = $directory_uri . $foldername;
-
 		}
 
 		/**
@@ -270,7 +266,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 				return self::$dir . '/' . $file;
 
 			}
-
 		}
 
 		/**
@@ -323,7 +318,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 
 			// Includes premium version classes.
 			self::include_plugin_file( 'classes/metabox-options.class.php' );
-
 		}
 
 		/**
@@ -367,7 +361,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 					}
 				}
 			}
-
 		}
 
 		/**
@@ -479,7 +472,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 			}
 
 			do_action( 'splwt_enqueue' );
-
 		}
 
 		/**
@@ -548,7 +540,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 			}
 
 			return $classes;
-
 		}
 
 		/**
@@ -561,7 +552,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 			if ( ! empty( self::$css ) ) {
 				echo '<style type="text/css">' . wp_strip_all_tags( self::$css ) . '</style>'; // phpcs:ignore
 			}
-
 		}
 
 		/**
@@ -666,9 +656,7 @@ if ( ! class_exists( 'SPLW' ) ) {
 			echo ( ! empty( $field['title'] ) || ! empty( $field['fancy_title'] ) ) ? '</div>' : '';
 			echo '<div class="clear"></div>';
 			echo '</div>';
-
 		}
-
 	}
 
 	SPLW::init();
