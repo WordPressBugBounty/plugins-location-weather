@@ -21,7 +21,7 @@ SPLW::createSection(
 				'tabs'  => array(
 					array(
 						'title'  => __( 'Basic Preferences', 'location-weather' ),
-						'icon'   => '<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g clip-path="url(#A)" fill="#23282d"><path d="M9.244 11.125c.078-.028.15-.078.2-.147.153-.197.119-.481-.075-.634a3 3 0 0 1-.528-.472 3.07 3.07 0 0 1 .262-4.331c.059-.059.103-.131.122-.212a.45.45 0 0 0-.325-.55 3.63 3.63 0 0 0-1.397-.056c-4.741 1.034-2.875 7.838 1.741 6.403zm6.022-3.797h-1.147a6.11 6.11 0 0 0-1.306-3.162l.819-.819c.269-.269.269-.703 0-.972s-.703-.269-.972 0l-.816.816a6.11 6.11 0 0 0-3.153-1.309V.719c0-.381-.306-.687-.687-.687s-.688.306-.688.688v1.163a6.12 6.12 0 0 0-3.147 1.306l-.834-.834c-.269-.269-.703-.269-.972 0s-.269.703 0 .972l.831.831a6.12 6.12 0 0 0-1.309 3.138H.703c-.381 0-.687.306-.687.688s.306.687.688.687h1.178a6.1 6.1 0 0 0 1.294 3.144l-.834.834c-.269.269-.269.703 0 .972.134.134.309.2.487.2s.353-.066.487-.2l.831-.831a6.14 6.14 0 0 0 3.141 1.322v1.172c0 .381.306.688.688.688s.688-.306.688-.688v-1.159a6.12 6.12 0 0 0 3.159-1.294l.819.819c.134.134.309.2.488.2s.353-.066.488-.2c.269-.269.269-.703 0-.972l-.816-.816c.712-.884 1.188-1.969 1.322-3.156h1.15c.381 0 .688-.306.688-.687a.69.69 0 0 0-.694-.687zM3.219 8c0-2.637 2.144-4.781 4.781-4.781S12.781 5.363 12.781 8 10.638 12.781 8 12.781 3.219 10.638 3.219 8z"/></g><defs><clipPath id="A"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg></span>',
+						'icon'   => '<span><i class="splwp-icon-basic-preference"></i></span>',
 						'fields' => array(
 							array(
 								'id'         => 'lw-title',
@@ -247,7 +247,7 @@ SPLW::createSection(
 					),
 					array(
 						'title'  => __( 'Current Weather', 'location-weather' ),
-						'icon'   => '<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g clip-path="url(#A)"><path d="M4.168 7.167c-.144-.023-.289-.034-.435-.034-.813 0-1.593.323-2.168.898S.667 9.387.667 10.2s.323 1.593.898 2.169 1.355.898 2.168.898c.177 0 .346-.07.471-.195s.195-.295.195-.471-.07-.346-.195-.471-.295-.195-.471-.195c-.46 0-.901-.183-1.226-.508S2 10.66 2 10.2s.183-.901.508-1.226.766-.508 1.226-.508a1.7 1.7 0 0 1 .575.108c.165.059.346.051.504-.023s.282-.206.344-.37c.166-.443.464-.824.853-1.094s.851-.414 1.324-.414.935.144 1.324.414.686.651.853 1.094c.066.16.19.29.347.363s.336.083.501.03c.266-.104.556-.132.837-.081a1.73 1.73 0 0 1 1.471 1.842 1.73 1.73 0 0 1-1.732 1.598c-.177 0-.346.07-.471.195s-.195.295-.195.471.07.346.195.471.295.195.471.195a3.06 3.06 0 0 0 2.954-2.233 3.06 3.06 0 0 0-1.363-3.443 3.19 3.19 0 0 0 .143-.925c.002-.782-.271-1.54-.773-2.141s-1.199-1.005-1.969-1.142-1.564.002-2.242.392-1.197 1.007-1.465 1.742a3.7 3.7 0 0 0-2.051 1.649zm5.165-2.501a2 2 0 0 1 2 2c0 .165-.023.329-.067.487-.256-.026-.514-.021-.769.013a3.68 3.68 0 0 0-2.683-1.8c.187-.22.419-.397.682-.518a1.98 1.98 0 0 1 .836-.183zm6 2c0 .177-.07.346-.195.471s-.295.195-.471.195H14c-.177 0-.346-.07-.471-.195s-.195-.295-.195-.471.07-.346.195-.471S13.823 6 14 6h.667c.177 0 .346.07.471.195s.195.295.195.471zm-6-4c-.177 0-.346-.07-.471-.195S8.667 2.177 8.667 2v-.667c0-.177.07-.346.195-.471s.295-.195.471-.195.346.07.471.195.195.295.195.471V2c0 .177-.07.346-.195.471s-.295.195-.471.195zm3.3 1.367c-.132 0-.261-.039-.37-.112s-.195-.177-.245-.299-.064-.256-.038-.385.089-.248.182-.341l.471-.471c.062-.064.135-.114.216-.149s.169-.053.257-.054.176.016.258.05.156.083.219.146.112.137.146.219.05.17.05.258a.67.67 0 0 1-.203.474l-.471.471c-.125.125-.294.195-.471.195zm-7.071-.195l-.471-.471c-.064-.062-.114-.135-.149-.216s-.053-.169-.054-.257.016-.176.05-.258.083-.156.146-.219.137-.112.219-.146.17-.05.258-.05.176.019.257.054.155.086.216.149l.471.471c.064.062.114.135.149.216s.053.169.054.257-.016.176-.05.258-.083.156-.146.219-.137.112-.219.146-.17.05-.258.05-.176-.019-.257-.054-.155-.086-.216-.149zm-.033 10.357l1.529-1.529H6c-.132 0-.261-.039-.37-.112s-.195-.177-.245-.299-.064-.256-.038-.385.089-.248.182-.341l2.667-2.667c.126-.121.294-.189.469-.187s.342.072.466.195.194.291.195.466-.066.343-.187.469l-1.529 1.529h1.057c.132 0 .261.039.37.112s.195.177.245.299.064.256.038.385-.089.248-.182.341l-2.667 2.667c-.126.121-.294.189-.469.187s-.342-.072-.466-.195-.194-.291-.195-.466.066-.343.187-.469z" fill="#23282d"/></g><defs><clipPath id="A"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg></span>',
+						'icon'   => '<span><i class="splwp-icon-current-weather"></i></span>',
 						'fields' => array(
 							array(
 								'id'         => 'lw-icon',
@@ -303,7 +303,6 @@ SPLW::createSection(
 								'text_off'   => __( 'Hide', 'location-weather' ),
 								'text_width' => 75,
 							),
-
 							array(
 								'id'         => 'lw-high-low-temperature',
 								'class'      => 'splw_show_hide',
@@ -343,7 +342,7 @@ SPLW::createSection(
 					),
 					array(
 						'title'  => __( 'Control Additional Data', 'location-weather' ),
-						'icon'   => '<span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" fill="#23282d"><path d="M13.111 11.345c-.405 0-.752-.347-.752-.752s.347-.752.752-.752h.579c.694 0 1.273-.579 1.273-1.273s-.579-1.273-1.273-1.273c-.405 0-.752-.318-.781-.723-.058-1.071-.926-1.881-1.996-1.881a2.14 2.14 0 0 0-1.186.376.78.78 0 0 1-.434.145c-.058 0-.116 0-.174-.029-.231-.058-.405-.203-.492-.405-.376-.781-1.186-1.273-2.054-1.273A2.27 2.27 0 0 0 4.286 5.79a2.16 2.16 0 0 0 .087.579c.058.231 0 .521-.174.694a.79.79 0 0 1-.55.231h-.145c-.087-.029-.174-.029-.26-.029-.694 0-1.273.579-1.273 1.273s.579 1.273 1.273 1.273h.579c.405 0 .752.347.752.752s-.347.752-.752.752h-.579A2.78 2.78 0 0 1 .467 8.539c0-1.36.984-2.517 2.315-2.749C2.781 3.707 4.489 2 6.572 2c1.186 0 2.257.521 2.98 1.447.434-.174.897-.289 1.36-.289a3.53 3.53 0 0 1 3.414 2.691c1.244.289 2.112 1.418 2.141 2.691a2.78 2.78 0 0 1-2.778 2.778h-.579v.029zm-1.447-1.62a1.46 1.46 0 0 1-.868 1.331v2.141a.58.58 0 0 1-.579.579.58.58 0 0 1-.579-.579v-2.141a1.43 1.43 0 0 1-.868-1.331 1.43 1.43 0 0 1 .868-1.331v-.405a.58.58 0 0 1 .579-.579.58.58 0 0 1 .579.579v.405a1.46 1.46 0 0 1 .868 1.331zm-3.472 1.736a1.46 1.46 0 0 1-.868 1.331v.405a.58.58 0 0 1-.579.579.58.58 0 0 1-.579-.579v-.405a1.43 1.43 0 0 1-.868-1.331 1.43 1.43 0 0 1 .868-1.331V7.989a.58.58 0 0 1 .579-.579.58.58 0 0 1 .579.579v2.141a1.46 1.46 0 0 1 .868 1.331z"/></svg></span>',
+						'icon'   => '<span><i class="splwp-icon-additional-data"></i></span>',
 						'fields' => array(
 							array(
 								'id'         => 'lw-pressure',
@@ -547,7 +546,7 @@ SPLW::createSection(
 					),
 					array(
 						'title'  => __( 'Additional Data Styles', 'location-weather' ),
-						'icon'   => '<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g clip-path="url(#B)"><mask id="A" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><path d="M16 0H0V16H16V0Z" fill="#fff"/></mask><g mask="url(#A)"><path d="M15.3 9.2c0 2.2-1.8 3.9-4 3.9H3.2C1.4 13.1 0 11.7 0 10c0-.8.3-1.6.9-2.1.5-.5 1.2-.9 1.9-1 .1-2.3 2-4.2 4.4-4.2.8 0 1.7.3 2.4.7.6.4 1.2 1 1.5 1.7v.1.1l-.1.1-.8.8c-.1.1-.1 0-.2 0C9.7 4.9 8.5 4 7.2 4 5.5 4 4.1 5.4 4.1 7v.4c0 .2 0 .4-.2.6 0 .1-.2.2-.4.2h-.1-.2c-1 0-1.9.8-1.9 1.8s.8 1.8 1.9 1.8h8.1c1.5 0 2.7-1.2 2.7-2.6 0-.4-.1-.7-.2-1v-.1l.1-.1.7-.7h.2c.3.5.5 1.2.5 1.9zm-3.6-.7c0-.7-.5-1.2-1.2-1.2s-1.2.5-1.2 1.2c0 .9-.5 1.6-1.2 2 .3.2.7.3 1.2.3 1.4.1 2.4-1 2.4-2.3z" fill="#23282d"/><path d="M10.1 11.8c-.3.1-.5.1-.8.1s-.5 0-.8-.1h1.6zm5.6-8.4a.85.85 0 0 0-1.3 0l-3.2 3.2c-.1.1-.1.2 0 .3.4.2.8.5 1 1 0 .1.2.1.3 0l3.2-3.2a.85.85 0 0 0 0-1.3zM5.5 7.5c-.2 0-.4-.2-.4-.4s0-1.1.8-1.7c.7-.5 1.7-.6 2.5 0 .2.1.3.4.1.6-.1.1-.4.2-.6 0-.4-.3-1-.3-1.5 0C6 6.4 6 7 6 7.1c0 .2-.2.4-.5.4z" fill="#23282d"/></g></g><defs><clipPath id="B"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg></span>',
+						'icon'   => '<span><i class="splwp-icon-additional-data-style"></i></span>',
 						'fields' => array(
 							array(
 								'id'         => 'weather-additional-data-layout',
@@ -861,13 +860,13 @@ SPLW::createSection(
 								'style'   => 'normal',
 								'class'   => 'notice-padding',
 								/* translators: %1$s: anchor tag start, %2$s: first anchor tag end,%3$s: second anchor tag start, %4$s: second anchor tag end. */
-								'content' => sprintf( __( 'To unlock the %1$sWeather Data Carousel%2$s with flexible options, %3$sUpgrade to Pro!%4$s', 'location-weather' ), '<a class="lw-open-live-demo" href="https://locationweather.io/demos/weather-carousel/" target="_blank">', '</a>', '<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>', '</strong></a>' ),
+								'content' => sprintf( __( 'To unlock the %1$sWeather Data Carousel%2$s with flexible options, %3$sUpgrade to Pro!%4$s', 'location-weather' ), '<a class="lw-open-live-demo" href="https://locationweather.io/demos/weather-carousel/" target="_blank"><strong>', '</strong></a>', '<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>', '</strong></a>' ),
 							),
 						),
 					),
 					array(
 						'title'  => __( 'Weather Forecast Data', 'location-weather' ),
-						'icon'   => '<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#23282d"><path d="M2.667 11.556h2.074a1.31 1.31 0 0 0 1.197-.764l.639-1.383 1.437 3.748a1.31 1.31 0 0 0 2.421.071l.768-1.671h1.956a.75.75 0 0 0 .649-1.124.75.75 0 0 0-.649-.375h-2.074a1.31 1.31 0 0 0-1.194.765l-.639 1.383-1.441-3.74a1.31 1.31 0 0 0-2.421-.079l-.765 1.672h-1.96a.75.75 0 0 0-.649 1.124.75.75 0 0 0 .649.375zm8.863-7.265a3.73 3.73 0 0 0-6.886 0 2.98 2.98 0 0 0-2.452 3.704.75.75 0 0 0 1.251.348.75.75 0 0 0 .201-.723 1.53 1.53 0 0 1-.023-.676 1.56 1.56 0 0 1 .565-.872c.282-.218.63-.333.987-.325h.017a.75.75 0 0 0 .725-.562c.164-.648.609-1.188 1.213-1.473s1.304-.285 1.908 0 1.049.825 1.213 1.473a.75.75 0 0 0 .725.562h.024a1.5 1.5 0 0 1 1.537 1.874.75.75 0 0 0 .536.914.74.74 0 0 0 .187.024.75.75 0 0 0 .725-.562 2.97 2.97 0 0 0-.037-1.651c-.168-.536-.484-1.013-.912-1.377a2.97 2.97 0 0 0-1.506-.678h.002z"/></svg></span>',
+						'icon'   => '<span><i class="splwp-icon-forecast-data"></i></span>',
 						'fields' => array(
 							array(
 								'type'    => 'notice',
@@ -876,8 +875,8 @@ SPLW::createSection(
 								'content' => sprintf(
 									/* translators: 1: start link tag, 2: close link tag 3: start link and strong tag. 4: close link and strong tag. */
 									__( 'To display advanced %1$sWeather Forecast Data%2$s with customizable options, %3$sUpgrade to Pro!%4$s', 'location-weather' ),
-									'<a href="https://locationweather.io/demos/daily-hourly-weather-forecast/" target="_blank">',
-									'</a>',
+									'<a href="https://locationweather.io/demos/daily-hourly-weather-forecast/" target="_blank"><strong>',
+									'</strong></a>',
 									'<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>',
 									'</strong></a>'
 								),
@@ -974,6 +973,17 @@ SPLW::createSection(
 								),
 							),
 							array(
+								'id'         => 'enable-graph-chart',
+								'type'       => 'switcher',
+								'class'      => 'lw-forecast-data-pro',
+								'title'      => __( 'Weather Graph Chart', 'location-weather-pro' ),
+								'text_on'    => __( 'Enabled', 'location-weather-pro' ),
+								'text_off'   => __( 'Disabled', 'location-weather-pro' ),
+								'text_width' => 100,
+								'only_pro'   => true,
+								'default'    => 'true',
+							),
+							array(
 								'id'         => 'lw-forecast-type',
 								'class'      => 'lw-forecast-data-pro',
 								'type'       => 'button_set',
@@ -997,7 +1007,7 @@ SPLW::createSection(
 								'id'         => 'lw-forecast-day',
 								'class'      => 'lw-forecast-data-pro',
 								'type'       => 'select',
-								'title'      => 'Number of Forecast Days To Show',
+								'title'      => 'Number of Forecast Days to Show',
 								'options'    => array(
 									'8' => __( '16 Days', 'location-weather' ),
 								),
@@ -1046,9 +1056,9 @@ SPLW::createSection(
 								'id'         => 'lw-number-forecast-hours',
 								'class'      => 'lw-forecast-data-pro',
 								'type'       => 'select',
-								'title'      => 'Number of Forecast Hours To Show',
+								'title'      => 'Number of Forecast Hours to Show',
 								'options'    => array(
-									'8' => __( '48 Hours', 'location-weather' ),
+									'8' => __( '96 Hours', 'location-weather' ),
 								),
 								'title_info' => sprintf(
 									'<div class="lw-info-label">%s</div><div class="lw-short-content">%s</div><div class="info-button"><a class="lw-open-docs" href="https://locationweather.io/docs/how-to-set-the-number-of-forecast-hours-to-show/" target="_blank">%s</a></div>',
@@ -1063,7 +1073,7 @@ SPLW::createSection(
 								'id'         => 'lw-hourly-time-style',
 								'class'      => 'lw-forecast-data-pro',
 								'type'       => 'checkbox',
-								'title'      => __( 'Display Day/Date With Hour', 'location-weather' ),
+								'title'      => __( 'Display Day/Date with Hour', 'location-weather' ),
 								'default'    => false,
 								'dependency' => array( 'lw-enable-forecast|lw-forecast-type', '==|!=', 'true|daily' ),
 							),
@@ -1077,8 +1087,7 @@ SPLW::createSection(
 							),
 							array(
 								'id'               => 'weather-forecast-icon-type',
-								'class'            => 'lw-forecast-data-pro',
-								'class'            => 'weather-forecast-icon-type',
+								'class'            => 'lw-forecast-data-pro weather-forecast-icon-type',
 								'forecast_preview' => true,
 								'type'             => 'select',
 								'title'            => __( 'Icon Type', 'location-weather' ),
@@ -1107,9 +1116,8 @@ SPLW::createSection(
 							),
 							array(
 								'id'         => 'lw_forecast_icon_size',
-								'class'      => 'lw-forecast-data-pro',
 								'type'       => 'spinner',
-								'class'      => 'forecast-icon-size',
+								'class'      => 'forecast-icon-size lw-forecast-data-pro',
 								'title'      => __( 'Icon size', 'location-weather' ),
 								'unit'       => __( 'px', 'location-weather' ),
 								'max'        => 30000,
@@ -1308,7 +1316,7 @@ SPLW::createSection(
 					),
 					array(
 						'title'  => __( 'Footer', 'location-weather' ),
-						'icon'   => '<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" fill="none"><g clip-path="url(#A)" fill="#23282d"><path d="M12.156-.047H3.844C2.231-.047.922 1.184.922 2.692v9.615c0 1.512 1.313 2.739 2.922 2.739h8.312c1.613 0 2.922-1.231 2.922-2.739V2.692c0-1.512-1.312-2.739-2.922-2.739zm1.422 12.354c0 .735-.637 1.333-1.422 1.333H3.844c-.784 0-1.422-.598-1.422-1.333V2.692c0-.735.637-1.333 1.422-1.333h8.312c.784 0 1.422.598 1.422 1.333v9.615zm-2.028-1.432h-7.1c-.416 0-.75.313-.75.703s.334.703.75.703h7.1c.416 0 .75-.313.75-.703s-.334-.703-.75-.703z"/></g><defs><clipPath id="A"><path fill="#fff" d="M0 0h16v15H0z"/></clipPath></defs></svg></span>',
+						'icon'   => '<span><i class="splwp-icon-footer"></i></span>',
 						'fields' => array(
 							array(
 								'id'         => 'lw-weather-details',

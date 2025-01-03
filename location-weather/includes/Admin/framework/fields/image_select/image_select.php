@@ -67,11 +67,12 @@ if ( ! class_exists( 'SPLWT_Field_image_select' ) ) {
 
 				foreach ( $args['options'] as $key => $option ) {
 
-					$type     = ( $args['multiple'] ) ? 'checkbox' : 'radio';
-					$extra    = ( $args['multiple'] ) ? '[]' : '';
-					$active   = ( in_array( $key, $value ) ) ? ' splwt-lite--active' : '';
-					$pro_only = ( isset( $option['pro_only'] ) && $option['pro_only'] ) ? ' splwt-lite-pro-only' : '';
-					$checked  = ( in_array( $key, $value ) ) ? ' checked' : '';
+					$type          = ( $args['multiple'] ) ? 'checkbox' : 'radio';
+					$extra         = ( $args['multiple'] ) ? '[]' : '';
+					$active        = ( in_array( $key, $value ) ) ? ' splwt-lite--active' : '';
+					$pro_only      = ( isset( $option['pro_only'] ) && $option['pro_only'] ) ? ' splwt-lite-pro-only' : '';
+					$checked       = ( in_array( $key, $value ) ) ? ' checked' : '';
+					$disable_field = ( isset( $option['pro_only'] ) && $option['pro_only'] ) ? ' disabled' : '';
 
 					echo '<div class="splwt-lite--sibling splwt-lite--image' . esc_attr( $active . $pro_only ) . '">';
 					echo '<figure>';
@@ -80,13 +81,13 @@ if ( ! class_exists( 'SPLWT_Field_image_select' ) ) {
 					} else {
 						echo '<img src="' . esc_url( $option ) . '" alt="img-' . esc_attr( $num++ ) . '" />';
 					}
-					echo '<input type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . $this->field_attributes() . esc_attr( $checked ) . '/>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<input ' . $disable_field . ' type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . $this->field_attributes() . esc_attr( $checked ) . '/>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					echo '</figure>';
 					if ( isset( $option['name'] ) && ! isset( $option['option_demo_url'] ) ) {
 						echo '<p class="text-center">' . esc_attr( $option['name'] ) . '</p>';
 					}
 					if ( isset( $option['option_demo_url'] ) ) {
-						echo '<p class="text-center">' . esc_html( $option['name'] ) . '<a href="' . esc_url( $option['option_demo_url'] ) . '" tooltip="Demo" class="splw-live-demo-icon" target="_blank"><i class="splw-icon-external_link"></i></a></p>';
+						echo '<p class="text-center">' . esc_html( $option['name'] ) . '<a href="' . esc_url( $option['option_demo_url'] ) . '" tooltip="Demo" class="splw-live-demo-icon" target="_blank"><i class="splwp-icon-external-link"></i></a></p>';
 					}
 					echo '</div>';
 
@@ -97,7 +98,6 @@ if ( ! class_exists( 'SPLWT_Field_image_select' ) ) {
 			}
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
 	}
 }

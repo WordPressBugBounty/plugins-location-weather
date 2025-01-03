@@ -115,7 +115,6 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 
 			// wp enqeueu for typography and output css.
 			parent::__construct();
-
 		}
 
 		/**
@@ -149,7 +148,6 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 			}
 
 			return $result;
-
 		}
 
 		/**
@@ -207,7 +205,6 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 			}
 
 			return $classes;
-
 		}
 
 		/**
@@ -220,7 +217,6 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 			if ( ! in_array( $post_type, $this->args['exclude_post_types'], true ) ) {
 				add_meta_box( $this->unique, wp_kses_post( $this->args['title'] ), array( &$this, 'add_meta_box_content' ), $this->post_type, $this->args['context'], $this->args['priority'], $this->args );
 			}
-
 		}
 
 		/**
@@ -235,7 +231,6 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 			$default = ( isset( $this->args['defaults'][ $field['id'] ] ) ) ? $this->args['defaults'][ $field['id'] ] : $default;
 
 			return $default;
-
 		}
 
 		/**
@@ -267,7 +262,6 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 			$value   = ( isset( $value ) ) ? $value : $default;
 
 			return $value;
-
 		}
 
 		/**
@@ -297,45 +291,6 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 
 			echo '<div class="splwt-lite-wrapper' . esc_attr( $show_all ) . '">';
 
-			$current_screen        = get_current_screen();
-			$the_current_post_type = $current_screen->post_type;
-
-			if ( 'location_weather' === $the_current_post_type && $preview_show ) {
-				echo '<div class="splw-mbf-banner">';
-				echo '<div class="splw-mbf-logo"><img class="splwt-banner-logo" src="' . esc_url( LOCATION_WEATHER_ASSETS ) . '/images/icons/location-weather-logo.svg" alt="Location Weather logo"><sup class="splw-version">' . esc_html( LOCATION_WEATHER_VERSION ) . '</sup></div>';
-				echo '<div class="splwt-submit-options"><span class="support-area"><i class="fa fa-life-ring"></i> Support</span><div class="splwt-lite-help-text lw-support"><div class="lw-info-label">Documentation</div>Check out our documentation and more information about what you can do with the Location Weather.<a class="lw-open-docs browser-docs" href="https://locationweather.io/docs/" target="_blank">Browse Docs</a><div class="lw-info-label">Need Help or Missing a Feature?</div>Feel free to get help from our friendly support team or request a new feature if needed. We appreciate your suggestions to make the plugin better.<a class="lw-open-docs support" href="https://shapedplugin.com/create-new-ticket" target="_blank">Get Help</a><a class="lw-open-docs feature-request" href="https://app.loopedin.io/location-weather#/ideas/" target="_blank">Request a Feature</a></div></div>';
-				echo '</div>'; ?>
-		<div class="splw_shortcode-area text-center">
-		<div class="splw-col-lg-3">
-		<div class="splw-after-copy-text"><i class="fa fa-check-circle"></i> Shortcode Copied to Clipboard! </div>
-		<div class="splw_shortcode_content">
-			<h2 class="splw-shortcode-title"><?php echo esc_html__( 'Shortcode', 'location-weather' ); ?> </h2>
-			<p><?php echo esc_html__( 'Copy and paste this shortcode into your posts, pages or block editor:', 'location-weather' ); ?></p>
-			<div class="splw-code selectable">
-				<div class="splw-copy">[location-weather <?php echo 'id="' . esc_attr( $post->ID ) . '"'; ?>]</div>
-			</div>
-		</div>
-	</div>
-		<div class="splw-col-lg-3">
-		<div class="splw-after-copy-text"><i class="fa fa-check-circle"></i> Shortcode Copied to Clipboard! </div>
-		<div class="splw_shortcode_content">
-			<h2 class="splw-shortcode-title"><?php echo esc_html__( 'Page Builders', 'location-weather' ); ?> </h2>
-			<p><?php echo wp_kses_post( 'Location Weather has seamless integration with <b>Gutenberg</b>, Classic Editor, Elementor, Divi, Bricks, Beaver, Oxygen, WPBakery Builder, etc.', 'location-weather' ); ?></p>
-		</div>
-	</div>
-	<div class="splw-col-lg-3">
-		<div class="splw_shortcode_content">
-			<h2 class="splw-shortcode-title"><?php echo esc_html__( 'Template Include', 'location-weather' ); ?> </h2>
-			<p><?php echo esc_html__( 'Paste the PHP code into your template file:', 'location-weather' ); ?></p>
-			<div class="splw-code selectable">
-				<div class="splw-copy">&lt;?php sp_location_weather( <?php echo esc_attr( $post->ID ); ?> ); ?&gt;</div>
-			</div>
-		</div>
-	</div>
-</div>
-	<div class="splw_shortcode_divider"></div>
-				<?php
-			}
 			if ( $has_nav ) {
 
 				echo '<div class="splwt-lite-nav splwt-lite-nav-metabox">';
@@ -347,7 +302,7 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 					$tab_error = ( ! empty( $errors['sections'][ $tab_key ] ) ) ? '<i class="splwt-lite-label-error splwt-lite-error">!</i>' : '';
 					$tab_icon  = ( ! empty( $section['icon'] ) ) ? $section['icon'] : '';
 					echo '<li><a href="#" data-section="' . esc_attr( $this->unique . '_' . $tab_key ) . '" class="' . esc_attr( $this->unique . '_' . $tab_key ) . '">' . $tab_icon . wp_kses_post( $section['title'] . $tab_error ) . '</a></li>'; // phpcs:ignore
-					$tab_key++;
+					++$tab_key;
 				}
 				echo '</ul>';
 
@@ -355,11 +310,11 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 
 			}
 
-					echo '<div class="splwt-lite-content">';
+			echo '<div class="splwt-lite-content">';
 
-					echo '<div class="splwt-lite-sections">';
+			echo '<div class="splwt-lite-sections">';
 
-					$section_key = 1;
+			$section_key = 1;
 
 			foreach ( $this->sections as $section ) {
 
@@ -395,24 +350,23 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 
 				echo '</div>';
 
-				$section_key++;
+				++$section_key;
 
 			}
 
-					echo '</div>';
+			echo '</div>';
 
-					echo '<a class="btn btn-success" id="sp_location_weather-show-preview" data-id="' . esc_attr( $post->ID ) . '"href=""> <i class="fa fa-eye" aria-hidden="true"></i> Show Preview</a>';
+			echo '<a class="btn btn-success" id="sp_location_weather-show-preview" data-id="' . esc_attr( $post->ID ) . '"href=""> <i class="fa fa-eye" aria-hidden="true"></i> Show Preview</a>';
 
-					echo '</div>';
+			echo '</div>';
 
-					echo ( $has_nav ) ? '<div class="splwt-lite-nav-background"></div>' : '';
+			echo ( $has_nav ) ? '<div class="splwt-lite-nav-background"></div>' : '';
 
-					echo '<div class="clear"></div>';
+			echo '<div class="clear"></div>';
 
-					echo '</div>';
+			echo '</div>';
 
-					echo '</div>';
-
+			echo '</div>';
 		}
 
 		/**
@@ -437,94 +391,104 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 			// No worries, This "POST" requests is sanitizing in the below foreach.
 			$request = ( ! empty( $_POST[ $this->unique ] ) ) ? $_POST[ $this->unique ] : array(); //phpcs:ignore
 
+			// if ( ! empty( $request ) ) {
+
+			// foreach ( $this->sections as $section ) {
+
+			// if ( ! empty( $section['fields'] ) ) {
+
+			// foreach ( $section['fields'] as $field ) {
+			// if ( 'tabbed' === $field['type'] ) {
+			// $tabs = $field['tabs'];
+			// foreach ( $tabs as $fields ) {
+			// $fields = $fields['fields'];
+			// foreach ( $fields as $field ) {
+			// $field_id    = isset( $field['id'] ) ? $field['id'] : '';
+			// $field_value = isset( $request[ $field_id ] ) ? $request[ $field_id ] : '';
+
+			// Sanitize "post" request of field.
+			// if ( ! isset( $field['sanitize'] ) ) {
+
+			// if ( is_array( $field_value ) ) {
+			// $data[ $field_id ] = wp_kses_post_deep( $field_value );
+			// } else {
+			// $data[ $field_id ] = wp_kses_post( $field_value );
+			// }
+			// } elseif ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
+
+			// $data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
+
+			// } else {
+
+			// $data[ $field_id ] = $field_value;
+
+			// }
+
+			// Validate "post" request of field.
+			// if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
+
+			// $has_validated = call_user_func( $field['validate'], $field_value );
+
+			// if ( ! empty( $has_validated ) ) {
+
+			// $errors['sections'][ $count ]  = true;
+			// $errors['fields'][ $field_id ] = $has_validated;
+			// $data[ $field_id ]             = $this->get_meta_value( $field );
+
+			// }
+			// }
+			// }
+			// }
+			// } elseif ( 'tabbed' !== $field['type'] && ! empty( $field['id'] ) ) {
+			// $field_id    = $field['id'];
+			// $field_value = isset( $request[ $field_id ] ) ? $request[ $field_id ] : '';
+
+			// Sanitize "post" request of field.
+			// if ( ! isset( $field['sanitize'] ) ) {
+
+			// if ( is_array( $field_value ) ) {
+			// $data[ $field_id ] = wp_kses_post_deep( $field_value );
+			// } else {
+			// $data[ $field_id ] = wp_kses_post( $field_value );
+			// }
+			// } elseif ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
+
+			// $data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
+
+			// } else {
+
+			// $data[ $field_id ] = $field_value;
+
+			// }
+
+			// Validate "post" request of field.
+			// if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
+
+			// $has_validated = call_user_func( $field['validate'], $field_value );
+
+			// if ( ! empty( $has_validated ) ) {
+
+			// $errors['sections'][ $count ]  = true;
+			// $errors['fields'][ $field_id ] = $has_validated;
+			// $data[ $field_id ]             = $this->get_meta_value( $field );
+
+			// }
+			// }
+			// }
+			// }
+			// }
+			// ++$count;
+
+			// }
+			// }
 			if ( ! empty( $request ) ) {
-
 				foreach ( $this->sections as $section ) {
-
 					if ( ! empty( $section['fields'] ) ) {
-
 						foreach ( $section['fields'] as $field ) {
-							if ( 'tabbed' === $field['type'] ) {
-								$tabs = $field['tabs'];
-								foreach ( $tabs as $fields ) {
-									$fields = $fields['fields'];
-									foreach ( $fields as $field ) {
-										$field_id    = isset( $field['id'] ) ? $field['id'] : '';
-										$field_value = isset( $request[ $field_id ] ) ? $request[ $field_id ] : '';
-
-										// Sanitize "post" request of field.
-										if ( ! isset( $field['sanitize'] ) ) {
-
-											if ( is_array( $field_value ) ) {
-												$data[ $field_id ] = wp_kses_post_deep( $field_value );
-											} else {
-												$data[ $field_id ] = wp_kses_post( $field_value );
-											}
-										} elseif ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
-
-											$data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
-
-										} else {
-
-											$data[ $field_id ] = $field_value;
-
-										}
-
-										// Validate "post" request of field.
-										if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
-
-											$has_validated = call_user_func( $field['validate'], $field_value );
-
-											if ( ! empty( $has_validated ) ) {
-
-												$errors['sections'][ $count ]  = true;
-												$errors['fields'][ $field_id ] = $has_validated;
-												$data[ $field_id ]             = $this->get_meta_value( $field );
-
-											}
-										}
-									}
-								}
-							} elseif ( 'tabbed' !== $field['type'] && ! empty( $field['id'] ) ) {
-								$field_id    = $field['id'];
-								$field_value = isset( $request[ $field_id ] ) ? $request[ $field_id ] : '';
-
-								// Sanitize "post" request of field.
-								if ( ! isset( $field['sanitize'] ) ) {
-
-									if ( is_array( $field_value ) ) {
-										$data[ $field_id ] = wp_kses_post_deep( $field_value );
-									} else {
-										$data[ $field_id ] = wp_kses_post( $field_value );
-									}
-								} elseif ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
-
-									$data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
-
-								} else {
-
-									$data[ $field_id ] = $field_value;
-
-								}
-
-								// Validate "post" request of field.
-								if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
-
-									$has_validated = call_user_func( $field['validate'], $field_value );
-
-									if ( ! empty( $has_validated ) ) {
-
-										$errors['sections'][ $count ]  = true;
-										$errors['fields'][ $field_id ] = $has_validated;
-										$data[ $field_id ]             = $this->get_meta_value( $field );
-
-									}
-								}
-							}
+							$this->process_field( $field, $request, $count, $data, $errors );
 						}
 					}
-					$count++;
-
+					++$count;
 				}
 			}
 
@@ -559,7 +523,63 @@ if ( ! class_exists( 'SPLWT_Metabox' ) ) {
 			do_action( "splwt_{$this->unique}_saved", $data, $post_id, $this );
 
 			do_action( "splwt_{$this->unique}_save_after", $data, $post_id, $this );
+		}
 
+		/**
+		 * Process a field, handling tabbed fields if applicable.
+		 *
+		 * @param array $field   The field configuration.
+		 * @param array $request The POST request data.
+		 * @param int   $count   The count value.
+		 * @param array $data    The data array to be populated.
+		 * @param array $errors  The errors array to be populated.
+		 */
+		public function process_field( $field, $request, $count, &$data, &$errors ) {
+			if ( 'tabbed' === $field['type'] && ! empty( $field['tabs'] ) ) {
+				foreach ( $field['tabs'] as $tab ) {
+					if ( ! empty( $tab['fields'] ) ) {
+						foreach ( $tab['fields'] as $tab_field ) {
+							$this->process_single_field( $tab_field, $request, $count, $data, $errors );
+						}
+					}
+				}
+			} else {
+				$this->process_single_field( $field, $request, $count, $data, $errors );
+			}
+		}
+
+		/**
+		 * Process a single field, sanitizing and validating its value.
+		 *
+		 * @param array $field   The field configuration.
+		 * @param array $request The POST request data.
+		 * @param int   $count   The count value.
+		 * @param array $data    The data array to be populated.
+		 * @param array $errors  The errors array to be populated.
+		 */
+		public function process_single_field( $field, $request, $count, &$data, &$errors ) {
+			if ( ! empty( $field['id'] ) && ! ( isset( $field['only_pro'] ) ) ) {
+				$field_id    = $field['id'];
+				$field_value = isset( $request[ $field_id ] ) ? $request[ $field_id ] : '';
+
+				// Sanitize "post" request of field.
+				if ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
+					$data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
+				} else {
+					$data[ $field_id ] = ( is_array( $field_value ) ) ? wp_kses_post_deep( $field_value ) : wp_kses_post( $field_value );
+				}
+
+				// Validate "post" request of field.
+				if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
+					$has_validated = call_user_func( $field['validate'], $field_value );
+
+					if ( ! empty( $has_validated ) ) {
+						$errors['sections'][ $count ]  = true;
+						$errors['fields'][ $field_id ] = $has_validated;
+						$data[ $field_id ]             = $this->get_meta_value( $field );
+					}
+				}
+			}
 		}
 	}
 }

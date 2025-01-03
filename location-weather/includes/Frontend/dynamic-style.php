@@ -223,6 +223,3 @@ if ( $preloader ) {
 		z-index: 9999;
 	}';
 }
-
-
-

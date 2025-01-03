@@ -215,18 +215,18 @@ div.splwt-lite-options .splwt-lite-header-left h1 {
 	float: right;
 	font-weight: 600;
 	font-size: 8px;
-	color: #a5a5a5;
+	color: #5E6E7D;
 	opacity: 1;
 	line-height: 18px;
 }
 
-.lw-typography-tabs .splw_lite_pro_only .splwt-lite-fieldset {
+.lw-typography-tabs .splw_lite_pro_only:not(.splwt-lite-field-switcher) .splwt-lite-fieldset {
 	pointer-events: none;
 	opacity: .7;
 }
 
 .splwt-lite-field-switcher.splw_lite_pro_only .splwt-lite--switcher {
-	background-color: rgb(203, 207, 208);
+	background-color: #99AAB2;
 	pointer-events: none;
 }
 
@@ -377,7 +377,7 @@ div.splwt-lite-options .splwt-lite-header-left h1 {
 }
 
 .splwt-lite-nav ul li a {
-	background-color: #EA6A1D;
+	background-color: #F95B06;
 	font-size: 13px;
 	padding: 14px 15px;
 	line-height: 1.4;
@@ -395,12 +395,14 @@ div.splwt-lite-options .splwt-lite-header-left h1 {
 
 .splwt-lite-metabox .splwt-lite-nav ul li {
 	border-right: 1px solid #dddddd;
+	margin-bottom: -1px;
 }
 
 div#sp_location_weather_generator.postbox.splw-shortcode-options {
 	border: 1px solid #dddddd;
 	background: transparent;
 	box-shadow: none !important;
+	border-top: none;
 }
 
 .splwt-lite-metabox .splwt-lite-field.splw-first-fields,
@@ -472,11 +474,11 @@ div#sp_location_weather_generator.postbox.splw-shortcode-options {
 }
 
 .splwt-lite-nav.splwt-lite-nav-options .splwt-lite-active .splwt-lite-tab-icon svg path {
-	fill: #f4812d;
+	fill: #F95B06;
 }
 
 .splwt-lite-nav.splwt-lite-nav-options .splwt-lite-active .splwt-lite-tab-icon {
-	color: #f4812d;
+	color: #F95B06;
 }
 
 .splwt-lite-nav .splwt-lite-label-error {
@@ -773,8 +775,8 @@ div#sp_location_weather_generator.postbox.splw-shortcode-options {
 	background-color: #fff;
 	padding: 16px 28px;
 	overflow: hidden;
-	background-color: #EA6A1D;
-	background-image: linear-gradient(62deg, #bd4600 26%, #EA6A1D 100%);
+	background-color: #F95B06;
+	background-image: linear-gradient(62deg, #bd4600 26%, #F95B06 100%);
 }
 
 .splw-mbf-banner sup.splw-version {
@@ -925,9 +927,9 @@ button.splw-copy svg {
 
 .splwt-lite-nav.splwt-lite-nav-options ul li a.splwt-lite-active {
 	background-color: #fff;
-	color: #f4812d;
+	color: #F95B06;
 	border-right: none;
-	box-shadow: 3px 0 0 0 #f4812d inset;
+	box-shadow: 3px 0 0 0 #F95B06 inset;
 	border-radius: 0;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
@@ -997,7 +999,7 @@ button.splw-copy svg {
 .splwt-lite-theme-dark .splwt-lite-nav ul li .splwt-lite-active {
 	color: #444;
 	background-color: #fff;
-	box-shadow: 0 3px 0 0 #f4812d inset;
+	box-shadow: 0 3px 0 0 #F95B06 inset;
 }
 
 .splwt-lite-theme-dark .splwt-lite-nav ul ul li a {
@@ -1513,6 +1515,8 @@ button.splw-copy svg {
 	user-select: none;
 }
 
+.splwt-lite-field-image_select.weather-horizontal-template .splwt-lite--image:nth-child(1) figure:before,
+.splwt-lite-field-image_select.weather-template .splwt-lite--image:nth-child(1) figure:before,
 .splwt-lite-field-image_select figure:before {
 	position: absolute;
 	top: -2px;
@@ -1527,7 +1531,10 @@ button.splw-copy svg {
 	transition: opacity 0.2s;
 }
 
-.splwt-lite-field-image_select .splwt-lite--active figure {
+.splwt-lite-field-image_select.weather-horizontal-template .splwt-lite--image:nth-child(1) figure,
+.splwt-lite-field-image_select.weather-template .splwt-lite--image:nth-child(1) figure,
+.splwt-lite-field-image_select.weather_view .splwt-lite--image.splwt-lite--active figure,
+.splwt-lite-field-image_select .splwt-lite--image:not(.splwt-lite-pro-only).splwt-lite--active figure {
 	border-color: #1A74E4;
 	outline: 2.5px solid #1A74E4;
 	outline-offset: -2.5px;
@@ -1537,7 +1544,9 @@ button.splw-copy svg {
 /* .splwt-lite-field-image_select .splwt-lite--active figure:before {
 	opacity: 0;
 } */
-.splwt-lite-field-image_select.weather_view .splwt-lite--active figure::before {
+.splwt-lite-field-image_select.weather-horizontal-template .splwt-lite--image:nth-child(1) figure:before,
+.splwt-lite-field-image_select.weather-template .splwt-lite--image:nth-child(1) figure:before,
+.splwt-lite-field-image_select.weather_view .splwt-lite--image:not(.splwt-lite-pro-only).splwt-lite--active figure::before {
 	position: absolute;
 	top: 7px;
 	right: 7px;
@@ -1610,7 +1619,7 @@ button.splw-copy svg {
 
 .splwt-lite-nav.splwt-lite-nav-metabox ul li a.splwt-lite-active svg g,
 .splwt-lite-nav.splwt-lite-nav-metabox ul li a.splwt-lite-active svg path {
-	fill: #EA6A1D;
+	fill: #F95B06;
 }
 
 .splwt-lite-section {
@@ -1988,9 +1997,9 @@ button.splw-copy svg {
 	/* background-color: #fff;
 	color:  #67439B; */
 	background-color: #fff;
-	-webkit-box-shadow: inset 3px 0 #EA6A1D;
-	box-shadow: inset 3px 0 #EA6A1D;
-	color: #EA6A1D;
+	-webkit-box-shadow: inset 3px 0 #F95B06;
+	box-shadow: inset 3px 0 #F95B06;
+	color: #F95B06;
 	;
 	font-weight: 600;
 	border-right-color: #fff;
@@ -2005,7 +2014,7 @@ button.splw-copy svg {
 }
 
 .splwt-lite-field-tabbed .splwt-lite-tabbed-nav a.splwt-lite-tabbed-active svg path {
-	fill: #EA6A1D;
+	fill: #F95B06;
 }
 
 /**
@@ -4419,6 +4428,7 @@ More Plugins
 /* 
 Location weather lite version css.
 */
+.weather-map-type .splwt-lite--sibling.splwt-lite--button:nth-child(1):after,
 .splwt-lite-field-image_select .splwt-lite--image.splwt-lite-pro-only:after,
 .splwt-lite--sibling.splwt-lite--button.splw_pro_only::after {
 	position: absolute;
@@ -4434,8 +4444,8 @@ Location weather lite version css.
 }
 
 .splwt-lite-field-image_select .splwt-lite--image.splwt-lite-pro-only:after {
-	top: 1.5px;
-	right: 1.5px;
+	top: 1px;
+	right: 1px;
 	line-height: 11px;
 	opacity: 1;
 	border-bottom-left-radius: 2px;
@@ -4506,7 +4516,7 @@ Location weather lite version css.
 
 .splwt-lite-notice {
 	color: #444444;
-	font-style: italic;
+	font-style: normal;
 	font-size: 15px;
 	padding: 12px 12px 12px 0 !important;
 	border: none !important;
@@ -4688,12 +4698,6 @@ Location weather lite version css.
 	height: 56px;
 }
 
-@media screen and (min-width: 1400px) {
-	.weather-horizontal-template .splwt-lite--image {
-		margin-bottom: 8px;
-	}
-}
-
 /* Tooltip style area */
 .splwt-lite-tooltip .lw-open-live-demo,
 .splwt-lite-tooltip .lw-open-docs {
@@ -4854,7 +4858,6 @@ Location weather lite version css.
 div:is(.lw-forecast-data-pro, .weather-forecast-icon-type) select,
 div:is(.lw-forecast-data-pro, .splw-active-lw-units) .splwt-lite--button,
 .weather-layout-style .splwt-lite--image:not(:nth-child(1)) figure,
-.weather_view .splwt-lite--image:not(:nth-child(1), :nth-child(2)) figure,
 .weather-horizontal-template .splwt-lite--image:not(:nth-child(1)) figure,
 .weather-template .splwt-lite--image:not(:nth-child(1)) figure,
 .lw_icon_size .ui-spinner,
@@ -4873,6 +4876,19 @@ div:is(.lw-additional-data-space-between, .lw_max_width) .splwt-lite--inputs,
 .lw-forecast-data-pro .splwt-lite-sortable-item,
 .lw-location-from-custom-fields .splwt-lite-checkbox {
 	opacity: .8;
+	pointer-events: none;
+}
+
+.weather_view .splwt-lite--image.splwt-lite-pro-only figure {
+	opacity: .8;
+}
+
+.splwt-lite-field-image_select:not(.weather_view) .splwt-lite--image.splwt-lite-pro-only figure {
+	opacity: .8;
+	pointer-events: none;
+}
+
+.splwt-lite-field-image_select:is(.weather-layout-style, .weather-additional-data-layout) .splwt-lite--image.splwt-lite-pro-only {
 	pointer-events: none;
 }
 
@@ -5058,6 +5074,7 @@ div:is(.lw-additional-data-space-between, .lw_max_width) .splwt-lite--inputs,
 	opacity: 1;
 	pointer-events: painted;
 	transition: all 0.2s linear;
+	font-size: 12px;
 }
 
 /* title-tip down */
@@ -5115,65 +5132,167 @@ a.splw-live-demo-icon:focus {
 	padding-top: 0;
 }
 
-@font-face {
-	font-family: 'splw-fontello';
-	src: url('../font/fontello.eot?4970494');
-	src: url('../font/fontello.eot?4970494#iefix') format('embedded-opentype'),
-		url('../font/fontello.woff2?4970494') format('woff2'),
-		url('../font/fontello.woff?4970494') format('woff'),
-		url('../font/fontello.ttf?4970494') format('truetype'),
-		url('../font/fontello.svg?4970494#fontello') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?1801292#fontello') format('svg');
-  }
-}
-*/
-[class^="splw-icon-"]:before,
-[class*=" splw-icon-"]:before {
-	font-family: "splw-fontello";
-	font-style: normal;
-	font-weight: normal;
-	speak: never;
-
+#sp_lw_shortcode .splw_shortcode-area .splw-code {
+	background-color: #FDF8F6;
 	display: inline-block;
-	text-decoration: inherit;
-	width: 1em;
-	margin-right: .2em;
-	text-align: center;
-	/* opacity: .8; */
-
-	/* For safety - reset parent styles, that can break glyph codes*/
-	font-variant: normal;
-	text-transform: none;
-
-	/* fix buttons height, for twitter bootstrap */
-	line-height: 1em;
-
-	/* Animation center compensation - margins should be symmetric */
-	/* remove if not needed */
-	margin-left: .2em;
-
-	/* you can be more comfortable with increased icons size */
-	/* font-size: 120%; */
-
-	/* Font smoothing. That was taken from TWBS */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-	/* Uncomment for 3D effect */
-	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+	padding: 10px 10px 10px 30px;
+	border: 1px solid #EFE8E7;
+	cursor: pointer;
+	background-image: url(../images/copy.svg);
+	background-size: 16px;
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	width: 83%;
 }
 
-/* '' */
-.splw-icon-external_link:before {
-	content: '\e81f';
+div:is(#sp_lw_shortcode, #sp_lw_builder_option) .postbox-header h2 {
+	color: #1D2327;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 18px;
+	pointer-events: none;
+}
+
+#sp_location_weather_layout .postbox-header,
+div:is(#sp_lw_shortcode, #sp_lw_builder_option) .handlediv,
+div:is(#sp_lw_shortcode, #sp_lw_builder_option) .postbox-header .handle-actions .handle-order-higher,
+div:is(#sp_lw_shortcode, #sp_lw_builder_option) .postbox-header .handle-actions .handle-order-lower,
+#sp_location_weather_layout .handlediv,
+#sp_location_weather_layout .hndle {
+	display: none;
+}
+
+#splwt-section-sp_location_weather_layout_1 .splw-admin-header {
+	background-color: #FF512F;
+	background-image: linear-gradient(62deg, #FF512F 26%, #F09819 100%);
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 30px;
+}
+
+#splwt-section-sp_location_weather_layout_1 .splw-admin-header .support a {
+	color: #ffffff;
+	text-decoration: none;
+	line-height: 35px;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+#splwt-section-sp_location_weather_layout_1 .splw-admin-header::after,
+#splwt-section-sp_location_weather_layout_1 .splw-admin-header::before {
+	display: none;
+}
+
+#sp_location_weather_layout.postbox {
+	margin-bottom: 0;
+	border-color: #dddddd;
+	order: 1;
+}
+
+#sp_location_weather_generator .splwt-pro-nav {
+	padding-top: 15px;
+	border-bottom: 1px solid #dddddd;
+}
+
+#sp_location_weather_layout .splwt-pro-title {
+	margin-bottom: 10px;
+}
+
+#sp_location_weather_layout .splwt-pro-field:not(.lw-enable-map-in-tabs, .weather-tabs-alignments, .templates-for-mobile) .splwt-pro-title,
+#sp_location_weather_layout .splwt-pro-field:not(.lw-enable-map-in-tabs, .weather-tabs-alignments, .templates-for-mobile) .splwt-pro-fieldset {
+	width: 100%;
+}
+
+#sp_location_weather_layout .splwt-pro-field-image_select:not(.splw-first-fields) {
+	padding-top: 0;
+	margin-top: -10px;
+}
+
+#sp_location_weather_layout .splw-map-notice .splwt-pro-notice {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.splw-admin-header .heading-wrapper {
+	display: flex;
+	align-items: center;
+	min-width: 300px;
+}
+
+.splw-admin-header .splw-version {
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	font-size: 12px;
+	padding: 4px 10px 4px 10px;
+	border-radius: 17px;
+	line-height: 15px;
+	height: 15px;
+	font-weight: 600;
+}
+
+.splw-admin-header div.clear {
+	display: none;
+}
+
+.splw-admin-header .support {
+	position: relative;
+	color: #fff;
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.splw-admin-header .support::before {
+	content: '';
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	top: 80%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+#sp_location_weather_layout .splwt-lite-field:not(.lw-enable-map-in-tabs, .weather-tabs-alignments, .templates-for-mobile, .weather-map-type) .splwt-lite-title,
+#sp_location_weather_layout .splwt-lite-field:not(.lw-enable-map-in-tabs, .weather-tabs-alignments, .templates-for-mobile, .weather-map-type) .splwt-lite-fieldset {
+	width: 100%;
+}
+
+#sp_location_weather_layout .splwt-lite-field-image_select:not(.splw-first-fields) {
+	padding-top: 0;
+	margin-top: -10px;
+}
+
+#sp_location_weather_layout .splwt-lite-title {
+	margin-bottom: 10px;
+}
+
+#sp_location_weather_generator .splwt-lite-nav {
+	padding-top: 15px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.splwt-lite-tabbed-nav a i {
+	font-size: 15px;
+	margin-right: 2px;
+}
+.splwt-lite-metabox .splwt-lite-field.splw-first-fields.weather_view{
+	padding-top: 10px;
+}
+.splwt-lite-field.splwt-lite-field-notice.splw-map-notice .splwt-lite-notice{
+	padding-top: 0 !important;
+	padding-bottom: 20px !important;
+	margin-top: -8px;
+}
+.weather-map-type .splwt-lite--button.splwt-lite--active{
+	opacity: .8;
 }

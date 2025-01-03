@@ -1002,7 +1002,7 @@
 		return this.each(function () {
 
 			var $this = $(this),
-				$siblings = $this.find('.splwt-lite--sibling:not(.splwt-lite-pro-only)'),
+				$siblings = $this.find('.splwt-lite--sibling'),
 				multiple = $this.data('multiple') || false;
 
 			$siblings.on('click', function () {
@@ -1056,8 +1056,8 @@
 					var $top = $this.offset().top - ($tooltip.outerHeight() / 2 - 14);
 					// this block used for support tooltip.
 					if ($this.find('.lw-support').length > 0) {
-						$top = $this.offset().top + 56;
-						offset_left = $this.offset().left - 235;
+						$top = $this.offset().top + 46;
+						offset_left = $this.offset().left - 233;
 					}
 					$tooltip.css({
 						top: $top,
@@ -1080,7 +1080,7 @@
 				}
 			});
 		});
-	};
+	}
 
 	//
 	// Customize Refresh
@@ -1286,6 +1286,7 @@
 
 				// Help Tooptip
 				$this.children('.splwt-lite-field').find('.splwt-lite-help').splwt_help();
+				$('.splw-admin-header').find('.lw-support-area').splwt_help()
 
 				if (settings.dependency) {
 					$this.splwt_dependency();
@@ -1313,8 +1314,6 @@
 		$('.splwt-lite-onload').splwt_reload_script();
 		$('.widget').splwt_widgets();
 		$('#menu-to-edit').splwt_nav_menu();
-		$('.splw-mbf-banner').find('.splwt-submit-options')
-			.splwt_help();
 
 		// clean cache of the location weather.
 		$(".splwt-lite-field-button_clean.cache_remove .splwt-lite--sibling.splwt-lite--button").on("click", function (e) {
@@ -1348,6 +1347,7 @@
 			$('.splw_get_weather_by').find(selector).attr('disabled', 'disabled').addClass('splw_pro_only');
 			$('.splw_background_type').find(selector).attr('disabled', 'disabled').addClass('splw_pro_only');
 			$('.lw-background-color-type').find(selector).attr('disabled', 'disabled').addClass('splw_pro_only');
+			$('.weather-map-type').find(selector).attr('disabled', 'disabled').addClass('splw_pro_only');
 		});
 
 		// Disable specific select options by their values
@@ -1398,7 +1398,7 @@
 				}, 0);
 			}, 2000);
 		});
-		$('.splw-copy').on('click', function (e) {
+		$('.splw-code.selectable').on('click', function (e) {
 			e.preventDefault();
 			splw_copyToClipboard($(this));
 			splw_SelectText($(this));
@@ -1689,6 +1689,22 @@
 			$(this).find('.splwt-lite-desc-text').hide();
 		}
 	})
+
+	// Get the last activated or selected layout.
+	var lastSelectedOption = $('input[name="sp_location_weather_layout[weather-view]"]:checked').val();
+	$('input[name="sp_location_weather_layout[weather-view]"]').on('change', function () {
+		if (!$(this).is(':disabled')) {
+			lastSelectedOption = $(this).val();
+		}
+	});
+
+	// Revert the selection to the last valid activated option that was selected before if the disabled/pro option is chosen.
+	$('#publishing-action').on('click', '#publish', function (e) {
+		if ($('input[name="sp_location_weather_layout[weather-view]"]:checked').is(':disabled')) {
+			$('input[name="sp_location_weather_layout[weather-view]"][value="' + lastSelectedOption + '"]').prop('checked', true);
+		}
+	});
+
 	$('.splw-live-demo-icon').on('click', function (event) {
 		event.stopPropagation();
 		// Add any additional code here if needed

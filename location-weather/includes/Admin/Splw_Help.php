@@ -177,6 +177,7 @@ class Splw_Help {
 					case 'location-weather':
 					case 'testimonial-free':
 					case 'easy-accordion-free':
+					case 'logo-carousel-free':
 					case 'gallery-slider-for-woocommerce':
 						$image_type = 'gif';
 						break;
@@ -460,7 +461,12 @@ class Splw_Help {
 								<li class='splw-body'>
 									<span class='splw-title'>Weather Layouts & Templates</span>
 									<span class='splw-free'><b>2</b></span>
-									<span class='splw-pro'><b>18+</b></span>
+									<span class='splw-pro'><b>25+</b></span>
+								</li>
+								<li class='splw-body'>
+									<span class='splw-title'>Combined Weather (OpenWeather Map or Windy Map, Graph Chart,  Detailed Forecast) <i class='splw-new'>new</i><i class='splw-hot'>hot</i></span>
+									<span class='splw-free splw-close-icon'></span>
+									<span class='splw-pro splw-check-icon'></span>
 								</li>
 								<li class='splw-body'>
 									<span class='splw-title'>Display Daily Forecast Up to 16 Days <i class='splw-hot'>hot</i></span>
@@ -468,12 +474,22 @@ class Splw_Help {
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
 								<li class='splw-body'>
-									<span class='splw-title'>Display Hourly (1h & 3h) Forecast Up to 5 Days <i class='splw-hot'>hot</i></span>
+									<span class='splw-title'>Display Hourly (1h & 3h) Forecast Up to 120 Hours <i class='splw-hot'>hot</i></span>
 									<span class='splw-free splw-close-icon'></span>
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
 								<li class='splw-body'>
-									<span class='splw-title'>Display Weather Map <i class='splw-new'>new</i><i class='splw-hot'>hot</i></span>
+									<span class='splw-title'>Display Weather Map <i class='splw-hot'>hot</i></span>
+									<span class='splw-free splw-close-icon'></span>
+									<span class='splw-pro splw-check-icon'></span>
+								</li>
+								<li class='splw-body'>
+									<span class='splw-title'>Windy Weather Map <i class='splw-new'>new</i></span>
+									<span class='splw-free splw-close-icon'></span>
+									<span class='splw-pro splw-check-icon'></span>
+								</li>
+								<li class='splw-body'>
+									<span class='splw-title'>Weather Graph Chart <i class='splw-new'>new</i><i class='splw-hot'>hot</i></span>
 									<span class='splw-free splw-close-icon'></span>
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
@@ -722,13 +738,13 @@ class Splw_Help {
 							</a>
 							<a target="_blank" class="splw-our-plugin-list-box" href="https://logocarousel.com/">
 								<i class="splw-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/logo-carousel-free/assets/icon-256x256.png" alt="">
+								<img src="https://ps.w.org/logo-carousel-free/assets/icon-256x256.gif" alt="">
 								<h4>Logo Carousel</h4>
 								<p>Showcase a group of logo images with Title, Description, Tooltips, Links, and Popup as a grid or in a carousel.</p>
 							</a>
 							<a target="_blank" class="splw-our-plugin-list-box" href="https://easyaccordion.io/">
 								<i class="splw-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/easy-accordion-free/assets/icon-256x256.png" alt="">
+								<img src="https://ps.w.org/easy-accordion-free/assets/icon-256x256.gif" alt="">
 								<h4>Easy Accordion</h4>
 								<p>Minimize customer support by offering comprehensive FAQs and increasing conversions.</p>
 							</a>

@@ -43,8 +43,9 @@ class Shortcode {
 	 * @param array $shortcode_id Shortcode ID.
 	 * @param array $splw_option get all options.
 	 * @param array $splw_meta get all meta options.
+	 * @param array $layout_meta get all layout meta options.
 	 */
-	public static function splw_html_show( $shortcode_id, $splw_option, $splw_meta ) {
+	public static function splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta ) {
 		// Weather option meta area.
 		$open_api_key = isset( $splw_option['open-api-key'] ) ? $splw_option['open-api-key'] : '';
 		$appid        = ! empty( $open_api_key ) ? $open_api_key : '';
@@ -66,7 +67,7 @@ class Shortcode {
 			echo $weather_output; // phpcs:ignore
 			return;
 		}
-		$layout                        = isset( $splw_meta['weather-view'] ) && ! wp_is_mobile() ? $splw_meta['weather-view'] : 'vertical';
+		$layout                        = isset( $layout_meta['weather-view'] ) && ! wp_is_mobile() ? $layout_meta['weather-view'] : 'vertical';
 		$active_additional_data_layout = isset( $splw_meta['weather-additional-data-layout'] ) ? $splw_meta['weather-additional-data-layout'] : 'center';
 		$show_comport_data_position    = isset( $splw_meta['lw-comport-data-position'] ) ? $splw_meta['lw-comport-data-position'] : false;
 
@@ -172,9 +173,10 @@ class Shortcode {
 		if ( empty( $attribute['id'] ) || 'location_weather' !== get_post_type( $attribute['id'] ) || ( get_post_status( $attribute['id'] ) === 'trash' ) ) {
 			return;
 		}
-		$shortcode_id = esc_attr( intval( $attribute['id'] ) ); // Location Weather Pro global ID for Shortcode metabox.
+		$shortcode_id = esc_attr( intval( $attribute['id'] ) );
 		$splw_option  = get_option( 'location_weather_settings', true );
 		$splw_meta    = get_post_meta( $shortcode_id, 'sp_location_weather_generator', true );
+		$layout_meta  = get_post_meta( $shortcode_id, 'sp_location_weather_layout', true );
 		// Stylesheet loading problem solving here. Shortcode id to push page id option for getting how many shortcode in the page.
 		$get_page_data      = Scripts::get_page_data();
 		$found_generator_id = $get_page_data['generator_id'];
@@ -189,7 +191,7 @@ class Shortcode {
 		}
 		// Update options if the existing shortcode id option not found.
 		Scripts::lw_db_options_update( $shortcode_id, $get_page_data );
-		self::splw_html_show( $shortcode_id, $splw_option, $splw_meta );
+		self::splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta );
 		wp_enqueue_script( 'splw-old-script' );
 		return ob_get_clean();
 	}

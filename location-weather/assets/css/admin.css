@@ -236,6 +236,10 @@
     background-color: #df3939b5;
 }
 
+.spwpcp-gutenberg-shortcode.editor-styles-wrapper:after {
+	display: none;
+}
+
 /* RTL style for the offer banner. */
 .rtl .splw-admin-offer-banner-section {
     margin: 40px 0 0 20px;

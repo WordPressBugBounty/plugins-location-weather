@@ -13,9 +13,9 @@
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           2.0.14
- * Requires at least: 4.7
- * Requires PHP:      5.6
+ * Version:           2.0.15
+ * Requires at least: 5.0
+ * Requires PHP:      7.4
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       location-weather
@@ -31,6 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'LOCATION_WEATHER_FILE', __FILE__ );
 define( 'LOCATION_WEATHER_URL', plugins_url( '', LOCATION_WEATHER_FILE ) );
 define( 'LOCATION_WEATHER_ASSETS', LOCATION_WEATHER_URL . '/assets' );
+define( 'LOCATION_WEATHER_VERSION', '2.0.15' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'location-weather-pro/main.php' ) || is_plugin_active_for_network( 'location-weather-pro/main.php' ) ) ) {
@@ -54,7 +55,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.14';
+	public $version = '2.0.15';
 
 	/**
 	 * The unique slug of this plugin.
@@ -177,7 +178,6 @@ final class Location_Weather {
 	 * @return void
 	 */
 	public function define_constants() {
-		define( 'LOCATION_WEATHER_VERSION', $this->version );
 		define( 'LOCATION_WEATHER_SLUG', $this->plugin_slug );
 		define( 'LOCATION_WEATHER_PATH', __DIR__ );
 		define( 'LOCATION_WEATHER_TEMPLATE_PATH', plugin_dir_path( __FILE__ ) . 'includes/' );
@@ -260,6 +260,7 @@ final class Location_Weather {
 		 */
 		$setting_options        = get_option( 'location_weather_settings', true );
 		$skip_cache_for_weather = isset( $setting_options['splw_skipping_cache'] ) ? $setting_options['splw_skipping_cache'] : false;
+		wp_register_style( 'splw-fontello', LOCATION_WEATHER_ASSETS . '/css/fontello' . $this->suffix . '.css', array(), LOCATION_WEATHER_VERSION, 'all' );
 		wp_register_style( 'splw-styles', LOCATION_WEATHER_ASSETS . '/css/splw-style' . $this->suffix . '.css', array(), LOCATION_WEATHER_VERSION, 'all' );
 		wp_register_style( 'splw-old-styles', LOCATION_WEATHER_ASSETS . '/css/old-style' . $this->suffix . '.css', array(), LOCATION_WEATHER_VERSION, 'all' );
 		wp_register_style( 'splw-admin', LOCATION_WEATHER_ASSETS . '/css/admin' . $this->suffix . '.css', array(), LOCATION_WEATHER_VERSION, 'all' );
@@ -278,7 +279,7 @@ final class Location_Weather {
 			array(
 				'ajax_url'        => admin_url( 'admin-ajax.php' ),
 				'splw_nonce'      => wp_create_nonce( 'splw_nonce' ),
-				'splw_skip_cache' => $skip_cache_for_weather,
+				'splw_skip_cache' => is_admin() ? false : $skip_cache_for_weather,
 			)
 		);
 	}
@@ -297,7 +298,7 @@ final class Location_Weather {
 				delete_site_option( $option_key );
 			}
 		} elseif ( get_option( 'sp_lw_page_id' . $post_ID ) ) {
-				delete_option( 'sp_lw_page_id' . $post_ID );
+			delete_option( 'sp_lw_page_id' . $post_ID );
 		}
 
 		if ( 'location_weather' === $post->post_type ) {
@@ -332,9 +333,9 @@ final class Location_Weather {
 		// Check if the Location Weather plugin is active and the OpenWeatherMap API key is empty.
 		if ( is_plugin_active( 'location-weather/main.php' ) && empty( $plugin_settings['open-api-key'] ) ) {
 			?>
-		<div class="error notice location-api-notice">
-			<p><strong>Location Weather:</strong> <a href="<?php echo esc_url( admin_url( 'edit.php?post_type=location_weather&page=lw-settings' ) ); ?>"><?php esc_html_e( 'Please set your own OpenWeatherMap API key to show the weather report smoothly.', 'location-weather' ); ?></a></p>
-		</div>
+				<div class="error notice location-api-notice">
+					<p><strong><?php esc_html_e( 'Location Weather', 'location-weather' ); ?>: </strong> Please set your own <a href = "<?php echo esc_url( admin_url( 'edit.php?post_type=location_weather&page=lw-settings' ) ); ?>" > <?php esc_html_e( 'OpenWeatherMap API key ', 'location-weather' ); ?></a> <?php esc_html_e( 'to show the weather report smoothly.', 'location-weather' ); ?></p>
+				</div>
 			<?php
 		}
 	}

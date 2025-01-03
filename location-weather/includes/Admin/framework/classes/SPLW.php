@@ -102,8 +102,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 			// Init action.
 			do_action( 'splwt_init' );
 
-			// Init translation in framework.
-			add_action( 'init', array( 'SPLW', 'textdomain' ) );
 			// Set directory constants.
 			self::constants();
 
@@ -117,6 +115,8 @@ if ( ! class_exists( 'SPLW' ) ) {
 			add_action( 'wp_enqueue_scripts', array( 'SPLW', 'add_typography_enqueue_styles' ), 80 );
 			add_action( 'wp_head', array( 'SPLW', 'add_custom_css' ), 80 );
 			add_filter( 'admin_body_class', array( 'SPLW', 'add_admin_body_class' ) );
+			// Init translation in framework.
+			add_action( 'init', array( 'SPLW', 'textdomain' ), 80 );
 		}
 
 		/**

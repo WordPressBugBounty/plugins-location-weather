@@ -49,6 +49,7 @@ class Scripts {
 		$wpscreen              = get_current_screen();
 		$the_current_post_type = $wpscreen->post_type;
 		if ( ( 'location_weather' === $the_current_post_type ) ) {
+			wp_enqueue_style( 'splw-fontello' );
 			wp_enqueue_style( 'splw-styles' );
 			wp_enqueue_style( 'splw-old-styles' );
 			wp_enqueue_script( 'splw-old-script' );

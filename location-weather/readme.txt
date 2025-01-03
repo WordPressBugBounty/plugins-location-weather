@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather widget, live weather map, hourly forecast, daily forecast
 Requires at least: 4.7
 Tested up to: 6.7.1
-Stable tag: 2.0.14
+Stable tag: 2.0.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -414,9 +414,14 @@ The WordPress codex contains <a href="https://wordpress.org/documentation/articl
 
 == Changelog ==
 
+= 2.0.15 - Jan 03, 2025 =
+* Improved: The plugin admin panel has been reorganized.
+* Improved: The Weather Layout and Templates options are moved to the top of the page. 
+* Improved: The Shortcode section is moved to the sidebar section.
+
 = 2.0.14 - Dec 02, 2024 =
 * Fix: The text domain-related deprecated warning was found with WP 6.7.1.
-* Tested: WP 6.7.1 compatibility.
+* Tested: WordPress 6.7.1 compatibility.
 
 = 2.0.13 - Nov 20, 2024 =
 * Fix: The plugin style issue for RTL sites.

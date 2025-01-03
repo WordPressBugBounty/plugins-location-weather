@@ -55,7 +55,7 @@ class Location_Weather_Shortcode_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'splw-icon-lw-icon';
+		return 'splwp-icon-lw-icon';
 	}
 
 	/**
@@ -119,7 +119,6 @@ class Location_Weather_Shortcode_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -143,16 +142,16 @@ class Location_Weather_Shortcode_Widget extends \Elementor\Widget_Base {
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
 			$splw_option = get_option( 'location_weather_settings', true );
 			$splw_meta   = get_post_meta( $shortcode_id, 'sp_location_weather_generator', true );
+			$layout_meta = get_post_meta( $shortcode_id, 'sp_location_weather_layout', true );
+
 			// Stylesheet loading problem solving here. Shortcode id to push page id option for getting how many shortcode in the page.
 			$dynamic_style = Scripts::load_dynamic_style( $shortcode_id, $splw_meta );
 			echo '<style id="sp_lw_dynamic_css' . esc_attr( $shortcode_id ) . '">' . wp_strip_all_tags( $dynamic_style['dynamic_css'] ) . '</style>';//phpcs:ignore
-			Shortcode::splw_html_show( $shortcode_id, $splw_option, $splw_meta );
+			Shortcode::splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta );
 			?>
 			<?php
 		} else {
 			echo do_shortcode( '[location-weather id="' . $shortcode_id . '"]' );
 		}
-
 	}
-
 }
