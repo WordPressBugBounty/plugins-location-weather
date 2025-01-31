@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Location Weather v2.0.15\n"
-"POT-Creation-Date: 2025-01-02 10:23+0600\n"
+"POT-Creation-Date: 2025-01-24 12:45+0600\n"
 "PO-Revision-Date: 2024-05-27 15:49+0600\n"
 "Last-Translator: \n"
 "Language-Team: ShapedPlugin <support@shapedplugin.com>\n"
@@ -1267,7 +1267,7 @@ msgid "3-Hour"
 msgstr ""
 
 #: includes/Admin/Generator_Config/DisplaySetup.php:1061
-msgid "96 Hours"
+msgid "120 Hours"
 msgstr ""
 
 #: includes/Admin/Generator_Config/DisplaySetup.php:1065

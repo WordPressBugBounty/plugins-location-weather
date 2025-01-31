@@ -71,7 +71,7 @@ if ( ! class_exists( 'SPLWT_Field_button_clean' ) ) {
 						$active  = ( in_array( $key, $value ) || ( empty( $value ) && empty( $key ) ) ) ? ' splwt-lite--active' : '';
 						$checked = ( in_array( $key, $value ) || ( empty( $value ) && empty( $key ) ) ) ? ' checked' : '';
 
-						echo '<button class="splwt-lite--sibling splwt-lite-confirm splwt-lite--button' . esc_attr( $active ) . '" data-confirm="' . esc_html__( 'Are you sure to clean cache?', 'splwt-lite' ) . '">';
+						echo '<button class="splwt-lite--sibling splwt-lite-confirm splwt-lite--button' . esc_attr( $active ) . '" data-confirm="' . esc_html__( 'Are you sure to clean cache?', 'location-weather' ) . '">';
 						echo $option;
 						echo '</button>';
 
@@ -87,8 +87,6 @@ if ( ! class_exists( 'SPLWT_Field_button_clean' ) ) {
 			}
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

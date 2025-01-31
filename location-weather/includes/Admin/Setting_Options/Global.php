@@ -43,7 +43,7 @@ SPLW::createSection(
 				'class' => 'open-api-key',
 				'title' => __( 'Add Your OpenWeather API Key', 'location-weather' ),
 				/* translators: %1$s: anchor tag start, %2$s: anchor tag end, %3$s: br tag add, %3$s: br tag add. */
-				'desc'  => sprintf( __( 'Strongly recommended: %1$sGet your API key!%2$s A newly%3$s created API key takes approximately 15 minutes %3$s to activate and display weather data.' ), '<a href="https://home.openweathermap.org/api_keys" target="_blank">', '</a>', '</br>' ),
+				'desc'  => sprintf( __( 'Strongly recommended: %1$sGet your API key!%2$s A newly%3$s created API key takes approximately 15 minutes %3$s to activate and display weather data.', 'location-weather' ), '<a href="https://home.openweathermap.org/api_keys" target="_blank">', '</a>', '</br>' ),
 			),
 		),
 	)

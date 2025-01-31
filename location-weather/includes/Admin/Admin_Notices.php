@@ -263,7 +263,7 @@ class Admin_Notices {
 					</div>
 				<?php } ?>
 				<div class="splw-offer-additional-text">
-					<span class="splw-clock-icon">⏱</span><p><?php esc_html_e( 'Limited Time Offer, Upgrade Now!', 'wp-carousel-free' ); ?></p>
+					<span class="splw-clock-icon">⏱</span><p><?php esc_html_e( 'Limited Time Offer, Upgrade Now!', 'location-weather' ); ?></p>
 				</div>
 				<?php if ( ! empty( $action_url ) ) { ?>
 					<div class="splw-banner-action-button">

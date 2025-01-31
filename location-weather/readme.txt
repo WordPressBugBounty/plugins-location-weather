@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather widget, live weather map, hourly forecast, daily forecast
 Requires at least: 4.7
 Tested up to: 6.7.1
-Stable tag: 2.0.15
+Stable tag: 2.0.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ https://www.youtube.com/watch?v=OpfcigkrtDE&ab_channel=ShapedPlugin
 
 ## 👉 Explore More Beautiful Weather Layouts ##
 
-[__Vertical Card__](https://locationweather.io/demos/vertical-card/) | [__Horizontal__](https://locationweather.io/demos/horizontal/) | [__Tabs__](https://locationweather.io/demos/tabs/) | [__Table__](https://locationweather.io/demos/table/)
+[__Vertical Card__](https://locationweather.io/demos/vertical-card/) | [__Horizontal__](https://locationweather.io/demos/horizontal/) | [__Tabs__](https://locationweather.io/demos/tabs/) | [__Table__](https://locationweather.io/demos/table/) | [__Map__](https://locationweather.io/demos/weather-map/) | [__Combined__](https://locationweather.io/demos/combined-weather/)
 
 ## 👉 Open Weather Map API Key 🔑 ##
 
@@ -119,11 +119,12 @@ You can display Current Temperature, Current Weather Conditions, National Weathe
 Weather data items can be selected and styled individually. Select your location and pick your measurement system, time format, zone, and more required options. Choose from several layouts and templates, fonts, or weather icon sets. You can customize the look and feel with a few clicks. Here are a few key features:
 
 * Create and Display Unlimited Weather Showcases or Shortcodes Effortlessly
-* 4 Exclusive Weather Layouts ([__Vertical Card__](https://locationweather.io/demos/vertical-card/), [__Horizontal__](https://locationweather.io/demos/horizontal/), [__Tabs__](https://locationweather.io/demos/tabs/), and [__Table__](https://locationweather.io/demos/table/))
+* 6 Exclusive Weather Layouts ([__Vertical Card__](https://locationweather.io/demos/vertical-card/), [__Horizontal__](https://locationweather.io/demos/horizontal/), [__Tabs__](https://locationweather.io/demos/tabs/), [__Table__](https://locationweather.io/demos/table/), [__Map__](https://locationweather.io/demos/weather-map/), and [__Combined__](https://locationweather.io/demos/combined-weather/))
 * 6 Vertical Card Ready to Use Templates
 * 4 Horizontal Ready to Use Templates
 * 2 Tabs Layouts **(Pro)**
 * 1 Table Layout **(Pro)**
+* 2 Map Type - Windy, OpenWeatherMap **(Pro)**
 * 17+ Beautiful Ready Templates **(Pro)**
 * Weather Templates Overriding or Modification to Suit Your Needs
 * 10 Weather Additional Data Layouts **(Pro)**
@@ -395,24 +396,29 @@ The WordPress codex contains <a href="https://wordpress.org/documentation/articl
 
 == Screenshots ==
 
-1. Vertical Card Template
-2. Horizontal Template
+1. Vertical Card
+2. Horizontal
 3. Weather Settings
-4. Display Options (General)
-5. Current Weather
-6. Additional Data
-7. Additional Data Style
-8. Forecast Data (Pro)
-9. Footer
-10. Style Options
-11. Typography (General)
-12. API Settings
-13. Advanced Settings
-14. Custom CSS
-15. Tools (Export and Import)
+4. Display Settings - Basic Preference
+5. Display Settings - Current Weather
+6. Display Settings - Control Additional Data
+7. Display Settings - Additional Data Styles
+8. Display Settings - Footer
+9. Style Settings
+10. Typography
+11. API Settings
+12. Advanced Controls
+13. Additional CSS
+14. Export
+15. Import
 
 
 == Changelog ==
+
+= 2.0.16 - Jan 31, 2025 =
+* Fix: Some WPCS-related warnings.
+* Updated: The language (.pot) file.
+* Removed: The unnecessary Google font.
 
 = 2.0.15 - Jan 03, 2025 =
 * Improved: The plugin admin panel has been reorganized.

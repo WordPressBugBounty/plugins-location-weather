@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
+/**
+ * @package location-weather
+ * @author ShapedPlugin
+ */
 .splw-lite-wrapper {
-	font-family: 'Roboto', sans-serif;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -57,7 +58,6 @@
 }
 
 .splw-lite-wrapper .splw-lite-current-temp span.cur-temp {
-	font-family: 'Roboto', sans-serif;
 	font-size: 48px;
 	font-weight: 700;
 	line-height: 56px;
@@ -216,4 +216,5 @@ a.sp_lw_gb_edit_button {
 .spwpcp-gutenberg-shortcode.editor-styles-wrapper {
 	padding: 0;
 	line-height: 24px;
+	width: 100%;
 }

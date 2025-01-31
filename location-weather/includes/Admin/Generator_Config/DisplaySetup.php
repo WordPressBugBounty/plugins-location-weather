@@ -976,9 +976,9 @@ SPLW::createSection(
 								'id'         => 'enable-graph-chart',
 								'type'       => 'switcher',
 								'class'      => 'lw-forecast-data-pro',
-								'title'      => __( 'Weather Graph Chart', 'location-weather-pro' ),
-								'text_on'    => __( 'Enabled', 'location-weather-pro' ),
-								'text_off'   => __( 'Disabled', 'location-weather-pro' ),
+								'title'      => __( 'Weather Graph Chart', 'location-weather' ),
+								'text_on'    => __( 'Enabled', 'location-weather' ),
+								'text_off'   => __( 'Disabled', 'location-weather' ),
 								'text_width' => 100,
 								'only_pro'   => true,
 								'default'    => 'true',
@@ -1009,7 +1009,7 @@ SPLW::createSection(
 								'type'       => 'select',
 								'title'      => 'Number of Forecast Days to Show',
 								'options'    => array(
-									'8' => __( '16 Days', 'location-weather' ),
+									'5' => __( '16 Days', 'location-weather' ),
 								),
 								'title_info' => sprintf(
 									'<div class="lw-info-label">%s</div><div class="lw-short-content">%s</div><a class="lw-open-docs" href="https://locationweather.io/docs/docs/how-to-set-the-number-of-forecast-days-to-show/" target="_blank">%s</a>',
@@ -1049,7 +1049,7 @@ SPLW::createSection(
 									'one-hour'   => __( '1-Hour', 'location-weather' ),
 									'three-hour' => __( '3-Hour', 'location-weather' ),
 								),
-								'default'    => 'one-hour',
+								'default'    => 'three-hour',
 								'dependency' => array( 'lw-enable-forecast|lw-forecast-type', '==|!=', 'true|daily' ),
 							),
 							array(
@@ -1058,7 +1058,7 @@ SPLW::createSection(
 								'type'       => 'select',
 								'title'      => 'Number of Forecast Hours to Show',
 								'options'    => array(
-									'8' => __( '96 Hours', 'location-weather' ),
+									'40' => __( '120 Hours', 'location-weather' ),
 								),
 								'title_info' => sprintf(
 									'<div class="lw-info-label">%s</div><div class="lw-short-content">%s</div><div class="info-button"><a class="lw-open-docs" href="https://locationweather.io/docs/how-to-set-the-number-of-forecast-hours-to-show/" target="_blank">%s</a></div>',
@@ -1066,7 +1066,7 @@ SPLW::createSection(
 									__( 'Set the number of the hours you want to show weather forecasts for.', 'location-weather' ),
 									__( 'Open Docs', 'location-weather' )
 								),
-								'default'    => '8',
+								'default'    => '40',
 								'dependency' => array( 'lw-enable-forecast|lw-forecast-type|lw-hourly-type', '==|!=|==', 'true|daily|one-hour' ),
 							),
 							array(
