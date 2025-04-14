@@ -8,14 +8,6 @@ class ComposerStaticInitf2855c254b36ae9cbf3eff1f1a524ed6
 {
     public static $files = array (
         '43becb89944722d66ee3faacab9c65da' => __DIR__ . '/../..' . '/includes/functions.php',
-        'a5236a54fe35f5d6ef0bf6952aa5e78d' => __DIR__ . '/../..' . '/includes/Admin/framework/classes/SPLW.php',
-        '7f577fe47c230f17355f3d4d5424e4c0' => __DIR__ . '/../..' . '/includes/Admin/Generator_Config/LayoutSetup.php',
-        '7dc279074bc3cc6a9b870692fdf948ea' => __DIR__ . '/../..' . '/includes/Admin/Generator_Config/WeatherSetup.php',
-        '2042af69b359e5abe370d5257dadcffa' => __DIR__ . '/../..' . '/includes/Admin/Generator_Config/DisplaySetup.php',
-        '0bcf87c7e51486160002091fe447edf2' => __DIR__ . '/../..' . '/includes/Admin/Generator_Config/StyleSetup.php',
-        'e87ceb1304a7f52b2b7448780731d5ea' => __DIR__ . '/../..' . '/includes/Admin/Generator_Config/TypographySetup.php',
-        '85f1e685fcf46e20a21dbb85a36e2259' => __DIR__ . '/../..' . '/includes/Admin/Setting_Options/Global.php',
-        '2262c71aaf45f2233f957e0bc4564f98' => __DIR__ . '/../..' . '/includes/Admin/Tools_Config/Tools_Options.php',
     );
 
     public static $prefixLengthsPsr4 = array (

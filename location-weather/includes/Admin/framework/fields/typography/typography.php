@@ -81,7 +81,7 @@ if ( ! class_exists( 'SPLWT_Field_typography' ) ) {
 					'word_spacing'       => false,
 					'text_decoration'    => false,
 					'custom_style'       => false,
-					'exclude'            => '',
+					'exclude'            => '', // phpcs:ignore
 					'unit'               => 'px',
 					'line_height_unit'   => '',
 					'preview_text'       => 'The quick brown fox jumps over the lazy dog',

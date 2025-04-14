@@ -321,6 +321,25 @@ if ( ! class_exists( 'SPLW' ) ) {
 		}
 
 		/**
+		 * Include framework configuration files.
+		 *
+		 * This function includes various configuration files related to
+		 * layout, weather, display, style, typography, global settings,
+		 * and tool options for the SPLW framework.
+		 *
+		 * @return void
+		 */
+		public function splw_framework_config() {
+			self::include_plugin_file( 'classes/Generator_Config/LayoutSetup.php' );
+			self::include_plugin_file( 'classes/Generator_Config/WeatherSetup.php' );
+			self::include_plugin_file( 'classes/Generator_Config/DisplaySetup.php' );
+			self::include_plugin_file( 'classes/Generator_Config/StyleSetup.php' );
+			self::include_plugin_file( 'classes/Generator_Config/TypographySetup.php' );
+			self::include_plugin_file( 'classes/Setting_Options/Global.php' );
+			self::include_plugin_file( 'classes/Tools_Config/Tools_Options.php' );
+		}
+
+		/**
 		 * Maybe include a field class
 		 *
 		 * @param string $type include field type.

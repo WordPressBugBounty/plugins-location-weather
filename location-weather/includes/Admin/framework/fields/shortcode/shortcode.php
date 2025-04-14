@@ -52,7 +52,7 @@ if ( ! class_exists( 'SPLWT_Field_shortcode' ) ) {
 								/* translators: 1: start strong tag, 2: close tag. */
 								esc_html__( 'Location Weather has seamless integration with Gutenberg, Classic Editor, %1$sElementor%2$s, Divi, Bricks, Beaver, Oxygen, WPBakery Builder, etc.', 'location-weather' ),
 								'<strong>',
-								'</strong>',
+								'</strong>'
 							)
 						. '
 					</p>
