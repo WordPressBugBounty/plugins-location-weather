@@ -13,7 +13,7 @@
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           2.0.17
+ * Version:           2.0.18
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * License:           GPL v2 or later
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'LOCATION_WEATHER_FILE', __FILE__ );
 define( 'LOCATION_WEATHER_URL', plugins_url( '', LOCATION_WEATHER_FILE ) );
 define( 'LOCATION_WEATHER_ASSETS', LOCATION_WEATHER_URL . '/assets' );
-define( 'LOCATION_WEATHER_VERSION', '2.0.17' );
+define( 'LOCATION_WEATHER_VERSION', '2.0.18' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'location-weather-pro/main.php' ) || is_plugin_active_for_network( 'location-weather-pro/main.php' ) ) ) {
@@ -55,7 +55,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.17';
+	public $version = '2.0.18';
 
 	/**
 	 * The unique slug of this plugin.
@@ -92,6 +92,8 @@ final class Location_Weather {
 		add_action( 'network_admin_notices', array( $this, 'display_missing_api_key_notice' ) );
 		add_filter( 'sp_open_weather_api_cache_time', array( $this, 'get_location_weather_cache_expire_time' ), 10 );
 
+		add_filter( 'plugin_row_meta', array( $this, 'lw_plugin_row_meta' ), 10, 2 );
+
 		/**
 		 * Polylang plugin support for multi language support.
 		 */
@@ -104,6 +106,48 @@ final class Location_Weather {
 			 */
 			add_filter( 'pll_get_post_types', array( $this, 'sp_splw_polylang' ), 10, 2 );
 		}
+	}
+
+	/**
+	 * Show row meta on the plugin screen.
+	 *
+	 * @param mixed $links Plugin Row Meta.
+	 * @param mixed $file  Plugin Base file.
+	 *
+	 * @return array
+	 */
+	public function lw_plugin_row_meta( $links, $file ) {
+		/**
+		 * The Location Weather documentation URL.
+		 *
+		 * @since 2.7.0
+		 */
+		$docs_url = apply_filters( 'lw_docs_url', 'https://locationweather.io/docs/' );
+
+		/**
+		 * The Location Weather live demo URL.
+		 *
+		 * @since 2.2.0
+		 */
+		$live_demo_url = apply_filters( 'lw_live_demo_url', 'https://locationweather.io/#weather-showcase' );
+
+		/**
+		 * The community location weather support URL.
+		 *
+		 * @since 2.2.0
+		 */
+		$community_support_url = apply_filters( 'lw_support_url', 'https://shapedplugin.com/create-new-ticket/' );
+
+		if ( plugin_basename( __DIR__ . '/main.php' ) === $file ) {
+			$row_meta = array(
+				'live_demo' => '<a href="' . esc_url( $live_demo_url ) . '" aria-label="' . esc_attr__( 'View location weather live demo', 'location-weather' ) . '" target=_blank">' . esc_html__( 'Live Demo', 'location-weather' ) . '</a>',
+				'docs'      => '<a href="' . esc_url( $docs_url ) . '" aria-label="' . esc_attr__( 'View location weather documentation', 'location-weather' ) . '" target=_blank">' . esc_html__( 'Docs', 'location-weather' ) . '</a>',
+				'support'   => '<a href="' . esc_url( $community_support_url ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'location-weather' ) . '" target=_blank">' . esc_html__( 'Support', 'location-weather' ) . '</a>',
+			);
+
+			return array_merge( $links, $row_meta );
+		}
+		return $links;
 	}
 
 	/**

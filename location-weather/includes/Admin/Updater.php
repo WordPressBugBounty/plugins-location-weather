@@ -37,6 +37,7 @@ class Updater {
 		'2.0.7'  => 'updates/update-2.0.7.php',
 		'2.0.15' => 'updates/update-2.0.15.php',
 		'2.0.17' => 'updates/update-2.0.17.php',
+		'2.0.18' => 'updates/update-2.0.18.php',
 	);
 
 	/**

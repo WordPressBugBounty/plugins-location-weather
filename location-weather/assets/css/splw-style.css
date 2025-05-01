@@ -138,7 +138,6 @@ a.sp_lw_gb_edit_button {
 .splw-main-wrapper .splw-weather-details div:not(.icons_splw) span.details-icon {
 	display: inline-flex;
 	margin-right: 2px;
-	vertical-align: middle;
 }
 
 .splw-lite-current-temp .temperature-scale {
@@ -172,8 +171,8 @@ a.sp_lw_gb_edit_button {
 	color: #fff;
 }
 
-.splw-main-wrapper .splw-weather-details div:not(.icons_splw) span.details-icon svg {
-	width: 16px;
+.splw-main-wrapper .splw-weather-details div:not(.icons_splw) span.details-icon i {
+	font-size: 16px;
 }
 
 .splw-main-wrapper.horizontal .splw-lite-templates-body{

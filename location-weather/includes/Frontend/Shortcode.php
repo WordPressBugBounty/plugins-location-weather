@@ -114,35 +114,46 @@ class Shortcode {
 		$show_weather_detailed     = isset( $splw_meta['lw-weather-details'] ) ? $splw_meta['lw-weather-details'] : false;
 		$show_weather_updated_time = isset( $splw_meta['lw-weather-update-time'] ) ? $splw_meta['lw-weather-update-time'] : false;
 
-		$weather_by = isset( $splw_meta['get-weather-by'] ) ? $splw_meta['get-weather-by'] : 'city_name';
+		$weather_by = $splw_meta['get-weather-by'] ?? 'city_name';
+
 		switch ( $weather_by ) {
 			case 'city_name':
-				$city  = isset( $splw_meta['lw-city-name'] ) ? $splw_meta['lw-city-name'] : '';
-				$query = ! empty( $city ) ? trim( $city ) : 'london';
+				$city  = trim( $splw_meta['lw-city-name'] ?? '' );
+				$query = ! empty( $city ) ? $city : 'london';
 				break;
+
 			case 'city_id':
-				$city_id = $splw_meta['lw-city-id'];
-				$query   = ! empty( $city_id ) ? $city_id : 2643743;
+				$city_id = $splw_meta['lw-city-id'] ?? '';
+				$query   = ! empty( $city_id ) ? (int) $city_id : 2643743;
 				break;
+
 			case 'latlong':
-				$values = $splw_meta['lw-latlong'];
-				if ( ! empty( $values ) ) {
-					$latlong         = str_replace( ' ', '', $values );
-					list($lat, $lon) = explode( ',', trim( $latlong ) );
-					$query           = array(
-						'lat' => $lat,
-						'lon' => $lon,
-					);
+				$latlong_raw = $splw_meta['lw-latlong'] ?? '';
+				$default     = array(
+					'lat' => 51.509865,
+					'lon' => -0.118092,
+				);
+
+				if ( ! empty( $latlong_raw ) && strpos( $latlong_raw, ',' ) !== false ) {
+					$latlong = explode( ',', str_replace( ' ', '', trim( $latlong_raw ) ) );
+					$lat     = $latlong[0] ?? null;
+					$lon     = $latlong[1] ?? null;
+					$query   = ( is_numeric( $lat ) && is_numeric( $lon ) ) ? array(
+						'lat' => (float) $lat,
+						'lon' => (float) $lon,
+					) : $default;
 				} else {
-					$query = array(
-						'lat' => 51.509865,
-						'lon' => -0.118092,
-					);
+					$query = $default;
 				}
 				break;
+
 			case 'zip':
-				$zip_code = $splw_meta['lw-zip'];
-				$query    = ! empty( $zip_code ) ? $zip_code : '77070,US';
+				$zip   = trim( $splw_meta['lw-zip'] ?? '' );
+				$query = ! empty( $zip ) ? 'zip:' . $zip . '' : 'zip:77070,US';
+				break;
+
+			default:
+				$query = 'london';
 				break;
 		}
 
@@ -183,6 +194,7 @@ class Shortcode {
 		ob_start();
 		// This shortcode id not in page id option. Enqueue stylesheets in shortcode.
 		if ( ! is_array( $found_generator_id ) || ! $found_generator_id || ! in_array( $shortcode_id, $found_generator_id ) ) {
+			wp_enqueue_style( 'splw-fontello' );
 			wp_enqueue_style( 'splw-styles' );
 			wp_enqueue_style( 'splw-old-styles' );
 			/* Load dynamic style in the header based on found shortcode on the page. */

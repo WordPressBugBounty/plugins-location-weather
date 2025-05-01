@@ -121,6 +121,7 @@ class Location_Weather_Shortcode_Block {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+		wp_enqueue_style( 'splw-fontello' );
 		wp_enqueue_style( 'splw-styles' );
 		wp_enqueue_style( 'splw-old-styles' );
 	}

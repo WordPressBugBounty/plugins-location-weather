@@ -333,6 +333,7 @@ if ( ! class_exists( 'SPLW' ) ) {
 			self::include_plugin_file( 'classes/Generator_Config/LayoutSetup.php' );
 			self::include_plugin_file( 'classes/Generator_Config/WeatherSetup.php' );
 			self::include_plugin_file( 'classes/Generator_Config/DisplaySetup.php' );
+			self::include_plugin_file( 'classes/Generator_Config/MapSetup.php' );
 			self::include_plugin_file( 'classes/Generator_Config/StyleSetup.php' );
 			self::include_plugin_file( 'classes/Generator_Config/TypographySetup.php' );
 			self::include_plugin_file( 'classes/Setting_Options/Global.php' );

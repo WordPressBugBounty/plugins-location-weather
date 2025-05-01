@@ -65,16 +65,28 @@ SPLW::createSection(
 						'option_demo_url' => 'https://locationweather.io/demos/table/',
 						'pro_only'        => true,
 					),
-					'map'        => array(
-						'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/maps.svg' ),
-						'name'            => __( 'Map', 'location-weather' ),
-						'option_demo_url' => 'https://locationweather.io/demos/weather-map/',
+					'accordion'  => array(
+						'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/accordion.svg' ),
+						'name'            => __( 'Accordion', 'location-weather' ),
+						'option_demo_url' => 'https://locationweather.io/demos/weather-accordion/',
+						'pro_only'        => true,
+					),
+					'grid'       => array(
+						'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/grid.svg' ),
+						'name'            => __( 'Grid', 'location-weather' ),
+						'option_demo_url' => 'https://locationweather.io/demos/weather-grid/',
 						'pro_only'        => true,
 					),
 					'combined'   => array(
 						'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/combined.svg' ),
 						'name'            => __( 'Combined', 'location-weather' ),
 						'option_demo_url' => 'https://locationweather.io/demos/combined-weather/',
+						'pro_only'        => true,
+					),
+					'map'        => array(
+						'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/maps.svg' ),
+						'name'            => __( 'Weather Map', 'location-weather' ),
+						'option_demo_url' => 'https://locationweather.io/demos/weather-map/',
 						'pro_only'        => true,
 					),
 				),
@@ -170,6 +182,81 @@ SPLW::createSection(
 				'dependency' => array( 'weather-view', '==', 'tabs' ),
 			),
 			array(
+				'id'         => 'weather-table-template',
+				'type'       => 'image_select',
+				'class'      => 'weather-table-template sp-lw-layouts',
+				'title'      => __( 'Templates', 'location-weather' ),
+				'options'    => array(
+					'table-one' => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/table-layout/template_one.svg' ),
+						'name'     => __( 'Template One', 'location-weather' ),
+						'pro_only' => true,
+					),
+					'table-two' => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/table-layout/template_two.svg' ),
+						'name'     => __( 'Template Two', 'location-weather' ),
+						'pro_only' => true,
+					),
+				),
+				'default'    => 'table-one',
+				'dependency' => array( 'weather-view', '==', 'table' ),
+			),
+			array(
+				'id'         => 'weather-accordion-template',
+				'type'       => 'image_select',
+				'class'      => 'weather-accordion-template sp-lw-layouts',
+				'title'      => __( 'Templates', 'location-weather' ),
+				'options'    => array(
+					'accordion-one'   => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/accordion-template/template-one.svg' ),
+						'name'     => __( 'Template One', 'location-weather' ),
+						'pro_only' => true,
+					),
+					'accordion-two'   => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/accordion-template/template-two.svg' ),
+						'name'     => __( 'Template Two', 'location-weather' ),
+						'pro_only' => true,
+					),
+					'accordion-three' => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/accordion-template/template-three.svg' ),
+						'name'     => __( 'Template Three', 'location-weather' ),
+						'pro_only' => true,
+					),
+					'accordion-four'  => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/accordion-template/template-four.svg' ),
+						'name'     => __( 'Template Four', 'location-weather' ),
+						'pro_only' => true,
+					),
+				),
+				'default'    => 'accordion-one',
+				'dependency' => array( 'weather-view', '==', 'accordion' ),
+			),
+			array(
+				'id'         => 'weather-grid-template',
+				'type'       => 'image_select',
+				'class'      => 'weather-grid-template sp-lw-layouts',
+				'title'      => __( 'Templates', 'location-weather' ),
+				'options'    => array(
+					'grid-one'   => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/grid-template/template_one.svg' ),
+						'name'     => __( 'Template One', 'location-weather' ),
+						'pro_only' => true,
+					),
+					'grid-two'   => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/grid-template/template_two.svg' ),
+						'name'     => __( 'Template Two', 'location-weather' ),
+						'pro_only' => true,
+					),
+					'grid-three' => array(
+						'image'    => SPLW::include_plugin_url( 'assets/images/grid-template/template_three.svg' ),
+						'name'     => __( 'Template Three', 'location-weather' ),
+						'pro_only' => true,
+					),
+				),
+				'default'    => 'grid-one',
+				'dependency' => array( 'weather-view', '==', 'grid' ),
+			),
+			array(
 				'id'         => 'lw-enable-map-in-tabs',
 				'class'      => 'lw-enable-map-in-tabs splw_show_hide',
 				'type'       => 'switcher',
@@ -186,13 +273,25 @@ SPLW::createSection(
 				'type'       => 'button_set',
 				'class'      => 'weather-map-type',
 				'only_pro'   => true,
-				'title'      => __( 'Map Type', 'location-weather' ),
+				'title'      => __( 'Weather Map Type', 'location-weather' ),
+				'title_info' => sprintf(
+				/* translators: %1$s: opening strong tag, %2$s: closing strong tag. */
+					__( 'Use %1$sCoordinates%2$s for weather map.%7$s%1$sWeather Map:%2$s Displays real-time weather info on the map and details in pop-ups with layer controls powered by OpenWeather. %3$sDemo%4$s%8$s %7$s%1$sRadar Map:%2$s Displays live storms and precipitation, color-coded by intensity to track weather patterns, powered by Windy. %5$sDemo%6$s%8$s', 'location-weather' ),
+					'<strong>',
+					'</strong>',
+					'<a href="https://locationweather.io/demos/weather-map/" target="_blank" rel="noopener noreferrer">',
+					'</a>',
+					'<a href="https://locationweather.io/demos/weather-map-windy/" target="_blank" rel="noopener noreferrer">',
+					'</a>',
+					'<div class="splw-pro-margin-top-10">',
+					'</div>'
+				),
 				'options'    => array(
-					'2' => __( 'OpenWeather Map', 'location-weather' ),
-					'3' => __( 'Windy Map', 'location-weather' ),
+					'2' => __( 'Weather Map', 'location-weather' ),
+					'3' => __( 'Radar Map', 'location-weather' ),
 				),
 				'default'    => '2',
-				'dependency' => array( 'weather-view', 'any', 'map,combined' ),
+				'dependency' => array( 'weather-view', 'any', 'map,combined,accordion,grid' ),
 			),
 			array(
 				'id'      => 'map-notice',
@@ -200,7 +299,6 @@ SPLW::createSection(
 				'type'    => 'notice',
 				/* translators: %1$s: anchor tag start, %2$s: first anchor tag end,%3$s: second anchor tag start, %4$s: second anchor tag end. */
 				'content' => sprintf( __( 'To create eye-catching %1$s Weather Layouts%2$s with %5$s Graph Charts%6$s and access to advanced customizations, %3$sUpgrade to Pro!%4$s', 'location-weather' ), '<a class="lw-open-live-demo" href="https://locationweather.io/#weather-showcase" target="_blank"><strong>', '</strong></a>', '<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>', '</strong></a>', '<a class="lw-open-live-demo" href="https://locationweather.io/demos/weather-graph-chart/" target="_blank"><strong>', '</strong></a>' ),
-				// 'dependency' => array( 'weather-view', 'any', 'map,combined', true ),
 			),
 		),
 	)

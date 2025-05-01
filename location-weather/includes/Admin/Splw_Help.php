@@ -461,12 +461,12 @@ class Splw_Help {
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
 								<li class='splw-body'>
-									<span class='splw-title'>Weather Layouts & Templates</span>
+									<span class='splw-title'>Weather Layouts & Templates (Vertical & Horizontal Card, Tabs, Table, Accordion, Grid, and more...)</span>
 									<span class='splw-free'><b>2</b></span>
 									<span class='splw-pro'><b>25+</b></span>
 								</li>
 								<li class='splw-body'>
-									<span class='splw-title'>Combined Weather (OpenWeather Map or Windy Map, Graph Chart,  Detailed Forecast) <i class='splw-new'>new</i><i class='splw-hot'>hot</i></span>
+									<span class='splw-title'>Combined Weather (Weather Map, Radar Map, Graph Chart,  Detailed Forecast, etc.) <i class='splw-new'>new</i><i class='splw-hot'>hot</i></span>
 									<span class='splw-free splw-close-icon'></span>
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
@@ -486,7 +486,7 @@ class Splw_Help {
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
 								<li class='splw-body'>
-									<span class='splw-title'>Windy Weather Map <i class='splw-new'>new</i></span>
+									<span class='splw-title'>Radar Map by Windy <i class='splw-new'>new</i></span>
 									<span class='splw-free splw-close-icon'></span>
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
@@ -561,9 +561,9 @@ class Splw_Help {
 									<span class='splw-pro splw-check-icon'></span>
 								</li>
 								<li class='splw-body'>
-									<span class='splw-title'>Additional Weather Forecast Data Icon Packs <i class='splw-new'>New</i></span>
-									<span class='splw-free splw-close-icon'></span>
-									<span class='splw-pro splw-check-icon'></span>
+									<span class='splw-title'>Current, Forecast, and Additional Data Icon Packs (Both Animated and Static) <i class='splw-new'>New</i></span>
+									<span class='splw-free'><b>3</b></span>
+									<span class='splw-pro'><b>13</b></span>
 								</li>
 								<li class='splw-body'>
 									<span class='splw-title'>Display Gradient Color, Weather Based Image, & Video Backgrounds</span>
@@ -594,7 +594,7 @@ class Splw_Help {
 						</div>
 						<div class="splw-upgrade-to-pro">
 							<h2 class='splw-section-title'>Upgrade To PRO & Enjoy Advanced Features!</h2>
-							<span class='splw-section-subtitle'>Already, <b>11000+</b> people are using Location Weather on their websites to create beautiful weather showcase, why won’t you!</span>
+							<span class='splw-section-subtitle'>Already, <b>16000+</b> people are using Location Weather on their websites to create beautiful weather showcase, why won’t you!</span>
 							<div class="splw-upgrade-to-pro-btn">
 								<div class="splw-action-btn">
 									<a target="_blank" href="https://locationweather.io/pricing/?ref=1" class='splw-big-btn'>Upgrade to Pro Now!</a>
@@ -761,8 +761,8 @@ class Splw_Help {
 							</a>
 							<a target="_blank" class="splw-our-plugin-list-box" href="https://shapedplugin.com/plugin/woocommerce-category-slider-pro/?ref=1">
 								<i class="splw-icon-button-arrow-icon"></i>
-								<img src="<?php echo esc_url( $plugin_icon['woo-category-slider-grid'] ); ?>" alt="Category Slider for WooCommerce">
-								<h4>Category Slider for WooCommerce</h4>
+								<img src="<?php echo esc_url( $plugin_icon['woo-category-slider-grid'] ); ?>" alt="WooCategory">
+								<h4>WooCategory</h4>
 								<p>Display by filtering the list of categories aesthetically and boosting sales.</p>
 							</a>
 							<a target="_blank" class="splw-our-plugin-list-box" href="https://wptabs.com/?ref=1">

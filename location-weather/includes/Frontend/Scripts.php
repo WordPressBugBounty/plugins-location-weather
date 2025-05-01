@@ -50,13 +50,15 @@ class Scripts {
 		 * This function is provided for demonstration purposes only.
 		 */
 		if ( $found_generator_id ) {
+			wp_enqueue_style( 'splw-fontello' );
 			wp_enqueue_style( 'splw-styles' );
 			wp_enqueue_style( 'splw-old-styles' );
 			/* Load dynamic style in the header based on found shortcode on the page. */
 			$dynamic_style = self::load_dynamic_style( $found_generator_id );
 			wp_add_inline_style( 'splw-styles', wp_strip_all_tags( $dynamic_style['dynamic_css'] ) );
+
+			$this->lw_scripts();
 		}
-		$this->lw_scripts();
 	}
 
 	/**

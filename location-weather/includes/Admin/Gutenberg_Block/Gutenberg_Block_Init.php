@@ -53,6 +53,7 @@ class Gutenberg_Block_Init {
 		/**
 		 * Register block editor css file enqueue for backend.
 		 */
+		wp_enqueue_style( 'splw-fontello' );
 		wp_enqueue_style( 'splw-styles' );
 		wp_enqueue_style( 'splw-old-styles' );
 	}

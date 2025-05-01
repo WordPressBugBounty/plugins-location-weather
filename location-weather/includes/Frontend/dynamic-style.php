@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $weather_additional_data_layout = isset( $splw_meta['weather-additional-data-layout'] ) ? $splw_meta['weather-additional-data-layout'] : '';
-$icon_color                     = isset( $splw_meta['lw-icon-color'] ) ? $splw_meta['lw-icon-color'] : '';
+$icon_color                     = isset( $splw_meta['lw-icon-color']['color'] ) ? $splw_meta['lw-icon-color']['color'] : '#fff';
 $background_type                = isset( $splw_meta['lw-background-type'] ) ? $splw_meta['lw-background-type'] : '';
 $bg_solid                       = isset( $splw_meta['lw-bg-solid'] ) ? $splw_meta['lw-bg-solid'] : '#F05800';
 
@@ -55,8 +55,8 @@ $custom_css .= "#splw-location-weather-{$splw_id} .splw-lite-wrapper{
 	border-radius: {$bg_border_radius};
 }";
 
-$custom_css .= '#splw-location-weather-' . $splw_id . ' .splw-lite-daily-weather-details .details-icon svg path,#splw-location-weather-' . $splw_id . ' .splw-lite-daily-weather-details .details-icon svg circle{
-	fill:' . $icon_color . ';
+$custom_css .= '#splw-location-weather-' . $splw_id . ' .splw-lite-daily-weather-details .details-icon i{
+	color:' . $icon_color . ';
 }';
 switch ( $background_type ) {
 	case 'solid':

@@ -13,15 +13,15 @@ SPLW::createSection(
 	'sp_location_weather_generator',
 	array(
 		'title'  => __( 'Display Settings', 'location-weather' ),
-		'icon'   => '<span><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="14px" width="14px" viewBox="0 0 174.239 174.239" style="enable-background:new 0 0 174.239 174.239;"xml:space="preserve"><g><g><path d="M174.239,174.239H96.945V96.945h77.294V174.239z M111.88,159.305h47.425V111.88H111.88V159.305z"/></g><g><path d="M77.294,174.239H0V96.945h77.294V174.239z M14.935,159.305H62.36V111.88H14.935V159.305z"/></g><g><path d="M174.239,77.294H96.945V0h77.294V77.294z M111.88,62.36h47.425V14.935H111.88V62.36z"/></g><g><path d="M77.294,77.294H0V0h77.294V77.294z M14.935,62.36H62.36V14.935H14.935V62.36z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></span>',
+		'icon'   => '<span><i class="splwp-icon-display-icon"></i></span>',
 		'fields' => array(
 			array(
 				'type'  => 'tabbed',
 				'class' => 'lw-display-tabs',
 				'tabs'  => array(
 					array(
-						'title'  => __( 'Basic Preferences', 'location-weather' ),
-						'icon'   => '<span><i class="splwp-icon-basic-preference"></i></span>',
+						'title'  => __( 'Regional Preferences', 'location-weather' ),
+						'icon'   => '<span><i class="splwp-icon-regional-weather"></i></span>',
 						'fields' => array(
 							array(
 								'id'         => 'lw-title',
@@ -267,7 +267,10 @@ SPLW::createSection(
 								'options'          => array(
 									'forecast_icon_set_one' => __( 'Animated', 'location-weather' ),
 									'forecast_icon_set_two'   => __( 'Static (No-animation) ', 'location-weather' ),
+									'forecast_icon_set_six' => __( 'Animated 2 (Line)', 'location-weather' ),
+									'forecast_icon_set_seven' => __( 'Animated 3', 'location-weather' ),
 									'forecast_icon_set_three' => __( 'Light (Line) ', 'location-weather' ),
+									'forecast_icon_set_eight' => __( 'Medium (Line) ', 'location-weather' ),
 									'forecast_icon_set_four'  => __( 'Fill ', 'location-weather' ),
 									'forecast_icon_set_five'  => __( 'Glassmorphism', 'location-weather' ),
 								),
@@ -615,9 +618,9 @@ SPLW::createSection(
 							array(
 								'id'         => 'lw-comport-data-position',
 								'type'       => 'checkbox',
-								'title'      => __( 'Comport Data Position', 'location-weather' ),
+								'title'      => __( 'Comport Data in List View', 'location-weather' ),
 								'default'    => false,
-								'title_info' => '<div class="lw-img-tag"><img src="' . SPLW::include_plugin_url( 'assets/images/comport-data-position.svg' ) . '" alt="comport-data-position"></div><div class="lw-info-label img">' . __( 'Comport Data Position', 'location-weather' ) . '</div>',
+								'title_info' => '<div class="lw-img-tag"><img src="' . SPLW::include_plugin_url( 'assets/images/comport-data-position.svg' ) . '" alt="comport-data-position"></div><div class="lw-info-label img">' . __( 'Comport Data in List View', 'location-weather' ) . '</div>',
 								'dependency' => array( 'weather-view|weather-additional-data-layout', '==|any', 'vertical|justified,left,center', true ),
 							),
 							array(
@@ -670,6 +673,8 @@ SPLW::createSection(
 									'icon_set_one'   => __( 'Regular', 'location-weather' ),
 									'icon_set_two'   => __( 'Fill', 'location-weather' ),
 									'icon_set_three' => __( 'Light', 'location-weather' ),
+									'icon_set_four'  => __( 'Light 2', 'location-weather' ),
+									'icon_set_five'  => __( 'Generic Mixed', 'location-weather' ),
 								),
 								'title_info' => sprintf(
 									'<div class="lw-info-label">%s</div><div class="lw-short-content">%s</div><div class="info-button"><a class="lw-open-docs" href="https://locationweather.io/docs/how-to-choose-weather-additional-data-icon/" target="_blank">%s</a></div>',
@@ -682,9 +687,14 @@ SPLW::createSection(
 							),
 							array(
 								'id'         => 'lw-icon-color',
-								'type'       => 'color',
+								'type'       => 'color_group',
 								'title'      => __( 'Icon Color', 'location-weather' ),
-								'default'    => '#fff',
+								'options'    => array(
+									'color' => __( 'Color', 'location-weather' ),
+								),
+								'default'    => array(
+									'color' => '#ffffff',
+								),
 								'dependency' => array( 'lw-weather-icons', '==', 'true', true ),
 							),
 							array(
@@ -1084,6 +1094,20 @@ SPLW::createSection(
 								'title'      => __( 'Hourly Forecast Title', 'location-weather' ),
 								'default'    => __( 'Hourly Forecast', 'location-weather' ),
 								'dependency' => array( 'lw-enable-forecast|lw-forecast-type', '==|!=', 'true|daily', true ),
+							),
+							array(
+								'id'         => 'lw-swap-forecast-display',
+								'type'       => 'checkbox',
+								'title'      => __( 'Swap Forecast Display', 'location-weather' ),
+								'class'      => 'lw-forecast-data-pro',
+								'default'    => false,
+								'only_pro'   => true,
+								'title_info' => sprintf(
+									'<div class="lw-info-label">%s</div>%s',
+									__( 'Swap Forecast Display', 'location-weather' ),
+									__( 'Swap the layout style between Hourly (Filters) and Daily (Dropdown). Useful for reversing their positions and display formats.', 'location-weather' )
+								),
+								'dependency' => array( 'weather-view', '==', 'grid', true ),
 							),
 							array(
 								'id'               => 'weather-forecast-icon-type',

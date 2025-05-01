@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather widget, live weather map, hourly forecast, daily forecast
 Requires at least: 4.7
 Tested up to: 6.8
-Stable tag: 2.0.17
+Stable tag: 2.0.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -414,6 +414,12 @@ The WordPress codex contains <a href="https://wordpress.org/documentation/articl
 
 
 == Changelog ==
+
+= 2.0.18 - May 01, 2025 =
+* Improved: The plugin backend option has been enhanced.
+* Improved: The Basic Preferences tab is renamed to Regional Preferences.
+* Updated: The language (.pot) file.
+* Fix: The warning is found when using a single value in the lat-long fields.
 
 = 2.0.17 - Apr 14, 2025 =
 * Fix: The translation-related warning was found with WP 6.8.

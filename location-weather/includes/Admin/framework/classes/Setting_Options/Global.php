@@ -35,7 +35,7 @@ SPLW::createSection(
 	$prefix,
 	array(
 		'title'  => 'API Settings',
-		'icon'   => '<span class="splwt-lite-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 16 16" fill="#444" ><path d="M12.5 0h-9C2.6 0 1.7.4 1 1c-.6.7-1 1.6-1 2.5v9c0 .9.4 1.8 1 2.5.7.7 1.5 1 2.5 1h9c.9 0 1.8-.4 2.5-1 .7-.7 1-1.5 1-2.5v-9c0-.6-.2-1.2-.5-1.8-.3-.5-.7-1-1.3-1.3-.5-.2-1.1-.4-1.7-.4h0zM14 12.5c0 .4-.2.8-.4 1.1-.3.3-.7.4-1.1.4h-9c-.4 0-.8-.2-1.1-.4-.2-.3-.4-.7-.4-1.1v-6h12v6zm0-8H2v-1c0-.4.2-.8.4-1.1.3-.2.7-.4 1.1-.4h9c.4 0 .8.2 1.1.4.2.3.4.7.4 1.1v1zm-9.3 7.8h6.5c.4 0 .7-.2.9-.5a.91.91 0 0 0 0-1c-.2-.3-.5-.5-.9-.5H4.7c-.4 0-.7.2-.9.5a.91.91 0 0 0 0 1c.2.3.6.5.9.5z"/></svg></span>',
+		'icon'   => '<i class="splwp-icon-api-sett splwt-lite-tab-icon"></i>',
 		'fields' => array(
 			array(
 				'id'    => 'open-api-key',
@@ -55,7 +55,7 @@ SPLW::createSection(
 	array(
 		'class'  => 'splw_advance_setting',
 		'title'  => __( 'Advanced Controls', 'location-weather' ),
-		'icon'   => '<i class="splwt-lite-tab-icon fa fa-wrench"></i>',
+		'icon'   => '<i class="splwt-lite-tab-icon splwp-icon-advanced"></i>',
 		'fields' => array(
 			array(
 				'id'         => 'splw_delete_on_remove',
@@ -90,13 +90,13 @@ SPLW::createSection(
 				'title'           => __( 'Cache Time', 'location-weather' ),
 				'type'            => 'spacing',
 				'units'           => array(
-					__( 'Min', 'location-weather' ),
+					__( 'Mins', 'location-weather' ),
 				),
 				'all'             => true,
 				'all_icon'        => '',
-				'all_placeholder' => 10,
+				'all_placeholder' => 15,
 				'default'         => array(
-					'all' => '10',
+					'all' => '15',
 				),
 				'dependency'      => array( 'splw_enable_cache', '==', 'true', true ),
 			),
@@ -121,7 +121,7 @@ SPLW::createSection(
 	array(
 		'id'     => 'custom_css_section',
 		'title'  => __( 'Additional CSS', 'location-weather' ),
-		'icon'   => '<i class="splwt-lite-tab-icon fa fa-file-code-o"></i>',
+		'icon'   => '<i class="splwt-lite-tab-icon splwp-icon-code"></i>',
 		'fields' => array(
 			array(
 				'id'       => 'splw_custom_css',

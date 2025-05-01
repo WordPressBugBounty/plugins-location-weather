@@ -27,8 +27,8 @@ SPLW::createSection(
 				'class' => 'lw-typography-tabs',
 				'tabs'  => array(
 					array(
-						'title'  => __( 'Basic Preferences', 'location-weather' ),
-						'icon'   => '<span><i class="splwp-icon-basic-preference"></i></span>',
+						'title'  => __( 'Regional Preferences', 'location-weather' ),
+						'icon'   => '<span><i class="splwp-icon-regional-weather"></i></span>',
 						'fields' => array(
 							array(
 								'id'         => 'lw-weather-title-font-load',

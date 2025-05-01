@@ -944,6 +944,40 @@
 	};
 
 	//
+	// Field: slider
+	//
+	$.fn.splwt_field_slider = function () {
+		return this.each(function () {
+
+			var $this = $(this),
+				$input = $this.find('input'),
+				$slider = $this.find('.splwt-lite-slider-ui'),
+				data = $input.data(),
+				value = $input.val() || 0;
+
+			if ($slider.hasClass('ui-slider')) {
+				$slider.empty();
+			}
+
+			$slider.slider({
+				range: 'min',
+				value: value,
+				min: data.min || 0,
+				max: data.max || 100,
+				step: data.step || 1,
+				slide: function (e, o) {
+					$input.val(o.value).trigger('change');
+				}
+			});
+
+			$input.on('keyup', function () {
+				$slider.slider('value', $input.val());
+			});
+
+		});
+	};
+
+	//
 	// Field: tabbed
 	//
 	$.fn.splwt_field_tabbed = function () {
@@ -1257,6 +1291,7 @@
 				$this.children('.splwt-lite-field-code_editor').splwt_field_code_editor();
 				$this.children('.splwt-lite-field-spinner').splwt_field_spinner();
 				$this.children('.splwt-lite-field-switcher').splwt_field_switcher();
+				$this.children('.splwt-lite-field-slider').splwt_field_slider();
 
 				// Field colors
 				$this
@@ -1339,6 +1374,13 @@
 			'.splwt-lite--button:nth-of-type(3)',
 			'.splwt-lite--button:nth-of-type(4)'
 		];
+		var selectorsToDisableMap = [
+			'.splwt-lite--button:nth-of-type(1)',
+			'.splwt-lite--button:nth-of-type(2)',
+		];
+		selectorsToDisableMap.forEach(function (selector) {
+			$('.lw_display_button_set').find(selector).attr('disabled', 'disabled').addClass('splw_pro_only');
+		});
 
 		// Loop through each selector and apply the actions
 		selectorsToDisable.forEach(function (selector) {
@@ -1358,6 +1400,7 @@
 			$('.splw_precipitation_unit').find('select option[value="' + value + '"]').attr('disabled', 'disabled').addClass('splw_pro_only');
 			$('.splw_wind_speed_unit').find('select option[value="' + value + '"]').attr('disabled', 'disabled').addClass('splw_pro_only');
 			$('.splw_background_type').find('select option[value="' + value + '"]').attr('disabled', 'disabled').addClass('splw_pro_only');
+			$('.lw_display_button_set').find('select option[value="' + value + '"]').attr('disabled', 'disabled').addClass('splw_pro_only');
 		});
 
 		// Disable all options in select elements
@@ -1445,7 +1488,8 @@
 		// Template configurations object for the all templates.
 		const templateConfigurations = {
 			'template-one': {
-				'lw-city-name-typo': { 'font-size': 27, 'line-height': 38, 'text-align': 'center', 'margin-top': 0, 'margin-bottom': 4, 'color': '#fff' },
+				'lw-city-name-typo': { 'font-size': 27, 'line-height': 38, 'text-align': 'center', 'color': '#fff' },
+				'lw-city-name-margin': { 'top': 0, 'bottom': 4 },
 				'lw-date-time-typo': { 'font-size': 14, 'line-height': 16, 'text-align': 'center', 'margin-top': 0, 'margin-bottom': 10, 'color': '#fff' },
 				'lw-temp-scale-typo': { 'font-size': 48, 'line-height': 56, 'text-align': 'center', 'margin-top': 0, 'margin-bottom': 0, 'color': '#fff' },
 				'lw-min-max-temp-typo': { 'font-size': 16, 'line-height': 20, 'text-align': 'center', 'margin-top': 10, 'margin-bottom': 0, 'color': '#fff' },
@@ -1455,7 +1499,8 @@
 				'lw_max_width': { 'all': 320 }
 			},
 			'horizontal-one': {
-				'lw-city-name-typo': { 'font-size': 14, 'line-height': 20, 'text-align': 'left', 'margin-top': 0, 'margin-bottom': 10, 'color': '#fff' },
+				'lw-city-name-typo': { 'font-size': 14, 'line-height': 20, 'text-align': 'left','color': '#fff' },
+				'lw-city-name-margin': { 'top': 0, 'bottom': 10 },
 				'lw-date-time-typo': { 'font-size': 14, 'line-height': 16, 'text-align': 'right', 'margin-top': 0, 'margin-bottom': 10, 'color': '#fff' },
 				'lw-temp-scale-typo': { 'font-size': 48, 'line-height': 56, 'text-align': 'left', 'margin-top': 0, 'margin-bottom': 0, 'color': '#fff' },
 				'lw-min-max-temp-typo': { 'font-size': 16, 'line-height': 20, 'text-align': 'right', 'margin-bottom': 6, 'margin-top': 0, 'color': '#fff' },
@@ -1488,8 +1533,18 @@
 			if (weather_view === 'horizontal') {
 				selectedTemplate = $('.weather-horizontal-template .splwt-lite--active input').val();
 			}
+			if (weather_view === 'map' || weather_view === 'combined' || weather_view === 'accordion' || weather_view === 'grid') {
+				$('.splwt-lite-nav .sp_location_weather_generator_3').show();
+			} else {
+				if ($('.splwt-lite-nav .sp_location_weather_generator_3').hasClass('splwt-lite-active')) {
+					$('.splwt-lite-nav .sp_location_weather_generator_1').trigger('click');
+				}
+				$('.splwt-lite-nav .sp_location_weather_generator_3').hide();
+			}
 			return selectedTemplate;
 		}
+		var weather_view = $('.weather_view .splwt-lite--active input').val();
+		var selectedTemplate = getSelectedTemplate(weather_view);
 		// Function to handle weather view click events
 		function handleWeatherViewClick() {
 			var weather_view = $(this).find('input').val();
@@ -1709,5 +1764,10 @@
 		event.stopPropagation();
 		// Add any additional code here if needed
 	});
+
+
+	/* Preloader js */
+	$("#sp_location_weather_generator .splwt-lite-metabox, #sp_location_weather_layout .splwt-lite-metabox").css({ "backgroundImage": "none", "visibility": "visible", "minHeight": "auto" });
+	$("#sp_location_weather_generator .splwt-lite-nav-metabox li").css("opacity", 1);
 
 })(jQuery, window, document);

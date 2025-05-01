@@ -94,6 +94,30 @@ SPLW::createSection(
 	)
 );
 
+SPLW::createMetabox(
+	'sp_lw_pro_notice',
+	array(
+		'title'            => __( 'Unlock Pro Feature', 'location-weather' ),
+		'post_type'        => 'location_weather',
+		'context'          => 'side',
+		'show_restore'     => false,
+		'sp_lcp_shortcode' => false,
+	)
+);
+
+SPLW::createSection(
+	'sp_lw_pro_notice',
+	array(
+		'fields' => array(
+			array(
+				'type'      => 'shortcode',
+				'shortcode' => 'pro_notice',
+				'class'     => 'sp_tpro-admin-sidebar',
+			),
+		),
+	)
+);
+
 /**
  * Create metabox.
  */
@@ -114,123 +138,9 @@ SPLW::createSection(
 	$splw_opts_prefix,
 	array(
 		'title'  => __( 'Weather Settings', 'location-weather' ),
-		'icon'   => '<span><svg height="14px" width="14px"  fill="#000000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve"><g><path d="M46.5,18.0599995c0.0999985-0.5100002,0.1500015-1.039999,0.1500015-1.5599995c0-4.4099998-3.5900002-8-8-8   C37.9500008,8.5,37.25,8.5900002,36.5800018,8.7799997C34.7700005,4.9899998,30.8899994,2.5,26.6499996,2.5   c-5.0599995,0-9.3199997,3.3499999-10.6000004,8.0699997C15.0600004,9.8800001,13.8800001,9.5,12.6499996,9.5   c-3.3099995,0-5.9999995,2.6899996-5.9999995,6c0,0.7199993,0.1300001,1.4200001,0.3800001,2.0799999   C4.1799998,18.0400009,2,20.5200005,2,23.5c0,3.3099995,2.6999998,6,6,6h4.9583998   c0.1851006-0.5034924,0.3908005-0.9996929,0.6342001-1.4799995l-2.3647995-3.3110008l5.2031994-5.2030926l3.3105011,2.3647003   c0.6190987-0.3134995,1.2582989-0.5790997,1.914999-0.7953987l0.6685009-4.0107002h7.3583984l0.6685009,4.0107002   c0.6567001,0.2162991,1.2959003,0.4818993,1.9144955,0.7953987l3.3110008-2.3647003l5.2032013,5.2030926l-2.3647995,3.3110008   c0.2434006,0.4803066,0.4487991,0.9763069,0.6338005,1.4799995H44c3.3100014,0,6-2.6900005,6-6   C50,21.1399994,48.5999985,19.0300007,46.5,18.0599995z"></path><path d="M36.0455971,27.8969078l2.1225014-2.9715004l-2.8070984-2.8071003l-2.9715042,2.1225014   c-1.1490955-0.7322998-2.4287968-1.274601-3.8008957-1.5785999l-0.5997009-3.5976009h-3.9696999l-0.599699,3.5976009   c-1.3719997,0.3039989-2.6518002,0.8463001-3.8008995,1.5785999l-2.9715004-2.1225014l-2.8071003,2.8071003l2.1224995,2.9715004   c-0.7322998,1.1490917-1.2746,2.4288006-1.5784998,3.8008995l-3.5976,0.5996017v3.969799l3.5976,0.5997009   c0.3038998,1.3720894,0.8462,2.6517982,1.5784998,3.8008995l-2.1224995,2.9715004l2.8071003,2.8070984l2.9715004-2.1225014   c1.1490993,0.7322998,2.4288998,1.2745018,3.8008995,1.5786018L24.0191994,49.5h3.9696999l0.5997009-3.5974922   c1.3720989-0.3041,2.6518002-0.846302,3.8008957-1.5786018l2.9715042,2.1225014l2.8070984-2.8070984l-2.1225014-2.9715004   c0.7322998-1.1491013,1.274601-2.4288101,1.5784988-3.8008995l3.5976028-0.5997009v-3.969799l-3.5976028-0.5996017   C37.3201981,30.3257084,36.7778969,29.0459995,36.0455971,27.8969078z M26.0041008,40.2283058   c-3.2839012,0-5.9460011-2.6620979-5.9460011-5.9459991c0-3.2837982,2.6620998-5.9458981,5.9460011-5.9458981   c3.2838001,0,5.9459,2.6620998,5.9459,5.9458981C31.9500008,37.5662079,29.2879009,40.2283058,26.0041008,40.2283058z"></path></g></svg></span>',
+		'icon'   => '<span><i class="splwp-icon-weather-settings"></i></span>',
 		'class'  => 'splw-weather-settings-meta-box',
 		'fields' => array(
-			// array(
-			// 'id'      => 'weather-view',
-			// 'type'    => 'image_select',
-			// 'class'   => 'weather_view splw-first-fields',
-			// 'title'   => __( 'Weather Layout', 'location-weather' ),
-			// 'options' => array(
-			// 'vertical'   => array(
-			// 'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/vertical.svg' ),
-			// 'name'            => __( 'Vertical Card', 'location-weather' ),
-			// 'option_demo_url' => 'https://locationweather.io/demos/vertical-card/',
-			// ),
-			// 'horizontal' => array(
-			// 'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/horizontal.svg' ),
-			// 'name'            => __( 'Horizontal', 'location-weather' ),
-			// 'option_demo_url' => 'https://locationweather.io/demos/horizontal/',
-			// ),
-			// 'tabs'       => array(
-			// 'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/tabs.svg' ),
-			// 'name'            => __( 'Tabs', 'location-weather' ),
-			// 'option_demo_url' => 'https://locationweather.io/demos/tabs/',
-			// 'pro_only'        => true,
-			// ),
-			// 'table'      => array(
-			// 'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/table.svg' ),
-			// 'name'            => __( 'Table', 'location-weather' ),
-			// 'option_demo_url' => 'https://locationweather.io/demos/table/',
-			// 'pro_only'        => true,
-			// ),
-			// 'map'        => array(
-			// 'image'           => SPLW::include_plugin_url( 'assets/images/weather-view/maps.svg' ),
-			// 'name'            => __( 'Map', 'location-weather' ),
-			// 'option_demo_url' => 'https://locationweather.io/demos/weather-map/',
-			// 'pro_only'        => true,
-			// ),
-			// ),
-			// 'default' => 'vertical',
-			// ),
-			// array(
-			// 'id'         => 'weather-template',
-			// 'type'       => 'image_select',
-			// 'class'      => 'weather-template',
-			// 'title'      => __( 'Templates', 'location-weather' ),
-			// 'options'    => array(
-			// 'template-one'   => array(
-			// 'image' => SPLW::include_plugin_url( 'assets/images/vertical-layout/template-one.svg' ),
-			// 'name'  => __( 'Template One', 'location-weather' ),
-			// ),
-			// 'template-two'   => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/vertical-layout/template-two.svg' ),
-			// 'name'     => __( 'Template Two', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// 'template-three' => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/vertical-layout/template-three.svg' ),
-			// 'name'     => __( 'Template Three', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// 'template-four'  => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/vertical-layout/template-four.svg' ),
-			// 'name'     => __( 'Template Four', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// 'template-five'  => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/vertical-layout/template-five.svg' ),
-			// 'name'     => __( 'Template Five', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// 'template-six'   => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/vertical-layout/template-six.svg' ),
-			// 'name'     => __( 'Template Six', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// ),
-			// * translators: %1$s: anchor tag start, %2$s: first anchor tag end,%3$s: second anchor tag start, %4$s: second anchor tag end. */
-			// 'desc'       => sprintf( __( 'To create eye-catching %1$sWeather Layouts%2$s and access advanced customizations, %3$sUpgrade to Pro!%4$s', 'location-weather' ), '<a class="lw-open-live-demo" href="https://locationweather.io/demos/vertical-card/" target="_blank">', '</a>', '<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>', '</strong></a>' ),
-			// 'default'    => 'template-one',
-			// 'dependency' => array( 'weather-view', '==', 'vertical' ),
-			// ),
-			// array(
-			// 'id'         => 'weather-horizontal-template',
-			// 'type'       => 'image_select',
-			// 'class'      => 'weather-horizontal-template',
-			// 'title'      => __( 'Templates', 'location-weather' ),
-			// 'options'    => array(
-			// 'horizontal-one'   => array(
-			// 'image' => SPLW::include_plugin_url( 'assets/images/horizontal-layout/template-one.svg' ),
-			// 'name'  => __( 'Template One', 'location-weather' ),
-			// ),
-			// 'horizontal-two'   => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/horizontal-layout/template-two.svg' ),
-			// 'name'     => __( 'Template Two', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// 'horizontal-three' => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/horizontal-layout/template-three.svg' ),
-			// 'name'     => __( 'Template Three', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// 'horizontal-four'  => array(
-			// 'image'    => SPLW::include_plugin_url( 'assets/images/horizontal-layout/template-four.svg' ),
-			// 'name'     => __( 'Template Four', 'location-weather' ),
-			// 'pro_only' => true,
-			// ),
-			// ),
-			// 'default'    => 'horizontal-one',
-			// * translators: %1$s: anchor tag start, %2$s: first anchor tag end,%3$s: second anchor tag start, %4$s: second anchor tag end. */
-			// 'desc'       => sprintf( __( 'To create eye-catching %1$sWeather Layouts%2$s and access advanced customizations, %3$sUpgrade to Pro!%4$s', 'location-weather' ), '<a class="lw-open-live-demo" href="https://locationweather.io/demos/horizontal/" target="_blank">', '</a>', '<a class="lw-open-live-demo" href="https://locationweather.io/pricing/?ref=1" target="_blank"><strong>', '</strong></a>' ),
-			// 'dependency' => array( 'weather-view', '==', 'horizontal' ),
-			// ),
-			// array(
-			// 'id'    => 'lw-get-weather-data-by-heading',
-			// 'type'  => 'subheading',
-			// 'title' => __( 'Get Weather Data By', 'location-weather' ),
-			// ),
 			array(
 				'id'         => 'get-weather-by',
 				'type'       => 'button_set',

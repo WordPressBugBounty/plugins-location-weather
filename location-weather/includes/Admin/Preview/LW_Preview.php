@@ -61,7 +61,7 @@ class LW_Preview {
 		$title                       = $setting['post_title'];
 		$splw_option                 = get_option( 'location_weather_settings', true );
 		$layouts                     = get_post_meta( $post_id, 'sp_location_weather_layout', true );
-		$layout_meta['weather-view'] = isset( $layout_meta['weather-view'] ) && in_array( $layout_meta['weather-view'], array( 'vertical', 'horizontal' ), true ) ? $layout_meta['weather-view'] : $layouts['weather-view'];
+		$layout_meta['weather-view'] = isset( $layout_meta['weather-view'] ) && in_array( $layout_meta['weather-view'], array( 'vertical', 'horizontal' ), true ) ? $layout_meta['weather-view'] : 'vertical';
 		/* Load dynamic style in the header based on found shortcode on the page. */
 		$dynamic_style = Scripts::load_dynamic_style( $post_id, $splw_meta );
 		echo '<style>';
