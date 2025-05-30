@@ -71,6 +71,12 @@ class Scripts {
 		 * This function is provided for demonstration purposes only.
 		 */
 		wp_enqueue_script( 'splw-scripts' );
+
+		$setting_options = get_option( 'location_weather_settings', true );
+		$splw_custom_js  = isset( $setting_options['splw_custom_js'] ) ? html_entity_decode( $setting_options['splw_custom_js'] ) : '';
+		if ( ! empty( $splw_custom_js ) ) {
+			wp_add_inline_script( 'splw-scripts', $splw_custom_js );
+		}
 	}
 
 	/**

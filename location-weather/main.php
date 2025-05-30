@@ -13,7 +13,7 @@
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           2.0.18
+ * Version:           2.1.0
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * License:           GPL v2 or later
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'LOCATION_WEATHER_FILE', __FILE__ );
 define( 'LOCATION_WEATHER_URL', plugins_url( '', LOCATION_WEATHER_FILE ) );
 define( 'LOCATION_WEATHER_ASSETS', LOCATION_WEATHER_URL . '/assets' );
-define( 'LOCATION_WEATHER_VERSION', '2.0.18' );
+define( 'LOCATION_WEATHER_VERSION', '2.1.0' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'location-weather-pro/main.php' ) || is_plugin_active_for_network( 'location-weather-pro/main.php' ) ) ) {
@@ -55,7 +55,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.18';
+	public $version = '2.1.0';
 
 	/**
 	 * The unique slug of this plugin.
@@ -350,8 +350,10 @@ final class Location_Weather {
 		}
 
 		if ( 'location_weather' === $post->post_type ) {
-			$current_cache_key = 'sp_open_weather_data' . $post_ID;
+			$current_cache_key     = 'sp_open_weather_data' . $post_ID;
+			$weather_api_cache_key = 'sp_weather_api_data_' . $post_ID;
 			$this->splw_delete_transient( $current_cache_key );
+			$this->splw_delete_transient( $weather_api_cache_key );
 		}
 	}
 	/**
@@ -377,12 +379,13 @@ final class Location_Weather {
 		}
 		// Check if the WordPress installation is multisite and get the plugin settings accordingly.
 		$plugin_settings = get_option( 'location_weather_settings' );
-
+		$open_api_key    = $plugin_settings['open-api-key'] ?? '';
+		$weather_api_key = $plugin_settings['weather-api-key'] ?? '';
 		// Check if the Location Weather plugin is active and the OpenWeatherMap API key is empty.
-		if ( is_plugin_active( 'location-weather/main.php' ) && empty( $plugin_settings['open-api-key'] ) ) {
+		if ( is_plugin_active( 'location-weather-pro/main.php' ) && empty( $open_api_key ) && empty( $weather_api_key ) ) {
 			?>
 				<div class="error notice location-api-notice">
-					<p><strong><?php esc_html_e( 'Location Weather', 'location-weather' ); ?>: </strong> Please set your own <a href = "<?php echo esc_url( admin_url( 'edit.php?post_type=location_weather&page=lw-settings' ) ); ?>" > <?php esc_html_e( 'OpenWeatherMap API key', 'location-weather' ); ?></a> <?php esc_html_e( 'to show the weather report smoothly.', 'location-weather' ); ?></p>
+					<p><strong><?php esc_html_e( 'Location Weather', 'location-weather' ); ?>: </strong> Please set your own <a href = "<?php echo esc_url( admin_url( 'edit.php?post_type=location_weather&page=lw-settings' ) ); ?>" > <?php esc_html_e( 'Weather API key', 'location-weather' ); ?></a> <?php esc_html_e( 'to show the weather data smoothly.', 'location-weather' ); ?></p>
 				</div>
 			<?php
 		}

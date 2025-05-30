@@ -47,6 +47,7 @@ class Admin {
 		$new_columns['cb']        = '<input type="checkbox" />';
 		$new_columns['title']     = __( 'Title', 'location-weather' );
 		$new_columns['shortcode'] = __( 'Shortcode', 'location-weather' );
+		$new_columns['layout']    = __( 'Layout', 'location-weather' );
 		$new_columns['date']      = __( 'Date', 'location-weather' );
 
 		return $new_columns;
@@ -60,11 +61,16 @@ class Admin {
 	 * @return void
 	 */
 	public function add_lw_shortcode_form( $column, $post_id ) {
+		$upload_data = get_post_meta( $post_id, 'sp_location_weather_layout', true );
+		$layout      = isset( $upload_data['weather-view'] ) ? $upload_data['weather-view'] : '';
 
 		switch ( $column ) {
 
 			case 'shortcode':
 				echo '<div class="splw-after-copy-text"><i class="fa fa-check-circle"></i>  Shortcode  Copied to Clipboard! </div><input class="splw__shortcode" style="width:205px;padding:6px;text-align:left;padding-left:15px;cursor:pointer;" type="text" onClick="this.select();" readonly="readonly" value="[location-weather id=&quot;' . esc_attr( $post_id ) . '&quot;]"/>';
+				break;
+			case 'layout':
+				echo ucwords( str_replace( '-', ' ', $layout ) ); //phpcs:ignore
 				break;
 			default:
 				break;

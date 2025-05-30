@@ -7,7 +7,9 @@
  * @package Location_Weather
  */
 
-$lw_openweather_map_link = isset( $splw_meta['lw-openweather-links'] ) ? $splw_meta['lw-openweather-links'] : false;
+$lw_openweather_map_link = $splw_meta['lw-openweather-links'] ?? false;
+$url                     = 'weather_api' === $api_source ? 'https://www.weatherapi.com/weather/' : 'https://openweathermap.org/';
+$details_url             = 'weather_api' === $api_source ? 'https://www.weatherapi.com/weather/q/' . sanitize_title( $weather_data['city'] ) : 'https://openweathermap.org/city/' . $weather_data['city_id'];
 ?>
 <!-- weather detailed and updated html area start -->
 <?php if ( $show_weather_detailed || $show_weather_updated_time || $show_weather_attr ) : ?>
@@ -16,7 +18,7 @@ $lw_openweather_map_link = isset( $splw_meta['lw-openweather-links'] ) ? $splw_m
 	<div class="splw-weather-detailed-updated-time">
 		<?php if ( $show_weather_detailed ) : ?>
 		<div class='splw-weather-detailed'>
-			<a href="https://openweathermap.org/city/<?php echo esc_attr( $weather_data['city_id'] ); ?>" target="_blank">
+			<a href="<?php echo esc_url( $details_url ); ?>" target="_blank">
 				<?php echo esc_html( __( 'Detailed weather', 'location-weather' ) ); ?>
 			</a>
 		</div>
@@ -30,12 +32,16 @@ $lw_openweather_map_link = isset( $splw_meta['lw-openweather-links'] ) ? $splw_m
 	</div>
 <?php endif; ?><!-- weather detailed and updated html area end -->
 <!-- weather attribute html area start -->
-	<?php if ( $show_weather_attr && $open_api_key ) : ?>
+	<?php if ( $show_weather_attr && $appid ) : ?>
 	<div class="splw-weather-attribution">
 		<?php if ( $lw_openweather_map_link ) : ?>
-		<a href="https://openweathermap.org/" target="_blank">
+		<a href="<?php echo esc_url( $url ); ?>" target="_blank">
 			<?php endif ?>
-			<?php echo esc_html( __( 'Weather from OpenWeatherMap', 'location-weather' ) ); ?>
+			<?php
+			$source = 'weather_api' === $api_source ? __( 'WeatherAPI', 'location-weather' ) : __( 'OpenWeatherMap', 'location-weather' );
+			/* translators: %s: property modify source. */
+			printf( esc_html__( 'Weather from %s', 'location-weather' ), esc_html( $source ) );
+			?>
 		<?php if ( $lw_openweather_map_link ) : ?>
 		</a>
 		<?php endif ?>

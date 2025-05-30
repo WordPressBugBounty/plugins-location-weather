@@ -8,28 +8,12 @@
 namespace ShapedPlugin\Weather\Frontend;
 
 use ShapedPlugin\Weather\Frontend\Scripts;
-use ShapedPlugin\Weather\Frontend\WeatherData\CurrentWeather;
-use ShapedPlugin\Weather\Frontend\WeatherData\Exception as LWException;
+use ShapedPlugin\Weather\Frontend\Manage_API;
 
 /**
  * Shortcode handler class.
  */
 class Shortcode {
-
-	/**
-	 * The basic api URL.
-	 *
-	 * @var string The basic api url to fetch weather data from.
-	 */
-	private static $weather_url = 'https://api.openweathermap.org/data/2.5/weather?';
-
-	/**
-	 * The api key.
-	 *
-	 * @var string
-	 */
-	private static $api_key = '';
-
 	/**
 	 * Class constructor.
 	 */
@@ -47,28 +31,40 @@ class Shortcode {
 	 */
 	public static function splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta ) {
 		// Weather option meta area.
-		$open_api_key = isset( $splw_option['open-api-key'] ) ? $splw_option['open-api-key'] : '';
-		$appid        = ! empty( $open_api_key ) ? $open_api_key : '';
-		// Set default API key if not found any API.
-		if ( ! $appid ) {
-			$default_api_calls = (int) get_option( 'splw_default_call', 0 );
-			if ( $default_api_calls < 20 ) {
-				$appid          = 'e930dd32085dea457d1d66d01cd89f50';
-				$transient_name = 'sp_open_weather_data' . $shortcode_id;
-				$weather_data   = self::splw_get_transient( $transient_name );
-				if ( false === $weather_data ) {
-					++$default_api_calls;
-					update_option( 'splw_default_call', $default_api_calls );
+		$api_source = $splw_option['lw_api_source_type'] ?? 'openweather_api';
+
+		// Get the weather data.
+		if ( 'openweather_api' === $api_source ) {
+			$open_api_key = $splw_option['open-api-key'] ?? '';
+			$appid        = ! empty( $open_api_key ) ? $open_api_key : '';
+			// Set default API key if not found any API.
+			if ( ! $appid ) {
+				$default_api_calls = (int) get_option( 'splw_default_call', 0 );
+				if ( $default_api_calls < 20 ) {
+					$appid          = 'e930dd32085dea457d1d66d01cd89f50';
+					$transient_name = 'sp_open_weather_data' . $shortcode_id;
+					$weather_data   = Manage_API::splw_get_transient( $transient_name );
+					if ( false === $weather_data ) {
+						++$default_api_calls;
+						update_option( 'splw_default_call', $default_api_calls );
+					}
 				}
 			}
+		} else {
+			// WeatherAPI API key.
+			$weather_api_key = $splw_option['weather-api-key'] ?? '';
+			$appid           = $weather_api_key;
 		}
+
+		// Check if the API key is empty.
+		// If the API key is empty, show a warning message.
 		if ( ! $appid ) {
-			$weather_output = sprintf( '<div id="splw-location-weather-%1$s" class="splw-main-wrapper"><div class="splw-weather-title">%2$s</div><div class="splw-lite-wrapper"><div class="splw-warning">%3$s</div> <div class="splw-weather-attribution"><a href = "https://openweathermap.org/" target="_blank">' . __( 'Weather from OpenWeatherMap', 'location-weather' ) . '</a></div></div></div>', esc_attr( $shortcode_id ), esc_html( get_the_title( $shortcode_id ) ), 'Please enter your OpenWeatherMap <a href="' . admin_url( 'edit.php?post_type=location_weather&page=lw-settings#tab=api-settings' ) . '" target="_blank">API key.</a>' );
+			$weather_output = sprintf( '<div id="splw-location-weather-%1$s" class="splw-main-wrapper"><div class="splw-weather-title">%2$s</div><div class="splw-lite-wrapper"><div class="splw-warning">%3$s</div> <div class="splw-weather-attribution"><a href = "https://openweathermap.org/" target="_blank">' . __( 'Weather from OpenWeatherMap', 'location-weather' ) . '</a></div></div></div>', esc_attr( $shortcode_id ), esc_html( get_the_title( $shortcode_id ) ), 'Please enter your OpenWeatherMap <a href="' . admin_url( 'edit.php?post_type=location_weather&page=lw-settings#tab=weather-api-key' ) . '" target="_blank">API key.</a>' );
 			echo $weather_output; // phpcs:ignore
 			return;
 		}
 		$layout                        = isset( $layout_meta['weather-view'] ) && ! wp_is_mobile() ? $layout_meta['weather-view'] : 'vertical';
-		$active_additional_data_layout = isset( $splw_meta['weather-additional-data-layout'] ) ? $splw_meta['weather-additional-data-layout'] : 'center';
+		$active_additional_data_layout = $splw_meta['weather-additional-data-layout'] ?? 'center';
 		$show_comport_data_position    = isset( $splw_meta['lw-comport-data-position'] ) ? $splw_meta['lw-comport-data-position'] : false;
 
 		// Weather setup meta area .
@@ -157,7 +153,15 @@ class Shortcode {
 				break;
 		}
 
-		$data = self::get_weather( $query, $weather_units, $lw_language, $appid, $shortcode_id );
+		if ( 'openweather_api' === $api_source ) {
+			$data       = Manage_API::get_weather( $query, $weather_units, $lw_language, $appid, $shortcode_id );
+			$is_daytime = 'none';
+		} else {
+			$api_query        = is_array( $query ) ? implode( ',', $query ) : $query;
+			$weather_api_data = Manage_API::weather_api_data( $api_query, $weather_units, $lw_language, $appid, $shortcode_id );
+			$data             = $weather_api_data['current_weather'];
+			$is_daytime       = $weather_api_data['is_daytime'];
+		}
 
 		if ( is_array( $data ) && isset( $data['code'] ) && ( 401 === $data['code'] || 404 === $data['code'] ) ) {
 			$weather_output = sprintf( '<div id="splw-location-weather-%1$s" class="splw-main-wrapper"><div class="splw-weather-title">%2$s</div><div class="splw-lite-wrapper"><div class="splw-warning">%3$s</div> <div class="splw-weather-attribution"><a href = "https://openweathermap.org/" target="_blank">' . __( 'Weather from OpenWeatherMap', 'location-weather' ) . '</a></div></div></div>', esc_attr( $shortcode_id ), esc_html( get_the_title( $shortcode_id ) ), $data['message'] );
@@ -166,7 +170,7 @@ class Shortcode {
 			return;
 		}
 
-		$weather_data = self::current_weather_data( $data, $time_format, $temperature_scale, $wind_speed_unit, $weather_units, $pressure_unit, $visibility_unit, $lw_client_date_format, $utc_timezone );
+		$weather_data = self::current_weather_data( $data, $time_format, $temperature_scale, $wind_speed_unit, $weather_units, $pressure_unit, $visibility_unit, $lw_client_date_format, $utc_timezone, $api_source );
 		ob_start();
 		include self::lw_locate_template( 'main-template.php' );
 		$weather_output = ob_get_clean();
@@ -221,29 +225,31 @@ class Shortcode {
 	 * @param string   $visibility_unit   The unit for visibility (e.g., 'km' or 'mi').
 	 * @param string   $lw_client_date_format The date format for the client's timezone.
 	 * @param int|null $utc_timezone      The UTC timezone offset.
+	 * @param string   $api_source      The API source.
 	 *
 	 * @return array|null An array containing formatted weather data or null if the input data is not an object.
 	 */
-	public static function current_weather_data( $data, $time_format, $temperature_scale, $wind_speed_unit, $weather_units, $pressure_unit, $visibility_unit, $lw_client_date_format, $utc_timezone = null ) {
+	public static function current_weather_data( $data, $time_format, $temperature_scale, $wind_speed_unit, $weather_units, $pressure_unit, $visibility_unit, $lw_client_date_format, $utc_timezone = null, $api_source = 'openweather_api' ) {
 		if ( ! is_object( $data->city ) ) {
 			return;
 		}
-		$scale       = self::temperature_scale( $temperature_scale, $weather_units );
-		$temp        = '<span class="current-temperature">' . round( $data->temperature->now->value ) . '</span>' . $scale;
-		$sunrise     = $data->sun->rise;
-		$sunset      = $data->sun->set;
-		$last_update = $data->last_update;
-		$timezone    = $utc_timezone && ! empty( $utc_timezone ) || '' !== $utc_timezone ? (int) $utc_timezone : (int) $data->timezone;
-		$wind        = self::get_wind_speed( $weather_units, $wind_speed_unit, $data, false );
-		$gust        = self::get_wind_speed( $weather_units, $wind_speed_unit, $data, true );
-		$now         = new \DateTime();
+		$scale         = self::temperature_scale( $temperature_scale, $weather_units );
+		$temp          = '<span class="current-temperature">' . round( $data->temperature->now->value ) . '</span>' . $scale;
+		$sunrise       = $data->sun->rise;
+		$sunset        = $data->sun->set;
+		$last_update   = $data->last_update;
+		$timezone      = $utc_timezone && ! empty( $utc_timezone ) || '' !== $utc_timezone ? (int) $utc_timezone : (int) $data->timezone;
+		$api_time_zone = 'openweather_api' !== $api_source ? null : $timezone;
+		$wind          = self::get_wind_speed( $weather_units, $wind_speed_unit, $data, false );
+		$gust          = self::get_wind_speed( $weather_units, $wind_speed_unit, $data, true );
+		$now           = new \DateTime();
 
 		// Check date and time format.
 		if ( $time_format && null !== $last_update ) {
 			$time         = date_i18n( $time_format, strtotime( $now->format( 'Y-m-d g:i:sa' ) ) + $timezone );
 			$date         = date_i18n( $lw_client_date_format, strtotime( $now->format( 'Y-m-d g:i:sa' ) ) + $timezone );
-			$sunrise_time = gmdate( $time_format, strtotime( $sunrise->format( 'Y-m-d g:i:sa' ) ) + $timezone );
-			$sunset_time  = gmdate( $time_format, strtotime( $sunset->format( 'Y-m-d g:i:sa' ) ) + $timezone );
+			$sunrise_time = gmdate( $time_format, strtotime( $sunrise->format( 'Y-m-d g:i:sa' ) ) + $api_time_zone );
+			$sunset_time  = gmdate( $time_format, strtotime( $sunset->format( 'Y-m-d g:i:sa' ) ) + $api_time_zone );
 			$updated_time = gmdate( $time_format, strtotime( $last_update->format( 'Y-m-d g:i:sa' ) ) + $timezone );
 		}
 		return array(
@@ -361,180 +367,75 @@ class Shortcode {
 	}
 
 	/**
-	 * Get current weather data for a location.
+	 * Get OpenWeatherMap-compatible icon code based on weather condition code.
 	 *
-	 * @param string $query        The location or query for weather data.
-	 * @param string $units        The units for temperature and other weather data (e.g., 'metric' or 'imperial').
-	 * @param string $lang         The language for weather data responses (e.g., 'en' for English).
-	 * @param string $appid        The API key for authentication (optional).
-	 * @param string $shortcode_id The shortcode ID (optional).
+	 * Maps weather condition codes (from sources like WeatherAPI or similar)
+	 * to OpenWeatherMap-style icon IDs (e.g., '01d', '10n').
 	 *
-	 * @return CurrentWeather|array An instance of CurrentWeather containing weather data, or an error message as an array.
+	 * @param int  $code       The weather condition code to map.
+	 * @param bool $is_daytime Whether it's daytime (true) or nighttime (false).
+	 *
+	 * @return string The OWM icon code (e.g., '01d', '10n').
 	 */
-	public static function get_weather( $query, $units = 'imperial', $lang = 'en', $appid = '', $shortcode_id = '' ) {
-		$answer    = self::get_raw_weather_data( $query, $units, $lang, $appid, 'xml', $shortcode_id );
-		$value     = self::parse_xml( $answer );
-		$arr_value = (array) $value;
-		if ( isset( $value['cod'] ) && 401 === $value['cod'] ) {
-			$value = array(
-				'code'    => 401,
-				'message' => 'Your API key is not activated yet. Remember that newly created API keys will need ~ 15 minutes to be activated and show data, so you might see an API error in the meantime. <br/>Or<br/> Invalid API key. Please see <a href="http://openweathermap.org/faq#error401" target="_blank">http://openweathermap.org/faq#error401</a> for more info.',
-			);
-			return $value;
-		} elseif ( isset( $arr_value['message'] ) && 'city not found' === $arr_value['message'] ) {
-			$value = array(
-				'code'    => 404,
-				'message' => esc_html__( 'Please set your valid city name and country code.', 'location-weather' ),
-			);
-			return $value;
-		}
-		return new CurrentWeather( $value, $units );
-	}
+	public static function get_owm_icon( $code, $is_daytime = true ) {
 
-	/**
-	 * Returns the current weather for a group of city ids.
-	 *
-	 * @param array|int|string $query The place to get weather information for. For possible values see ::getWeather.
-	 * @param string           $units Can be either 'metric' or 'imperial' (default). This affects almost all units returned.
-	 * @param string           $lang  The language to use for descriptions, default is 'en'. For possible values see http://openweathermap.org/current#multi.
-	 * @param string           $appid Your app id, default ''. See http://openweathermap.org/appid for more details.
-	 * @param string           $mode  The format of the data fetched. Possible values are 'json', 'html' and 'xml' (default).
-	 * @param string           $shortcode_id get the existing shortcode id from the page.
-	 * @return CurrentWeather
-	 *
-	 * @api
-	 */
-	public static function get_raw_weather_data( $query, $units = 'imperial', $lang = 'en', $appid = '', $mode = 'xml', $shortcode_id = '' ) {
-		$transient_name = 'sp_open_weather_data' . $shortcode_id;
-		$weather_data   = self::splw_get_transient( $transient_name );
-		// Check if the transient exists and has not expired.
-		if ( false === $weather_data ) {
-			$url      = self::build_url( $query, $units, $lang, $appid, $mode, self::$weather_url );
-			$response = wp_remote_get( $url );
-			$data     = wp_remote_retrieve_body( $response );
-			// Save the data in the transient.
-			if ( $data && strpos( $data, '"cod":401' ) === false ) {
-				self::splw_set_transient( $transient_name, $data );
-			}
-		} else {
-			$data = $weather_data;
-		}
-		return $data;
-	}
-
-	/**
-	 * Directly returns the SimpleXMLElement string returned by OpenWeatherMap.
-	 *
-	 * @param string $answer The content returned by OpenWeatherMap  OpenWeatherMap.
-	 *
-	 * @throws LWException If the content isn't valid JSON.
-	 */
-	private static function parse_xml( $answer ) {
-
-		// Disable default error handling of SimpleXML (Do not throw E_WARNINGs).
-		libxml_use_internal_errors( true );
-		try {
-			return new \SimpleXMLElement( $answer );
-		} catch ( \Exception $e ) {
-			// Invalid xml format. This happens in case OpenWeatherMap returns an error.
-			// OpenWeatherMap always uses json for errors, even if one specifies xml as format.
-			$error = json_decode( $answer, true );
-			if ( isset( $error['message'] ) ) {
-				return $error;
-			}
-		}
-		libxml_clear_errors();
-	}
-
-	/**
-	 * Build a complete API URL for weather data retrieval.
-	 *
-	 * @param string $query   The location or query for weather data.
-	 * @param string $units   The units for temperature and other weather data (e.g., 'metric' or 'imperial').
-	 * @param string $lang    The language for weather data responses (e.g., 'en' for English).
-	 * @param string $appid   The API key for authentication (optional, can be provided as a parameter or from a class property).
-	 * @param string $mode    The mode for weather data (e.g., 'json' or 'xml').
-	 * @param string $url     The base URL for the weather API.
-	 *
-	 * @return string The complete API URL for weather data retrieval.
-	 */
-	private static function build_url( $query, $units, $lang, $appid, $mode, $url ) {
-		// Build the query URL parameter.
-		$query_url = self::build_query_url_parameter( $query );
-
-		// Build the complete API URL with all parameters.
-		$url = $url . "$query_url&units=$units&lang=$lang&mode=$mode&APPID=";
-
-		// Append the API key (either provided or from a class property).
-		$url .= empty( $appid ) ? self::$api_key : $appid;
-
-		return $url;
-	}
-
-	/**
-	 * Builds the query string for the url.
-	 *
-	 * @param mixed $query query of the URL parameter.
-	 *
-	 * @return string The built query string for the url.
-	 *
-	 * @throws \InvalidArgumentException If the query parameter is invalid.
-	 */
-	private static function build_query_url_parameter( $query ) {
-		switch ( $query ) {
-			case is_array( $query ) && isset( $query['lat'] ) && isset( $query['lon'] ) && is_numeric( $query['lat'] ) && is_numeric( $query['lon'] ):
-				return "lat={$query['lat']}&lon={$query['lon']}";
-			case is_array( $query ) && is_numeric( $query[0] ):
-				return 'id=' . implode( ',', $query );
-			case is_numeric( $query ):
-				return "id=$query";
-			case is_string( $query ) && strpos( $query, 'zip:' ) === 0:
-				$sub_query = str_replace( 'zip:', '', $query );
-				return 'zip=' . urlencode( $sub_query );
-			case is_string( $query ):
-				return 'q=' . urlencode( $query );
-			default:
-				return "lat={$query['lat']}&lon={$query['lon']}";
-		}
-	}
-
-	/**
-	 * Custom set transient
-	 *
-	 * @param  mixed $cache_key Key.
-	 * @param  mixed $cache_data data.
-	 * @return void
-	 */
-	public static function splw_set_transient( $cache_key, $cache_data ) {
-		$cache_expire_time = apply_filters( 'sp_open_weather_api_cache_time', 600 ); // 10 minutes
-		if ( ! is_admin() ) {
-			if ( is_multisite() ) {
-				$cache_key = $cache_key . '_' . get_current_blog_id();
-				set_site_transient( $cache_key, $cache_data, $cache_expire_time );
-			} else {
-				set_transient( $cache_key, $cache_data, $cache_expire_time );
-			}
-		}
-	}
-
-	/**
-	 * Custom get transient.
-	 *
-	 * @param  mixed $cache_key Cache key.
-	 * @return content
-	 */
-	public static function splw_get_transient( $cache_key ) {
-		if ( is_admin() ) {
-			return false;
+		if ( 'none' === $is_daytime ) {
+			return $code;
 		}
 
-		if ( is_multisite() ) {
-			$cache_key   = $cache_key . '_' . get_current_blog_id();
-			$cached_data = get_site_transient( $cache_key );
-		} else {
-			$cached_data = get_transient( $cache_key );
-		}
-		return $cached_data;
+		$suffix = $is_daytime ? 'd' : 'n';
+
+		$map = array(
+			// Clear / Cloudy.
+			1000 => '01', // Sunny/Clear.
+			1003 => '02', // Partly cloudy.
+			1006 => '03', // Cloudy.
+			1009 => '04', // Overcast.
+
+		// Mist / Fog.
+			1030 => '50', // Mist.
+			1135 => '50', // Fog.
+			1147 => '50', // Freezing fog.
+
+		// Rain / Drizzle.
+			1063 => '09',
+			1150 => '09',
+			1153 => '09',
+			1180 => '09',
+			1183 => '09',
+			1186 => '10',
+			1189 => '10',
+			1192 => '10',
+			1195 => '10',
+			1198 => '13',
+			1201 => '13', // Freezing rain.
+
+		// Sleet / Snow.
+			1066 => '13',
+			1210 => '13',
+			1213 => '13',
+			1216 => '13',
+			1219 => '13',
+			1222 => '13',
+			1225 => '13',
+			1237 => '13',
+			1249 => '13',
+			1252 => '13',
+			1255 => '13',
+			1258 => '13',
+			1261 => '13',
+			1264 => '13',
+
+			// Thunder.
+			1087 => '11',
+			1273 => '11',
+			1276 => '11',
+			1279 => '11',
+			1282 => '11',
+		);
+
+		$icon = isset( $map[ $code ] ) ? $map[ $code ] : '01'; // fallback to clear.
+		return "{$icon}{$suffix}";
 	}
 
 	/**

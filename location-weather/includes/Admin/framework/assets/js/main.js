@@ -1499,7 +1499,7 @@
 				'lw_max_width': { 'all': 320 }
 			},
 			'horizontal-one': {
-				'lw-city-name-typo': { 'font-size': 14, 'line-height': 20, 'text-align': 'left','color': '#fff' },
+				'lw-city-name-typo': { 'font-size': 14, 'line-height': 20, 'text-align': 'left', 'color': '#fff' },
 				'lw-city-name-margin': { 'top': 0, 'bottom': 10 },
 				'lw-date-time-typo': { 'font-size': 14, 'line-height': 16, 'text-align': 'right', 'margin-top': 0, 'margin-bottom': 10, 'color': '#fff' },
 				'lw-temp-scale-typo': { 'font-size': 48, 'line-height': 56, 'text-align': 'left', 'margin-top': 0, 'margin-bottom': 0, 'color': '#fff' },
@@ -1534,12 +1534,12 @@
 				selectedTemplate = $('.weather-horizontal-template .splwt-lite--active input').val();
 			}
 			if (weather_view === 'map' || weather_view === 'combined' || weather_view === 'accordion' || weather_view === 'grid') {
-				$('.splwt-lite-nav .sp_location_weather_generator_3').show();
+				$('.splwt-lite-nav .sp_location_weather_generator_3').parent('li').show();
 			} else {
 				if ($('.splwt-lite-nav .sp_location_weather_generator_3').hasClass('splwt-lite-active')) {
 					$('.splwt-lite-nav .sp_location_weather_generator_1').trigger('click');
 				}
-				$('.splwt-lite-nav .sp_location_weather_generator_3').hide();
+				$('.splwt-lite-nav .sp_location_weather_generator_3').parent('li').hide();
 			}
 			return selectedTemplate;
 		}
@@ -1708,6 +1708,7 @@
 			}
 		})
 	});
+
 	// Function to update icon type
 	function updateIconType(selector, regex, type) {
 		var str = "";
@@ -1735,6 +1736,7 @@
 			updateIconType(".weather-icon-type", /icon-set\/(.+)\.svg/, 'icon_set_one');
 		}
 	});
+
 	var pro_value = $('.lw-units-desc').find('.splwt-lite-fieldset select').val();
 	$('.lw-units-desc').on('change', function () {
 		pro_value = $(this).find('.splwt-lite-fieldset select').val();

@@ -66,7 +66,7 @@ class Admin_Notices {
 		?>
 		<div id="location-weather-review-notice" class="location-weather-review-notice">
 			<div class="splw-plugin-icon">
-				<img src="https://ps.w.org/location-weather/assets/icon-256x256.gif" alt="Location Weather">
+				<img src="https://ps.w.org/location-weather/assets/icon-256x256.gif?rev=3241008" alt="Location Weather">
 			</div>
 			<div class="splw-notice-text">
 				<h3>Enjoying <strong>Location Weather</strong>?</h3>

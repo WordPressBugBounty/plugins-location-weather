@@ -34,16 +34,58 @@ SPLW::createOptions(
 SPLW::createSection(
 	$prefix,
 	array(
-		'title'  => 'API Settings',
+		'title'  => __( 'Weather API Key', 'location-weather' ),
 		'icon'   => '<i class="splwp-icon-api-sett splwt-lite-tab-icon"></i>',
 		'fields' => array(
 			array(
-				'id'    => 'open-api-key',
-				'type'  => 'text',
-				'class' => 'open-api-key',
-				'title' => __( 'Add Your OpenWeather API Key', 'location-weather' ),
-				/* translators: %1$s: anchor tag start, %2$s: anchor tag end, %3$s: br tag add, %3$s: br tag add. */
-				'desc'  => sprintf( __( 'Strongly recommended: %1$sGet your API key!%2$s A newly%3$s created API key takes approximately 15 minutes %3$s to activate and display weather data.', 'location-weather' ), '<a href="https://home.openweathermap.org/api_keys" target="_blank">', '</a>', '</br>' ),
+				'id'         => 'lw_api_source_type',
+				'class'      => 'lw_api_source_type',
+				'type'       => 'button_set',
+				'title'      => __( 'API Source Type', 'location-weather' ),
+				'options'    => array(
+					'openweather_api' => __( 'OpenWeather', 'location-weather' ),
+					'weather_api'     => __( 'WeatherAPI', 'location-weather' ),
+				),
+				'title_info' => sprintf(
+					/* translators: %1$s: modify title, %2$s: anchor tag start, %3$s: anchor tag end,%4$s: another anchor start, %5$s: another anchor end. */
+					'<div class="lw-info-label">%1$s</div><div class="lw-short-content">' . __(
+						'Location Weather plugin integrates with %2$sOpenWeatherMap%3$s and %4$sWeatherAPI%5$s to fetch real-time weather data. Select your preferred API source based on your requirements to ensure accurate and up-to-date weather information.',
+						'location-weather'
+					) . '</div>',
+					__( 'API Source Type', 'location-weather' ),
+					'<a href="https://openweathermap.org/" target="_blank">',
+					'</a>',
+					'<a href="https://www.weatherapi.com/" target="_blank">',
+					'</a>'
+				),
+				'default'    => 'openweather_api',
+			),
+			array(
+				'id'         => 'open-api-key',
+				'type'       => 'text',
+				'class'      => 'open-api-key',
+				'title'      => __( 'Add Your API Key', 'location-weather' ),
+				'desc'       => sprintf(
+					/* translators: %1$s: anchor tag start, %2$s: anchor tag end. */
+					__( '%1$sGet your API key!%2$s A newly created API key from OpenWeather takes %3$sabout 15 minutes to activate and start displaying weather data.', 'location-weather' ),
+					'<a href="https://home.openweathermap.org/api_keys" target="_blank">',
+					'</a>',
+					'</br>'
+				),
+				'dependency' => array( 'lw_api_source_type', '==', 'openweather_api', true ),
+			),
+			array(
+				'id'         => 'weather-api-key',
+				'type'       => 'text',
+				'class'      => 'open-api-key',
+				'title'      => __( 'Add Your API Key', 'location-weather' ),
+				'desc'       => sprintf(
+					/* translators: %1$s: anchor tag start, %2$s: anchor tag end. */
+					__( '%1$sGet your WeatherAPI key!%2$s', 'location-weather-pro' ),
+					'<a href="https://www.weatherapi.com/signup.aspx" target="_blank">',
+					'</a>'
+				),
+				'dependency' => array( 'lw_api_source_type', '==', 'weather_api', true ),
 			),
 		),
 	)
@@ -120,7 +162,7 @@ SPLW::createSection(
 	$prefix,
 	array(
 		'id'     => 'custom_css_section',
-		'title'  => __( 'Additional CSS', 'location-weather' ),
+		'title'  => __( 'Additional CSS & JS', 'location-weather' ),
 		'icon'   => '<i class="splwt-lite-tab-icon splwp-icon-code"></i>',
 		'fields' => array(
 			array(
@@ -131,6 +173,30 @@ SPLW::createSection(
 					'mode'  => 'css',
 					'theme' => 'monokai',
 				),
+			),
+			array(
+				'id'       => 'splw_custom_js',
+				'type'     => 'code_editor',
+				'title'    => __( 'Custom JS', 'location-weather' ),
+				'settings' => array(
+					'theme' => 'monokai',
+					'mode'  => 'javascript',
+				),
+			),
+		),
+	)
+);
+
+// Custom license Field.
+SPLW::createSection(
+	$prefix,
+	array(
+		'title'  => __( 'License Key', 'location-weather' ),
+		'icon'   => '<i class="splwt-lite-tab-icon splwp-icon-key-01"></i>',
+		'fields' => array(
+			array(
+				'id'   => 'license_key',
+				'type' => 'license',
 			),
 		),
 	)

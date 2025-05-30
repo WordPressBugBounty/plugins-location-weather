@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather widget, live weather map, hourly forecast, daily forecast
 Requires at least: 4.7
 Tested up to: 6.8
-Stable tag: 2.0.18
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -414,6 +414,13 @@ The WordPress codex contains <a href="https://wordpress.org/documentation/articl
 
 
 == Changelog ==
+
+= 2.1.0 - May 30, 2025 =
+* New: New weather source type WeatherAPI support added.
+* New: The API Source Type (OpenWeather/WeatherAPI) option.
+* New: The Custom JS option
+* Improved: The Layout column added to the weather manage view table.
+* Tested: WordPress 6.8.1 compatibility.
 
 = 2.0.18 - May 01, 2025 =
 * Improved: The plugin backend option has been enhanced.
