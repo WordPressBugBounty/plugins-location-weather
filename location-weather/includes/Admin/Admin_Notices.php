@@ -158,7 +158,7 @@ class Admin_Notices {
 	 * @return array The offers data, or an empty array if the data could not be retrieved or is invalid.
 	 */
 	public static function get_cached_offers_data( $api_url, $cache_duration = DAY_IN_SECONDS ) {
-		$cache_key   = 'sp_offers_data_' . md5( $api_url ); // Unique cache key based on the API URL.
+		$cache_key   = 'splw_offers_data_' . md5( $api_url ); // Unique cache key based on the API URL.
 		$offers_data = get_transient( $cache_key );
 
 		if ( false === $offers_data ) {
