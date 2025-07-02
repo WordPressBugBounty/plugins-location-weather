@@ -44,7 +44,7 @@ class Gutenberg_Block_Init {
 	public function location_weather_block_editor_assets() {
 		wp_enqueue_script(
 			'sp-location-weather-shortcode-block',
-			plugins_url( '/Gutenberg_Block/build/index.js', dirname( __FILE__ ) ),
+			plugins_url( '/Gutenberg_Block/build/index.js', __DIR__ ),
 			array( 'jquery' ),
 			LOCATION_WEATHER_VERSION,
 			true
