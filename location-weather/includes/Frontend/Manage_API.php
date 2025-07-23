@@ -157,9 +157,10 @@ class Manage_API {
 			return array(
 				'code'    => 2006,
 				'message' => sprintf(
-					// translators: %s is the link to the WeatherAPI documentation.
-					__( 'Your WeatherAPI key is invalid. Get your API key from <a href="%s" target="_blank" rel="noopener noreferrer">here.</a>', 'location-weather' ),
-					'https://www.weatherapi.com/my/'
+					// translators: 1: start link, 2: close link.
+					__( 'Your WeatherAPI key is invalid. Get your API key from %1$shere%2$s.', 'location-weather' ),
+					'<a href="https://www.weatherapi.com/my/" target="_blank" rel="noopener noreferrer">',
+					'</a>'
 				),
 			);
 		}

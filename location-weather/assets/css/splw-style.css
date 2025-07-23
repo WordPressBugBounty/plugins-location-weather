@@ -226,7 +226,12 @@ a.sp_lw_gb_edit_button {
 	line-height: 24px;
 	width: 100%;
 }
-
+.spwpcp-gutenberg-shortcode.editor-styles-wrapper > select{
+	max-width: 100%;
+}
+.spwpcp-gutenberg-shortcode.editor-styles-wrapper::after {
+	display: none;
+}
 /* Forecast section styling */
 .vertical .splw-forecast {
 	display: flex;

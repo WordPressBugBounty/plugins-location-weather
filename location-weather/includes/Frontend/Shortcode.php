@@ -29,7 +29,7 @@ class Shortcode {
 	 * @param array $splw_meta get all meta options.
 	 * @param array $layout_meta get all layout meta options.
 	 */
-	public static function splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta ) {
+	public static function splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta, $is_admin = false ) {
 		// Weather option meta area.
 		$api_source = $splw_option['lw_api_source_type'] ?? 'openweather_api';
 
@@ -67,7 +67,7 @@ class Shortcode {
 				<div class="splw-lite-wrapper">
 					<div class="splw-warning">%3$s</div> 
 					<div class="splw-weather-attribution">
-						<a href="' . esc_url( $url ) . '" target="_blank">' . __( 'Weather from ', 'location-weather-pro' ) . $weather_from . '</a>
+						<a href="' . esc_url( $url ) . '" target="_blank">' . __( 'Weather from ', 'location-weather' ) . $weather_from . '</a>
 					</div>
 				</div>
 			</div>',
@@ -275,6 +275,7 @@ class Shortcode {
 		$splw_option  = get_option( 'location_weather_settings', true );
 		$splw_meta    = get_post_meta( $shortcode_id, 'sp_location_weather_generator', true );
 		$layout_meta  = get_post_meta( $shortcode_id, 'sp_location_weather_layout', true );
+		$is_admin     = $attribute['is_admin'] ?? false;
 		// Stylesheet loading problem solving here. Shortcode id to push page id option for getting how many shortcode in the page.
 		$get_page_data      = Scripts::get_page_data();
 		$found_generator_id = $get_page_data['generator_id'];
@@ -290,8 +291,9 @@ class Shortcode {
 		}
 		// Update options if the existing shortcode id option not found.
 		Scripts::lw_db_options_update( $shortcode_id, $get_page_data );
-		self::splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta );
+		self::splw_html_show( $shortcode_id, $splw_option, $splw_meta, $layout_meta, $is_admin );
 		wp_enqueue_script( 'splw-old-script' );
+		wp_enqueue_script( 'splw-scripts' );
 		return ob_get_clean();
 	}
 	// Shortcode render method end.

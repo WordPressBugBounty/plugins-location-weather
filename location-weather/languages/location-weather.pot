@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Location Weather v2.1.1\n"
-"POT-Creation-Date: 2025-06-23 12:24+0600\n"
+"Project-Id-Version: Location Weather v2.1.3\n"
+"POT-Creation-Date: 2025-07-23 15:48+0600\n"
 "PO-Revision-Date: 2024-05-27 15:49+0600\n"
 "Last-Translator: \n"
 "Language-Team: ShapedPlugin <support@shapedplugin.com>\n"
@@ -9,10 +9,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x;esc_html__;esc_html_e;esc_html_x;esc_attr__;esc_attr_e;esc_attr_x;_n;_nx;_n_noop;number_format_i18n;date_i18n\n"
+"X-Poedit-KeywordsList: __;_e;_x;esc_html__;esc_html_e;esc_html_x;esc_attr__;"
+"esc_attr_e;esc_attr_x;_n;_nx;_n_noop;number_format_i18n;date_i18n\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/Admin.php:48
@@ -38,10 +38,6 @@ msgstr ""
 
 #: includes/Admin.php:88
 msgid "Weather updated."
-msgstr ""
-
-#: includes/Admin/Admin_Notices.php:266
-msgid "Limited Time Offer, Upgrade Now!"
 msgstr ""
 
 #: includes/Admin/ElementBlock/Location_Weather_Shortcode_Widget.php:46
@@ -241,9 +237,9 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:949
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:957
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:965
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1426
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1435
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1444
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1431
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1440
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1449
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:49
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:114
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:132
@@ -303,10 +299,10 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:950
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:958
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:966
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1395
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1427
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1436
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1445
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1400
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1432
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1441
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1450
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:50
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:115
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:133
@@ -357,9 +353,9 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:683
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:997
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1021
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1070
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1182
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1447
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1075
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1187
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1452
 #: includes/Admin/framework/classes/Generator_Config/StyleSetup.php:23
 #: includes/Admin/framework/classes/Generator_Config/StyleSetup.php:133
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:150
@@ -367,7 +363,7 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:208
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:216
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:224
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:240
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:259
 msgid "Open Docs"
 msgstr ""
 
@@ -852,12 +848,13 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:822
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:886
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:976
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1311
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1354
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1366
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1316
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1359
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1371
 #: includes/Admin/framework/classes/Generator_Config/LayoutSetup.php:266
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:102
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:225
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:244
 #: includes/Admin/framework/classes/Setting_Options/Global.php:114
 #: includes/Admin/framework/classes/Setting_Options/Global.php:124
 msgid "Enabled"
@@ -868,12 +865,13 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:823
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:887
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:977
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1312
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1355
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1367
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1317
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1360
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1372
 #: includes/Admin/framework/classes/Generator_Config/LayoutSetup.php:267
 #: includes/Admin/framework/classes/Generator_Config/MapSetup.php:103
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:226
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:245
 #: includes/Admin/framework/classes/Setting_Options/Global.php:115
 #: includes/Admin/framework/classes/Setting_Options/Global.php:125
 msgid "Disabled"
@@ -893,48 +891,48 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:277
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:671
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:681
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1167
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1180
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1172
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1185
 msgid "Icon Type"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:268
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1169
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1174
 msgid "Animated"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:269
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1170
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1175
 msgid "Static (No-animation) "
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:270
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1171
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1176
 msgid "Animated 2 (Line)"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:271
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1172
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1177
 msgid "Animated 3"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:272
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1173
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1178
 msgid "Light (Line) "
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:273
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1174
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1179
 msgid "Medium (Line) "
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:274
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1175
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1180
 msgid "Fill "
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:275
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1176
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1181
 msgid "Glassmorphism"
 msgstr ""
 
@@ -947,13 +945,13 @@ msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:285
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:691
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1212
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1217
 msgid "Icon Color"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:293
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:704
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1220
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1225
 msgid "Icon size"
 msgstr ""
 
@@ -961,10 +959,10 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:705
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:718
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:752
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1221
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1274
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1287
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1462
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1226
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1279
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1292
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1467
 msgid "px"
 msgstr ""
 
@@ -1208,6 +1206,7 @@ msgstr ""
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:998
 #: includes/Admin/framework/classes/Generator_Config/StyleSetup.php:23
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:224
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:242
 #: main.php:143
 msgid "Live Demo"
 msgstr ""
@@ -1272,7 +1271,7 @@ msgid ""
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:693
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1260
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1265
 #: includes/Admin/framework/classes/Generator_Config/StyleSetup.php:26
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:64
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:115
@@ -1304,8 +1303,8 @@ msgid "Border"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:750
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1285
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1460
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1290
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1465
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:72
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:122
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:170
@@ -1333,19 +1332,19 @@ msgid "Weather Additional Data Carousel"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:780
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1309
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1314
 msgid "Carousel AutoPlay"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:791
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:794
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1320
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1323
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1325
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1328
 msgid "AutoPlay Delay Time"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:795
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1324
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1329
 msgid ""
 "Set autoplay delay or interval time. The amount of time to delay between "
 "automatically cycling a weather item. For example, 1000 milliseconds (ms) "
@@ -1354,52 +1353,52 @@ msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:797
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:812
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1326
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1342
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1331
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1347
 msgid "ms"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:808
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:811
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1338
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1341
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1343
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1346
 msgid "Carousel Speed"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:809
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1339
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1344
 msgid ""
 "Set carousel scrolling speed. For example, 1000 milliseconds (ms) equals 1 "
 "second."
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:821
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1353
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1358
 msgid "Stop on Hover"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:831
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1375
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1380
 msgid "Columns"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:845
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1390
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1395
 msgid "Navigation Icon"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:858
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1404
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1409
 msgid "Navigation Color"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:860
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1406
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1411
 msgid "Arrow Color"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:861
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1407
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1412
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:217
 msgid "Hover Color"
 msgstr ""
@@ -1461,8 +1460,8 @@ msgid ""
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1002
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:251
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:269
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:270
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:288
 #, php-format
 msgid "This is a %1$sPro feature!%2$s"
 msgstr ""
@@ -1511,310 +1510,314 @@ msgstr ""
 msgid "3-Hour"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1061
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1084
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1056
+msgid "OpenWeatherAPI free api you can show only 3 hourly forecast."
+msgstr ""
+
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1066
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1089
 msgid "Number of Forecast Hours to Show"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1062
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1067
 msgid "Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1068
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1129
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1073
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1134
 msgid "Forecast Hours To Show"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1069
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1074
 msgid ""
 "The maximum forecast data available is 48 hours for the One Call API and 96 "
 "hours for Developer, Professional, or Enterprise plans."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1074
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1079
 #, php-format
 msgid "To show more than 8 hours, %1$sUpgrade to Pro!%2$s"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1086
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1091
 msgid "3 Hour"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1087
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1092
 msgid "6 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1088
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1093
 msgid "9 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1089
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1094
 msgid "12 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1090
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1095
 msgid "15 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1091
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1096
 msgid "18 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1092
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1097
 msgid "21 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1093
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1098
 msgid "24 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1094
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1099
 msgid "27 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1095
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1100
 msgid "30 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1096
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1101
 msgid "33 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1097
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1102
 msgid "36 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1098
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1103
 msgid "39 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1099
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1104
 msgid "42 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1100
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1105
 msgid "45 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1101
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1106
 msgid "48 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1102
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1107
 msgid "51 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1103
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1108
 msgid "54 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1104
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1109
 msgid "57 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1105
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1110
 msgid "60 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1106
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1111
 msgid "63 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1107
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1112
 msgid "66 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1108
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1113
 msgid "69 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1109
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1114
 msgid "72 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1110
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1115
 msgid "75 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1111
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1116
 msgid "78 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1112
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1117
 msgid "81 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1113
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1118
 msgid "84 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1114
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1119
 msgid "87 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1115
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1120
 msgid "90 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1116
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1121
 msgid "93 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1117
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1122
 msgid "96 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1118
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1123
 msgid "99 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1119
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1124
 msgid "102 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1120
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1125
 msgid "105 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1121
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1126
 msgid "108 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1122
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1127
 msgid "111 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1123
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1128
 msgid "114 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1124
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1129
 msgid "117 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1125
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1130
 msgid "120 Hours"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1130
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1135
 msgid "Set the number of the hours you want to show weather forecasts for."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1134
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1139
 #, php-format
 msgid "To show more than 24 hours, %1$sUpgrade to Pro!%2$s"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1144
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1149
 msgid "Hourly Forecast Title"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1145
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1150
 msgid "Hourly Forecast"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1151
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1157
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1156
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1162
 msgid "Swap Forecast Display"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1158
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1163
 msgid ""
 "Swap the layout style between Hourly (Filters) and Daily (Dropdown). Useful "
 "for reversing their positions and display formats."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1181
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1186
 msgid ""
 "Choose an icon type to visually represent various weather conditions in "
 "weather forecasts. These icon sets offer a variety of design options for "
 "displaying forecasted weather information."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1193
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1198
 #, php-format
 msgid ""
 "To display advanced %1$sWeather Forecast Data%2$s with customizable options, "
 "%3$sUpgrade to Pro!%4$s"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1204
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1209
 msgid "Display Day/Date with Hour"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1231
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1236
 msgid "Forecast Data Background"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1233
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1238
 msgid "Weather Forecast Data Background"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1240
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1245
 msgid "Forecast Toggle Button"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1241
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1246
 msgid "Border Width"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1258
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1263
 msgid "Forecast Toggle Button Text"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1261
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1266
 msgid "Active Color"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1273
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1278
 msgid "Maximum Height"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1278
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1283
 msgid "Forecast Area Maximum Height"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1295
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1300
 msgid "Forecast Area Margin"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1302
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1307
 msgid "Weather Forecast Data Carousel"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1364
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1369
 msgid "Infinite Loop"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1418
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1423
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:517
 msgid "Footer"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1424
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1429
 msgid "Detailed Weather"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1433
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1438
 msgid "Data Update Time"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1442
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1447
 #: includes/Admin/framework/classes/Generator_Config/TypographySetup.php:531
 msgid "Weather Attribution"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1447
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1452
 msgid "Weather Attribution (Copyright)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1447
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1452
 msgid ""
 "You can show the weather attribution or copyright in the weather widget "
 "footer area for weather authenticity."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1452
+#: includes/Admin/framework/classes/Generator_Config/DisplaySetup.php:1457
 msgid "Link To OpenWeatherMap"
 msgstr ""
 
@@ -2422,149 +2425,161 @@ msgid ""
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:233
-msgid "Measurement Units"
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:237
+#: includes/Admin/framework/fields/shortcode/shortcode.php:69
+msgid "Custom Weather Search"
 msgstr ""
 
 #: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:239
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:240
+msgid ""
+"Help visitors search for weather data by entering the desired city or "
+"location name to view the latest weather conditions."
+msgstr ""
+
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:252
+msgid "Measurement Units"
+msgstr ""
+
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:258
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:259
 msgid "Display Temperature Unit"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:240
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:259
 msgid "Choose temperature unit(s) based on your visitor’s preferences."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:242
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:261
 msgid "Celsius (°C)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:243
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:262
 msgid "Fahrenheit (°F) "
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:244
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:263
 msgid "Auto (°C or °F)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:245
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:264
 msgid "Both (°C & °F)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:246
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:265
 msgid "Degree Symbol (°)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:260
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:261
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:279
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:280
 msgid "Active Temperature Unit"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:261
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:280
 msgid ""
 "Set an active temperature unit that will remain selected on the front end. "
 "If you select"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:261
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:265
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:280
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:284
 msgid "Auto"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:261
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:280
 msgid ""
 "it will detect the visitor’s location and show the preferred unit of that "
 "location selected automatically."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:263
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:282
 msgid "°C "
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:264
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:283
 msgid "°F "
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:280
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:299
 msgid "Pressure Unit "
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:281
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:300
 msgid "Atmospheric or Air Pressure Unit"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:281
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:300
 msgid "Select an atmospheric or air pressure unit."
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:283
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:302
 msgid "Millibars (mb)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:284
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:303
 msgid "Hectopascals (hPa)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:285
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:304
 msgid "kilopascal (kPa) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:286
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:305
 msgid "Inches of Mercury (inHg) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:287
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:306
 msgid "Pounds per Square Inch (psi) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:288
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:307
 msgid "Millimeters of Mercury (mmHg / Torr) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:289
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:308
 msgid "Kilogram per Square centimeter (kg/cm²) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:297
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:316
 msgid " Precipitation Unit "
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:299
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:318
 msgid "Millimeters (mm) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:300
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:319
 msgid "Inches (inch) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:308
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:327
 msgid " Wind Speed Unit "
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:310
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:329
 msgid "Miles per hour (mph)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:311
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:330
 msgid "Kilometer per hour (km/h)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:312
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:331
 msgid "Meter per second (m/s) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:313
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:332
 msgid "Knot (kn) (Pro)"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:321
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:340
 msgid " Visibility Unit "
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:323
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:342
 msgid "Kilometers"
 msgstr ""
 
-#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:324
+#: includes/Admin/framework/classes/Generator_Config/WeatherSetup.php:343
 msgid "Miles"
 msgstr ""
 
@@ -2924,19 +2939,19 @@ msgstr ""
 msgid "Weather Data Carousel"
 msgstr ""
 
-#: includes/Admin/framework/fields/shortcode/shortcode.php:69
+#: includes/Admin/framework/fields/shortcode/shortcode.php:70
 msgid "18+ Detailed Weather Metrics"
 msgstr ""
 
-#: includes/Admin/framework/fields/shortcode/shortcode.php:70
+#: includes/Admin/framework/fields/shortcode/shortcode.php:71
 msgid "120+ Advanced Customizations"
 msgstr ""
 
-#: includes/Admin/framework/fields/shortcode/shortcode.php:75
+#: includes/Admin/framework/fields/shortcode/shortcode.php:76
 msgid "Upgrade to Pro Now"
 msgstr ""
 
-#: includes/Admin/framework/fields/shortcode/shortcode.php:87
+#: includes/Admin/framework/fields/shortcode/shortcode.php:88
 #, php-format
 msgid ""
 "Location Weather has seamless integration with Gutenberg, Classic Editor, "
@@ -3156,23 +3171,40 @@ msgstr ""
 msgid "Please set your valid city name and country code."
 msgstr ""
 
-#: includes/Frontend/Shortcode.php:62 includes/Frontend/Shortcode.php:174
+#: includes/Frontend/Manage_API.php:161
+#, php-format
+msgid "Your WeatherAPI key is invalid. Get your API key from %1$shere%2$s."
+msgstr ""
+
+#: includes/Frontend/Manage_API.php:171
+msgid "Search by city name, ID, ZIP code, or coordinates."
+msgstr ""
+
+#: includes/Frontend/Shortcode.php:70
+msgid "Weather from "
+msgstr ""
+
+#: includes/Frontend/Shortcode.php:189
+msgid "Weather from WeatherAPI "
+msgstr ""
+
+#: includes/Frontend/Shortcode.php:197
 msgid "Weather from OpenWeatherMap"
 msgstr ""
 
-#: includes/Frontend/Shortcode.php:470
+#: includes/Frontend/Shortcode.php:495
 msgid " hPa"
 msgstr ""
 
-#: includes/Frontend/Shortcode.php:472
+#: includes/Frontend/Shortcode.php:497
 msgid " mb"
 msgstr ""
 
-#: includes/Frontend/Shortcode.php:489
+#: includes/Frontend/Shortcode.php:514
 msgid " km"
 msgstr ""
 
-#: includes/Frontend/Shortcode.php:491
+#: includes/Frontend/Shortcode.php:516
 msgid " mi"
 msgstr ""
 

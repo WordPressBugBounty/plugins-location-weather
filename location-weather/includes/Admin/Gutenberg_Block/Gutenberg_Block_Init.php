@@ -169,6 +169,6 @@ class Gutenberg_Block_Init {
 			return '<div ' . $class_name . '>' . do_shortcode( '[location-weather id="' . sanitize_text_field( $attributes['shortcode'] ) . '"]' ) . '</div>';
 		}
 
-		return '<div id="' . uniqid() . '" ' . $class_name . ' >' . do_shortcode( '[location-weather id="' . sanitize_text_field( $attributes['shortcode'] ) . '"]' ) . '</div>';
+		return '<div id="' . uniqid() . '" ' . $class_name . ' >' . do_shortcode( '[location-weather id="' . sanitize_text_field( $attributes['shortcode'] ) . '" is_admin="' . esc_attr( $attributes['is_admin'] ) . '"]' ) . '</div>';
 	}
 }
