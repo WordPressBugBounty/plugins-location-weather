@@ -9,11 +9,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Location Weather
- * Description:       Location Weather is the most powerful and easy-to-use WordPress weather forecast plugin that allows you to create and display unlimited weather forecasts anywhere on your WordPress website. The plugin uses WordPress Custom Post Types and the Open Weather Map API Key.
+ * Description:       Location Weather is the WordPress weather forecast plugin that allows you to create and display unlimited weather forecasts anywhere on your WordPress website. The plugin uses WordPress Custom Post Types and the Open Weather Map API and WeatherAPI Key.
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           2.1.4
+ * Version:           2.1.6
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * License:           GPL v2 or later
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'LOCATION_WEATHER_FILE', __FILE__ );
 define( 'LOCATION_WEATHER_URL', plugins_url( '', LOCATION_WEATHER_FILE ) );
 define( 'LOCATION_WEATHER_ASSETS', LOCATION_WEATHER_URL . '/assets' );
-define( 'LOCATION_WEATHER_VERSION', '2.1.4' );
+define( 'LOCATION_WEATHER_VERSION', '2.1.6' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'location-weather-pro/main.php' ) || is_plugin_active_for_network( 'location-weather-pro/main.php' ) ) ) {
@@ -55,7 +55,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '2.1.4';
+	public $version = '2.1.6';
 
 	/**
 	 * The unique slug of this plugin.
@@ -413,6 +413,15 @@ if ( ! function_exists( 'sp_location_weather' ) ) {
  * @return \Location_Weather
  */
 function location_weather() {
+	if ( ! defined( 'SHAPEDPLIUGIN_OFFER_BANNER_LOADED' ) ) {
+		define( 'SHAPEDPLIUGIN_OFFER_BANNER_LOADED', true );
+
+		/**
+		 * The file is responsible for generating admin offer banner.
+		 */
+		ShapedPlugin\Weather\Admin\ShapedPlugin_Offer_Banner::instance();
+	}
+
 	return Location_Weather::init();
 }
 

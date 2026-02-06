@@ -2,12 +2,12 @@
 Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather widget, local weather, temperature, live weather
 Requires at least: 5.0
-Tested up to: 6.8
-Stable tag: 2.1.4
+Tested up to: 6.9
+Stable tag: 2.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Customizable WordPress Weather Forecast plugin to display Current Temperature, Hourly & Daily Forecasts, up to 16-Day, Air Quality, and Live Weather Map.
+Customizable WordPress Weather Forecast plugin to display Current Temperature, Hourly & Daily Forecasts, up to 16-Day, Air Quality, & Live Weather Map
 
 == Description ==
 
@@ -474,6 +474,14 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 
 == Changelog ==
+
+= 2.1.6 - Dec 29, 2025 =
+* Improved: Standardized singleton instance property naming.
+* Improved: Code readability and maintainability improved.
+
+= 2.1.5 - Nov 18, 2025 =
+* Fix: The warning found for weather by City ID with WeatherAPI
+* Tested: WordPress 6.9 compatibility.
 
 = 2.1.4 - Sep 06, 2025 =
 * Improved: Enhanced plugin security and data validation.
