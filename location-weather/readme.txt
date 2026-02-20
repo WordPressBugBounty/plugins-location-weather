@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather widget, local weather, temperature, live weather
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 2.1.6
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ https://www.youtube.com/watch?v=OpfcigkrtDE&ab_channel=ShapedPlugin
 
 The **Location Weather** plugin retrieves weather data from [Open Weather](https://openweathermap.org/) and also supports   [WeatherAPI](https://www.weatherapi.com/), which both provide reliable weather data with free and affordable plans.
 
-So you will need to have an account & API key to use it to avoid running into call limits. 
+So you will need to have an account & API key to use it to avoid running into call limits.
 
 * Open Weather [__Get your free Own API key!__](https://home.openweathermap.org/api_keys) or
 * WeatherAPI [__Get your free Own API key!__](https://www.weatherapi.com/signup.aspx) (new)
@@ -475,6 +475,22 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 == Changelog ==
 
+= Version 3.0.0 - Feb 20, 2026 =
+* New: Weather Card block with 10 different layouts.
+* New: Weather Horizontal block with a lot of customization options.
+* New: AQI (Air Quality Index) - Minimal Card block.
+* New: Radar Map by Windy block.
+* New: Weather Grid block.
+* New: Weather Tab block.
+* New: Weather Table block.
+* New: Getting Started page in the admin.
+* New: Saved Templates with a shortcode duplication feature to use blocks on any page builder.
+* New: Setup Wizard to guide users through initial plugin configuration.
+* New: The Blocks Dashboard panel has been added.
+* New: The changelog panel has been added to the block settings page, accessible via the pop-up.
+* Updated: The language (.pot) file.
+* Tested: WordPress 6.9.1 compatibility.
+
 = 2.1.6 - Dec 29, 2025 =
 * Improved: Standardized singleton instance property naming.
 * Improved: Code readability and maintainability improved.
@@ -528,7 +544,7 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 = 2.0.15 - Jan 03, 2025 =
 * Improved: The plugin admin panel has been reorganized.
-* Improved: The Weather Layout and Templates options are moved to the top of the page. 
+* Improved: The Weather Layout and Templates options are moved to the top of the page.
 * Improved: The Shortcode section is moved to the sidebar section.
 
 = 2.0.14 - Dec 02, 2024 =

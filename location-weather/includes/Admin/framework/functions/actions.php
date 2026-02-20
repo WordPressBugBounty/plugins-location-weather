@@ -173,13 +173,23 @@ if ( ! function_exists( 'lwp_clean_open_weather_transients' ) ) {
 		$wp_options = $wpdb->prefix . 'options';
 		if ( is_multisite() ) {
 			$wp_sitemeta = $wpdb->get_blog_prefix( BLOG_ID_CURRENT_SITE ) . 'sitemeta';
+			// Delete OpenWeather transients.
 			$wpdb->query( "DELETE FROM {$wp_sitemeta} WHERE `meta_key` LIKE ('%\_site_transient_sp_open_weather_%')" ); // phpcs:ignore -- intentionally used to remove specific transients.
 			$wpdb->query( "DELETE FROM {$wp_sitemeta} WHERE `meta_key` LIKE ('%\_transient_timeout_sp_open_weather_%')" );  // phpcs:ignore -- intentionally used to remove specific transients.
+
+			// Delete WeatherApi transients.
+			$wpdb->query( "DELETE FROM {$wp_sitemeta} WHERE `meta_key` LIKE ('%\_site_transient_sp_weather_api_%')" ); // phpcs:ignore -- intentionally used to remove specific transients.
+			$wpdb->query( "DELETE FROM {$wp_sitemeta} WHERE `meta_key` LIKE ('%\_transient_timeout_sp_weather_api_%')" );  // phpcs:ignore -- intentionally used to remove specific transients.
 			wp_send_json_success();
 		} else {
+			// Delete OpenWeather transients.
 			$wpdb->query( "DELETE FROM {$wp_options} WHERE `option_name` LIKE ('%\_transient_sp_open_weather_%')" ); // phpcs:ignore -- intentionally used to remove specific transients.
 			$wpdb->query( "DELETE FROM {$wp_options} WHERE `option_name` LIKE ('%\_transient_timeout_sp_open_weather_%')" ); // phpcs:ignore -- intentionally used to remove specific transients.
-				wp_send_json_success();
+
+			// Delete WeatherApi transients.
+			$wpdb->query( "DELETE FROM {$wp_options} WHERE `option_name` LIKE ('%\_transient_sp_weather_api_%')" ); // phpcs:ignore -- intentionally used to remove specific transients.
+			$wpdb->query( "DELETE FROM {$wp_options} WHERE `option_name` LIKE ('%\_transient_timeout_sp_weather_api_%')" ); // phpcs:ignore -- intentionally used to remove specific transients.
+			wp_send_json_success();
 		}
 	}
 

@@ -322,7 +322,6 @@ if ( ! class_exists( 'SPLW' ) ) {
 			self::include_plugin_file( 'classes/Generator_Config/MapSetup.php' );
 			self::include_plugin_file( 'classes/Generator_Config/StyleSetup.php' );
 			self::include_plugin_file( 'classes/Generator_Config/TypographySetup.php' );
-			self::include_plugin_file( 'classes/Setting_Options/Global.php' );
 			self::include_plugin_file( 'classes/Tools_Config/Tools_Options.php' );
 		}
 
@@ -421,15 +420,9 @@ if ( ! class_exists( 'SPLW' ) ) {
 				wp_enqueue_style( 'splwt-lite-rtl', self::include_plugin_url( 'assets/css/style-rtl' . $min . '.css' ), array(), LOCATION_WEATHER_VERSION, 'all' );
 			}
 
-			// Help Page.
+			// Add footer text.
 			add_filter( 'admin_footer_text', array( 'SPLW', 'add_admin_footer_text' ) );
 			add_filter( 'update_footer', array( 'SPLW', 'footer_version_text' ) );
-			$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : ''; // @codingStandardsIgnoreLine.
-			if ( 'splw_help' === $page ) {
-				wp_enqueue_style( 'splw__admin-help-fontello', LOCATION_WEATHER_ASSETS . '/css/help-page-fontello.css', array(), LOCATION_WEATHER_VERSION );
-				wp_enqueue_style( 'splw__admin-help', LOCATION_WEATHER_ASSETS . '/css/help-page.min.css', array(), LOCATION_WEATHER_VERSION );
-				wp_enqueue_script( 'splw__admin-help', LOCATION_WEATHER_ASSETS . '/js/help_page.min.js', array( 'jquery' ), LOCATION_WEATHER_VERSION, true );
-			}
 
 			// Main scripts.
 			wp_enqueue_script( 'splwt-lite-plugins', self::include_plugin_url( 'assets/js/plugins' . $min . '.js' ), array(), LOCATION_WEATHER_VERSION, true );
