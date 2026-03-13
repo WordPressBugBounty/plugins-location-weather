@@ -46,17 +46,13 @@ class Splw_Blocks_Page_Wrapper {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'blocks_page_wrapper' ), 2 );
 		add_action( 'wp_ajax_splw_update_block_options', array( $this, 'splw_update_block_options' ) );
-		add_action( 'wp_ajax_nopriv_splw_update_block_options', array( $this, 'splw_update_block_options' ) );
 		add_action( 'wp_ajax_splw_changelog_data', array( $this, 'splw_changelog_data' ) );
-		add_action( 'wp_ajax_nopriv_splw_changelog_data', array( $this, 'splw_changelog_data' ) );
-		add_action( 'init', array( $this, 'enqueue_admin_assets' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
 		add_action( 'wp_ajax_splw_get_user_consent', array( $this, 'splw_get_user_consent' ) );
-		// add_action( 'init', array( $this, 'init_saved_templates' ) );
 		add_action( 'init', array( $this, 'splw_submit_user_consent' ) );
 		add_action( 'admin_notices', array( $this, 'maybe_show_user_consent_notice' ) );
 		add_action( 'admin_print_scripts', array( $this, 'disable_admin_notices' ) );
 		add_action( 'wp_ajax_splw_update_setting_options', array( $this, 'splw_update_setting_options' ) );
-		add_action( 'wp_ajax_nopriv_splw_update_setting_options', array( $this, 'splw_update_setting_options' ) );
 		add_action( 'wp_ajax_lwp_clean_weather_transients', array( $this, 'lwp_clean_weather_transients' ) );
 	}
 
@@ -196,6 +192,9 @@ class Splw_Blocks_Page_Wrapper {
 	 * Enqueue admin scripts and styles.
 	 */
 	public function enqueue_admin_assets() {
+		if ( ! isset( $_GET['page'] ) || 'splw_admin_dashboard' !== $_GET['page'] ) {
+			return;
+		}
 		// Enqueue the default ThickBox js and css.
 		add_thickbox();
 

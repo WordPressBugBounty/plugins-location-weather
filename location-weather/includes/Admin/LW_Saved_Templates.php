@@ -175,20 +175,8 @@ if ( ! class_exists( 'LW_Saved_Templates' ) ) {
 					$upload_dir    = wp_upload_dir();
 					$css_file_path = trailingslashit( $upload_dir['basedir'] ) . "spl-weather-css/spl-weather-{$id}.css";
 
-					wp_enqueue_style(
-						'splw_index_style',
-						LOCATION_WEATHER_URL . '/includes/Blocks/build/style-index.css',
-						array(),
-						LOCATION_WEATHER_VERSION,
-						'all'
-					);
-					wp_enqueue_script(
-						'splw_index_style',
-						LOCATION_WEATHER_URL . '/includes/Blocks/assets/js/script.min.js',
-						array(),
-						LOCATION_WEATHER_VERSION,
-						'all'
-					);
+					wp_enqueue_style( 'splw_index_style' );
+					wp_enqueue_script( 'spl-weather-block-script' );
 
 					// Add dynamic CSS.
 					if ( file_exists( $css_file_path ) ) {

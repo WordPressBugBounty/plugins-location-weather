@@ -95,10 +95,9 @@ class Blocks {
 
 	/**
 	 * Splw_scripts_enqueue load enqueue file.
-	 *
-	 * @return boolean
 	 */
 	public function splw_scripts_enqueue() {
+		$script_suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '' : '.min';
 		/**
 		 * Register only admin styles and scripts.
 		 */
@@ -135,7 +134,7 @@ class Blocks {
 		// block main script file.
 		wp_register_script(
 			'spl-weather-block-script',
-			LOCATION_WEATHER_URL . '/includes/Blocks/assets/js/script.js',
+			LOCATION_WEATHER_URL . '/includes/Blocks/assets/js/script' . $script_suffix . '.js',
 			array(),
 			LOCATION_WEATHER_VERSION,
 			true

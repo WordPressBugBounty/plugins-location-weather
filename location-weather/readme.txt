@@ -1,9 +1,9 @@
 === Location Weather – WordPress Weather Forecast, AQI, Temperature and Weather Widget ===
 Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
-Tags: weather forecast, weather widget, local weather, temperature, live weather
+Tags: weather forecast, weather block, block, air quality, live weather
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -474,6 +474,10 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 
 == Changelog ==
+
+= Version 3.0.1 - Mar 13, 2026 =
+* Fix: The asset conflict issue with the Divi theme builder.
+* Tested: WordPress 6.9.4 compatibility.
 
 = Version 3.0.0 - Feb 20, 2026 =
 * New: Weather Card block with 10 different layouts.
