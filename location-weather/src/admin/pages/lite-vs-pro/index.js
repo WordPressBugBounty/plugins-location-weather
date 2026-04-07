@@ -51,6 +51,15 @@ const features = [
 		pro: 'yes',
 	},
 	{
+		title: __(
+			'Weather AI Assistant',
+			'location-weather'
+		),
+		new: true,
+		free: 'no',
+		pro: 'yes',
+	},
+	{
 		title: __( 'Detailed Weather in Popup View', 'location-weather' ),
 		free: 'no',
 		pro: 'yes',
@@ -148,8 +157,8 @@ const features = [
 				</ul>
 			</>
 		),
-		free: 3,
-		pro: 5,
+		free: 7,
+		pro: 15,
 	},
 	{
 		title: __( 'Real-Time National Weather Alerts', 'location-weather' ),

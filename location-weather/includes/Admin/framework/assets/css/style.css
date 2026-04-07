@@ -1162,6 +1162,8 @@ button.splw-copy svg {
 .splwt-lite-field-spacing .splwt-lite--input select,
 .splwt-lite-field-dimensions .splwt-lite--input select {
 	margin: 0;
+    min-height: 30px;
+    line-height: 2;
 }
 
 .splwt-lite-field-box_shadow .splwt-lite--input input,
@@ -1174,11 +1176,14 @@ button.splw-copy svg {
 	width: 65px;
 	max-width: 100%;
 	text-align: center;
+	min-height: 30px;
 }
 
 .splwt-lite-field-border .splwt-lite--input input,
 .splwt-lite-field-spacing .splwt-lite--input input {
 	padding-right: 0;
+    line-height: 2;
+    min-height: 30px;
 }
 
 .splwt-lite-field-box_shadow .splwt-lite--color,
@@ -1349,9 +1354,12 @@ button.splw-copy svg {
 	margin-left: 0;
 }
 
-.splwt-lite-field-checkbox input,
-.splwt-lite-field-radio input {
+.splwt-lite-field-checkbox input {
 	margin: 0 1px;
+}
+
+.splwt-lite-field-radio input {
+	margin: 0 4px;
 }
 
 .splwt-lite-field-checkbox .splwt-lite--inline-list li,
@@ -1529,6 +1537,8 @@ button.splw-copy svg {
 .splwt-lite-field-select select {
 	max-width: 100%;
 	margin: 0;
+    min-height: 30px;
+    line-height: 2;
 }
 
 .splwt-lite-nav.splwt-lite-nav-metabox ul li a svg {
@@ -1841,6 +1851,8 @@ button.splw-copy svg {
 	margin: 0;
 	padding: 0 8px;
 	border-radius: 0;
+    line-height: 2;
+    min-height: 30px;
 }
 
 .splwt-lite-field-spinner .ui-button-text,

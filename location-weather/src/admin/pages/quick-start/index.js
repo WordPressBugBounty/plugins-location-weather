@@ -121,7 +121,7 @@ const QuickStart = () => {
 						</div>
 						<p className="splwb-sidebar-info-card-text">
 							{ __(
-								'Join the official ShapedPlugin Facebook group to share your experiences, thoughts, and ideas.',
+								'Join the official ShapedPlugin community to share your experiences, thoughts, and ideas.',
 								'location-weather'
 							) }
 						</p>

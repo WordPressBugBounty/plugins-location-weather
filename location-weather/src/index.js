@@ -134,6 +134,7 @@ const registerBlockTypeFn = ( options ) => {
 		textdomain: 'location-weather',
 		supports: {
 			align: [ 'wide', 'full' ],
+			customClassName: false,
 		},
 		example: {
 			attributes: {

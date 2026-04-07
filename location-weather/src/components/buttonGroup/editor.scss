@@ -26,6 +26,10 @@ $hover-border-color :rgb(176.8, 176.8, 176.8);
 
       &::before {
         background-color: #F26C0D;
+        height: 30px;
+        border: none;
+        outline: none;
+        top: unset;
       }
 
       &:focus-within {

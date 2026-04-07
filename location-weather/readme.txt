@@ -2,8 +2,8 @@
 Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather block, block, air quality, live weather
 Requires at least: 5.0
-Tested up to: 6.9
-Stable tag: 3.0.1
+Tested up to: 7.0
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -474,6 +474,11 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 
 == Changelog ==
+
+= Version 3.0.2 - Apr 07, 2026 =
+* Fix: Some CSS style issues found with WP 7.0
+* Fix: The common CSS selector issue for the Advanced tab of blocks.
+* Tested: WordPress 7.0 compatibility.
 
 = Version 3.0.1 - Mar 13, 2026 =
 * Fix: The asset conflict issue with the Divi theme builder.

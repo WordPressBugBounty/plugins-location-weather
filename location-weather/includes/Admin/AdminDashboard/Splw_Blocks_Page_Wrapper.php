@@ -974,7 +974,7 @@ class Splw_Blocks_Page_Wrapper {
 				</style>
 
 				<div class="notice notice-info splw-anonymous-data-notice">
-					<img src="https://account.shapedplugin.com/wp-content/uploads/edd/2022/08/Location-Weather.png"/>
+					<img src="<?php echo esc_url( LOCATION_WEATHER_ASSETS . '/images/location-weather-icon.gif' ); ?>" alt="Location Weather"/>
 					<div>
 						<h3>
 						<?php esc_html_e( 'Contribute to Location Weather Improvements', 'location-weather' ); ?>

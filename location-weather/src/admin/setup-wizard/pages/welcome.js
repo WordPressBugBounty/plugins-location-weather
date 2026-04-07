@@ -81,7 +81,7 @@ const WelcomePage = () => {
 							</span>
 							{ index === featureLists.length - 1 && (
 								<span className="splw-setup-feature-hot">
-									{ __( 'Upcoming', 'location-weather' ) }
+									{ __( 'Hot', 'location-weather' ) }
 								</span>
 							) }
 						</div>

@@ -97,14 +97,9 @@ $hover-border-color: rgb(177, 177, 177);
   cursor: move;
 }
 
-// block revise.
-.components-panel__body.block-editor-block-inspector__advanced {
-  display: none;
+div:has(>.sp-location-weather-tabs-panel) ~ div:has(>.block-editor-block-inspector__advanced) {
+    display: none;
 }
-
-// .spl-weather-sortable-item {
-//   cursor: pointer;
-// }
 
 .spl-weather-sortable-item {
   .spl-weather-component-mb {

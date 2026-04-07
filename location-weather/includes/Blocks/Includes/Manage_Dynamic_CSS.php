@@ -295,16 +295,18 @@ class Manage_Dynamic_CSS {
 		 * Widgets CSS & Fonts.
 		 */
 		if ( ! empty( $wp_registered_sidebars ) ) {
-			$sidebars_widgets = wp_get_sidebars_widgets();
-			foreach ( $sidebars_widgets as $sidebar => $widgets ) {
-				if ( 'wp_inactive_widgets' === $sidebar || ! is_array( $widgets ) ) {
-					continue;
-				}
-				foreach ( $widgets as $widget_id ) {
-					$merge_assets(
-						get_option( '_spl_weather_widget_' . $widget_id, '' ),
-						get_option( '_spl_weather_fonts_widget_' . $widget_id, array() )
-					);
+			$sidebars_widgets = get_option( 'sidebars_widgets', array() );
+			if ( ! empty( $sidebars_widgets ) && is_array( $sidebars_widgets ) ) {
+				foreach ( $sidebars_widgets as $sidebar => $widgets ) {
+					if ( 'wp_inactive_widgets' === $sidebar || empty( $widgets ) || ! is_array( $widgets ) ) {
+						continue;
+					}
+					foreach ( $widgets as $widget_id ) {
+						$merge_assets(
+							get_option( '_spl_weather_widget_' . $widget_id, '' ),
+							get_option( '_spl_weather_fonts_widget_' . $widget_id, array() )
+						);
+					}
 				}
 			}
 		}
@@ -313,7 +315,7 @@ class Manage_Dynamic_CSS {
 		 * 2. Theme templates (header, footer, home, archive, single, page).
 		 */
 		$theme_slug        = wp_get_theme()->get_stylesheet();
-		$template_contexts = array( 'header', 'footer' );
+		$template_contexts = array( 'header', 'footer', 'sidebar' );
 
 		if ( is_home() ) {
 			$template_contexts[] = 'home';

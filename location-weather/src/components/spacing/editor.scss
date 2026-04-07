@@ -159,6 +159,8 @@
       border-radius: 0;
       border-right: 0;
       border-color: #ddd;
+      min-height: 30px;
+      line-height: 2;
 
       &:focus:not(:disabled) {
         outline: none;
