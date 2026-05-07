@@ -13,7 +13,7 @@
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           3.0.2
+ * Version:           3.0.3
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * License:           GPL v2 or later
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'LOCATION_WEATHER_FILE', __FILE__ );
 define( 'LOCATION_WEATHER_URL', plugins_url( '', LOCATION_WEATHER_FILE ) );
 define( 'LOCATION_WEATHER_ASSETS', LOCATION_WEATHER_URL . '/assets' );
-define( 'LOCATION_WEATHER_VERSION', '3.0.2' );
+define( 'LOCATION_WEATHER_VERSION', '3.0.3' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'location-weather-pro/main.php' ) || is_plugin_active_for_network( 'location-weather-pro/main.php' ) ) ) {
@@ -55,7 +55,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '3.0.2';
+	public $version = '3.0.3';
 
 	/**
 	 * The unique slug of this plugin.
@@ -203,6 +203,7 @@ final class Location_Weather {
 	 *  Location Weather ajax action.
 	 */
 	public function splw_ajax_location_weather() {
+
 		$nonce = isset( $_POST['splw_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['splw_nonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'splw_nonce' ) ) {
 			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'location-weather' ) ), 401 );

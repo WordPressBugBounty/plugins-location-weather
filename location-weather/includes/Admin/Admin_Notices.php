@@ -122,6 +122,8 @@ class Admin_Notices {
 	 * @return void
 	 **/
 	public function dismiss_review_notice() {
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
 		$post_data = wp_unslash( $_POST );
 
 		if ( ! isset( $post_data['nonce'] ) || ! wp_verify_nonce( sanitize_key( $post_data['nonce'] ), 'splw_review_notice' ) ) {

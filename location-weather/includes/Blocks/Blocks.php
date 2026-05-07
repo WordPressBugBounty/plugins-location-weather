@@ -176,6 +176,8 @@ class Blocks {
 	 * @return void
 	 */
 	public function splw_block_color_settings_ajax() {
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
 		$nonce = isset( $_POST['splwBlockApiNonce'] ) ? sanitize_text_field( wp_unslash( $_POST['splwBlockApiNonce'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'splw_block_api_nonce' ) ) {

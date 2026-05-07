@@ -253,6 +253,9 @@ class Splw_Blocks_Page_Wrapper {
 	 * Handle AJAX request to update block settings.
 	 */
 	public function splw_update_block_options() {
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
+
 		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'splw_admin_settings_nonce' ) ) {
 			wp_send_json_error( __( 'Invalid nonce.', 'location-weather' ) );
@@ -274,10 +277,8 @@ class Splw_Blocks_Page_Wrapper {
 	 * Handle AJAX request to update block settings.
 	 */
 	public function splw_update_setting_options() {
-		// Check user capability.
-		if ( ! current_user_can( apply_filters( 'location_weather_access_capability', 'manage_options' ) ) ) {
-			wp_send_json_error( __( 'Unauthorized access.', 'location-weather' ), 403 );
-		}
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
 
 		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'splw_admin_settings_nonce' ) ) {
@@ -328,6 +329,9 @@ class Splw_Blocks_Page_Wrapper {
 	 * It performs nonce verification to ensure the request is legitimate.
 	 */
 	public function lwp_clean_weather_transients() {
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
+
 		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'splw_admin_settings_nonce' ) ) {
 			wp_send_json_error( __( 'Invalid nonce.', 'location-weather' ) );
@@ -368,6 +372,8 @@ class Splw_Blocks_Page_Wrapper {
 	 * @return void
 	 */
 	public function splw_changelog_data() {
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
 		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'splw_admin_settings_nonce' ) ) {
 			return;
@@ -655,10 +661,8 @@ class Splw_Blocks_Page_Wrapper {
 	 */
 	public function splw_get_user_consent() {
 
-		// Check user capability.
-		if ( ! current_user_can( apply_filters( 'location_weather_access_capability', 'manage_options' ) ) ) {
-			wp_send_json_error( __( 'Unauthorized access.', 'location-weather' ), 403 );
-		}
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
 
 		// Verify nonce.
 		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
