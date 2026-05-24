@@ -312,6 +312,25 @@ export const ProIconFill = () => (
 		/>
 	</svg>
 );
+export const ProIconLight = () => (
+	<svg
+		width={16}
+		height={16}
+		viewBox="0 0 16 16"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+		d="M10.217 6.017c.188.345.505.604.893.685.395.083.798-.034 1.103-.313l1.378-1.263.959-.88-.759 6.027H2.223l-.76-6.027.96.88 1.379 1.263c.305.28.708.396 1.102.313a1.34 1.34 0 0 0 .893-.685l2.21-4.052z"
+		stroke="#fff"
+		strokeWidth={1.355}
+		/>
+		<path
+		d="M13.723 14.85H2.29c-.367 0-.665-.364-.665-.813V12.25h12.764v1.787c0 .449-.298.813-.666.813"
+		fill="#fff"
+		/>
+	</svg>
+);
 
 export const DocsStroked = () => (
 	<svg
@@ -654,6 +673,28 @@ export const RightArrow = () => (
 	</svg>
 );
 
+export const RotateIcon = () => (
+	<svg
+		width={12}
+		height={13}
+		viewBox="0 0 12 13"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<g clipPath="url(#RotateIcon)">
+		<path
+			d="M1.251 0a.6.6 0 0 1 .6.6v1.142a5.95 5.95 0 0 1 9.157 1.432 5.95 5.95 0 0 1-1.302 7.505 5.953 5.953 0 0 1-9.695-3.4.6.6 0 0 1 1.179-.23 4.75 4.75 0 1 0 1.412-4.366l1.404-.135a.6.6 0 0 1 .114 1.194l-2.92.281a.5.5 0 0 1-.548-.498V.6a.6.6 0 0 1 .6-.6m3.875 4.048c.36 0 .65.291.65.65v2.25a.1.1 0 0 0 .1.1h1.25a.651.651 0 0 1 0 1.3h-1.65a1 1 0 0 1-1-1v-2.65a.65.65 0 0 1 .65-.65"
+			fill="#fff"
+		/>
+		</g>
+		<defs>
+		<clipPath id="RotateIcon">
+			<path fill="#fff" d="M0 0h11.803v12.095H0z" />
+		</clipPath>
+		</defs>
+	</svg>
+);
+
 export const LeftArrow = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -791,3 +832,156 @@ export const DeleteBinIcon = () => (
 		/>
 	</svg>
 );
+
+// ArrowRight - alias for RightArrow
+export const ArrowRight = () => (
+	<svg
+		width={12}
+		height={12}
+		viewBox="0 0 12 12"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+		d="m2 10 8-8m0 6.153V2H3.846"
+		stroke="currentColor"
+		strokeWidth={1.5}
+		strokeLinecap="round"
+		strokeLinejoin="round"
+		/>
+	</svg>
+);
+
+// ExternalLink icon
+export const ExternalLink = () => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={ 14 }
+		height={ 14 }
+		viewBox="0 0 14 14"
+		fill="none"
+	>
+		<path
+			d="M9.33333 4.66667H10.5C10.8536 4.66667 11.1928 4.80714 11.4428 5.05719C11.6929 5.30724 11.8333 5.64638 11.8333 6V10.5C11.8333 10.8536 11.6929 11.1928 11.4428 11.4428C11.1928 11.6929 10.8536 11.8333 10.5 11.8333H3.5C3.14638 11.8333 2.80724 11.6929 2.55719 11.4428C2.30714 11.1928 2.16667 10.8536 2.16667 10.5V6C2.16667 5.64638 2.30714 5.30724 2.55719 5.05719C2.80724 4.80714 3.14638 4.66667 3.5 4.66667H4.66667"
+			stroke="currentColor"
+			strokeWidth={ 1.25 }
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+		<path
+			d="M8.16667 2.16667H11.8333V5.83333"
+			stroke="currentColor"
+			strokeWidth={ 1.25 }
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+		<path
+			d="M11.8333 2.16667L5.83333 8.16667"
+			stroke="currentColor"
+			strokeWidth={ 1.25 }
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+	</svg>
+);
+
+// PlayIcon
+export const PlayIcon = ({color = "#fff"}) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={ 24 }
+		height={ 24 }
+		viewBox="0 0 24 24"
+		fill="none"
+	>
+		<path
+			d="M5 3L19 12L5 21V3Z"
+			fill={color}
+			stroke={color}
+			strokeWidth={ 2 }
+			strokeLinejoin="round"
+		/>
+	</svg>
+);
+
+export const OurPluginsIcon = () => (
+	<svg
+		width="18"
+		height="18"
+		viewBox="0 0 18 18"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<g clipPath="url(#clip0_25995_249574)">
+			<path
+				d="M4.65129 4.92767L5.48877 3.93497L13.4466 12.1924L12.3618 12.9285C11.7111 13.5555 9.97594 13.9286 8.90513 13.9088L5.41372 13.8443L4.2773 14.9395C3.73658 15.4606 2.88173 15.4448 2.36962 14.9042C2.24569 14.7772 2.1482 14.6268 2.08282 14.4618C2.01744 14.2968 1.98546 14.1205 1.98874 13.943C1.99202 13.7656 2.03049 13.5905 2.10192 13.4281C2.17335 13.2656 2.27632 13.1189 2.40487 12.9966L3.54129 11.9014L3.60579 8.40995C3.62458 7.39313 4.01876 5.54609 4.65129 4.92767Z"
+				stroke="currentColor"
+				strokeWidth="1.5"
+			/>
+			<path
+				d="M12.0812 2.49165C12.4413 2.14903 12.4554 1.57936 12.1128 1.21925C11.7702 0.859139 11.2005 0.844959 10.8404 1.18758L11.4608 1.83961L12.0812 2.49165ZM8.23339 4.91026L8.85375 5.56229L12.0812 2.49165L11.4608 1.83961L10.8404 1.18758L7.61302 4.25822L8.23339 4.91026Z"
+				fill="currentColor"
+			/>
+			<path
+				d="M16.7339 7.38227C17.094 7.03965 17.1082 6.46998 16.7656 6.10987C16.423 5.74976 15.8533 5.73558 15.4932 6.0782L16.1136 6.73024L16.7339 7.38227ZM12.8862 9.80088L13.5065 10.4529L16.7339 7.38227L16.1136 6.73024L15.4932 6.0782L12.2658 9.14885L12.8862 9.80088Z"
+				fill="currentColor"
+			/>
+		</g>
+		<defs>
+			<clipPath id="clip0_25995_249574">
+				<rect width="18" height="18" fill="white"/>
+			</clipPath>
+		</defs>
+	</svg>
+);
+
+export const StarIcon = ({color = "#F4674D"}) => (
+  <svg
+    width={16}
+    height={15}
+    viewBox="0 0 16 15"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.70547 0L9.84795 5.15113L15.409 5.59696L11.1721 9.22637L12.4665 14.653L7.70547 11.745L2.94441 14.653L4.23887 9.22637L0.00191116 5.59696L5.56299 5.15113L7.70547 0Z"
+      fill={color}
+    />
+  </svg>
+);
+
+export const HalfStarIcon = () => (
+  <svg
+    width={17}
+    height={17}
+    viewBox="0 0 17 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m8.1 0 2.143 5.151 5.56.446-4.236 3.63 1.294 5.426L8.1 11.745l-4.761 2.908 1.294-5.427L.396 5.597l5.562-.446z"
+      fill="#f4674d"
+    />
+    <mask
+      id="a"
+      style={{
+        maskType: "alpha",
+      }}
+      maskUnits="userSpaceOnUse"
+      x={0}
+      y={0}
+      width={16}
+      height={15}
+    >
+      <path
+        d="m8.1 0 2.143 5.151 5.56.446-4.236 3.63 1.294 5.426L8.1 11.745l-4.761 2.908 1.294-5.427L.396 5.597l5.562-.446z"
+        fill="#ffc329"
+      />
+    </mask>
+    <g mask="url(#a)">
+      <path fill="#d9d9d9" d="M10.668.1h5v15h-5z" />
+    </g>
+  </svg>
+);
+
+

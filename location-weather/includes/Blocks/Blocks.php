@@ -143,19 +143,24 @@ class Blocks {
 		// localize data .
 		$splw_option      = get_option( 'location_weather_settings', true );
 		$open_api_key     = isset( $splw_option['open-api-key'] ) ? $splw_option['open-api-key'] : '';
+		$weather_api_key  = isset( $splw_option['weather-api-key'] ) ? $splw_option['weather-api-key'] : '';
+		$has_api_key      = ! empty( $open_api_key ) || ! empty( $weather_api_key );
 		$weather_api_info = array(
 			'lw_api_type'             => $splw_option['lw_api_source_type'] ?? 'openweather_api',
 			'lw_openweather_api_type' => $splw_option['lw_openweather_api_type'] ?? 'free',
+			'has_api_key'             => $has_api_key,
 		);
 		wp_localize_script(
 			'spl_weather_editor_js',
 			'splWeatherBlockLocalize',
 			array(
-				'ajaxUrl'          => admin_url( 'admin-ajax.php' ),
-				'blockApiNonce'    => wp_create_nonce( 'splw_block_api_nonce' ),
-				'pluginUrl'        => LOCATION_WEATHER_URL,
-				'blockOptions'     => get_option( 'splw_blocks_visibility_options' ),
-				'weather_api_info' => $weather_api_info,
+				'ajaxUrl'           => admin_url( 'admin-ajax.php' ),
+				'blockApiNonce'     => wp_create_nonce( 'splw_block_api_nonce' ),
+				'adminUrl'          => admin_url(),
+				'pluginUrl'         => LOCATION_WEATHER_URL,
+				'blockOptions'      => get_option( 'splw_blocks_visibility_options' ),
+				'weather_api_info'  => $weather_api_info,
+				'savedTemplatesUrl' => admin_url( 'edit.php?post_type=location_weather&page=splw_admin_dashboard#saved_templates' ),
 			)
 		);
 		wp_localize_script(
@@ -277,6 +282,10 @@ class Blocks {
 				array(
 					'slug'  => 'location-weather',
 					'title' => __( 'Location Weather', 'location-weather' ),
+				),
+				array(
+					'slug'  => 'location-weather-pro-blocks',
+					'title' => __( 'Location Weather Pro Blocks', 'location-weather' ),
 				),
 			),
 			$categories

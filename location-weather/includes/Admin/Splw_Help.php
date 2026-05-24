@@ -406,7 +406,7 @@ class Splw_Help {
 						<div class="splw-video-area">
 							<h2 class='splw-section-title'>Welcome to Location Weather!</h2>
 							<span class='splw-normal-paragraph'>Thank you for installing Location Weather! This video will help you get started with the plugin. Enjoy!</span>
-							<iframe width="724" height="405" src="https://www.youtube.com/embed/OpfcigkrtDE?list=PLoUb-7uG-5jO40tUXGTe8cyGrbvMzZBqc" frameborder="0" title="location-weather" allowfullscreen=""></iframe>
+							<iframe width="724" height="405" src="https://www.youtube.com/embed/OpfcigkrtDE?list=PLoUb-7uG-5jO40tUXGTe8cyGrbvMzZBqc" frameBorder="0" title="location-weather" allowFullScreen=""></iframe>
 							<ul>
 								<li><a class='splw-medium-btn' href="<?php echo esc_url( home_url( '/' ) . 'wp-admin/post-new.php?post_type=location_weather' ); ?>">Create a Weather</a></li>
 								<li><a target="_blank" class='splw-medium-btn' href="https://locationweather.io/demos/lite-version-demo/">Live Demo</a></li>
@@ -670,7 +670,7 @@ class Splw_Help {
 			<!-- Recommended Page -->
 			<section id="recommended-tab" class="splw-recommended-page">
 				<div class="splw-container">
-					<h2 class="splw-section-title">Enhance your Website with our Free Robust Plugins</h2>
+					<h2 class="splw-section-title"><?php esc_html_e( 'Supercharge Your Website with Our Free Plugins — Trusted by 360,050+ Users', 'location-weather' ); ?></h2>
 					<div class="splw-wp-list-table plugin-install-php">
 						<div class="splw-recommended-plugins" id="the-list">
 							<?php

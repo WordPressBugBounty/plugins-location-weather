@@ -1,4 +1,12 @@
+$primary-color : #F26C0D;
+$secondary-color : #F0F0F1;
+$primary-text-color: #1E1E1E;
+$secondary-text-color: #3C434A;
+$button-text-color: #756C69;
+$max-width: 1400px;
+
 @use './pages/quick-start/quick-start-style.scss';
+@use './pages/blocks/blocks-page-style.scss';
 @use './pages/lite-vs-pro/lite-vs-pro.scss';
 @use './pages/about-us/about-us.scss';
 @use './pages/settings/setting-styles.scss';
@@ -26,6 +34,7 @@
         font-size: 22px;
         font-weight: 600;
         line-height: 28px;
+        margin-top: -6px;
     }
 
     // toggle buttons wrapper css.
@@ -113,6 +122,8 @@
         font-weight: 600;
         line-height: 28px;
         color: #1d2327;
+        margin-top: 0;
+        margin-bottom: 10px;
     }
 
     .spl-weather-blocks-settings-toggle-btn {
@@ -241,7 +252,7 @@
         }
 
         .react-toggle--checked .react-toggle-thumb {
-            left: 20px;
+            left: calc(58.33% + 0.17px);
             border-color: #4ab866;
         }
 
@@ -249,6 +260,230 @@
             -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
             -moz-box-shadow: 0px 0px 5px 5px #0099E0;
             box-shadow: 0px 0px 5px 5px #0099E0;
+        }
+    }
+}
+
+// weather admin panel tabs css.
+.spl-weather-block-settings-navigation {
+    padding-top: 26px;
+    background: #fff;
+    margin-bottom: 48px;
+    border-bottom: 1px solid #dedfe0;
+
+    ul {
+        display: flex;
+        margin: 0;
+        margin: 0 auto;
+        flex-wrap: wrap;
+
+        li {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            margin: 0;
+            position: relative;
+
+            a {
+                text-decoration: none;
+                padding: 13px 16px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: $primary-text-color;
+                border: 1px solid transparent;
+                border-radius: 4px 4px 0 0;
+                transition: all 0.2s;
+
+                &.active {
+                    color: $primary-color;
+                    border-color: $primary-color;
+                    background-color: #F0F0F1;
+                    border-bottom-color: #F0F0F1;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        left: 0;
+                        right: 0;
+                        height: 2px;
+                        background-color: #F0F0F1;
+                    }
+                }
+
+                // Badge styles
+                .splwb-nav-badge {
+                    position: absolute;
+                    top: 4px;
+                    right: 4px;
+                    background-color: transparent;
+                    color: #007aff;
+                    font-size: 9px;
+                    font-weight: 500;
+                    padding: 0;
+                    border-radius: 0;
+                    white-space: nowrap;
+                    line-height: normal;
+                    text-transform: uppercase;
+                }
+
+                // Position badge for specific tabs
+                li:nth-child(2) .splwb-nav-badge {
+                    left: 50%;
+                }
+
+                // SVG icon styles
+                svg {
+                    flex-shrink: 0;
+                }
+            }
+
+            // Border-left for Our Plugins tab
+            &.splwb-nav-our-plugins {
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 20px;
+                    background-color: #ccc;
+                }
+
+                // Hide when our_plugins is active
+                &.active::after {
+                    display: none;
+                }
+            }
+
+            // Hide border when ul has splwb-hide-our-plugins-border class (about_us or our_plugins active)
+            &.splwb-nav-our-plugins:where(:has(~ .active), :has(+ .active))::after {
+                display: none;
+            }
+        }
+    }
+
+    // Alternative: Hide border when ul has splwb-hide-our-plugins-border class
+    ul.splwb-hide-our-plugins-border {
+        .splwb-nav-our-plugins::after {
+            display: none !important;
+        }
+    }
+}
+
+// .footer css
+.spl-weather-settings-page-footer {
+    margin: 80px auto 0;
+    width: 310px;
+
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    h4 {
+        color: #6E6A69;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+    }
+
+    &-title {
+        h4 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            i {
+                color: #E57373;
+            }
+        }
+    }
+
+    &-social-media {
+        h4 {
+            margin: 12px auto;
+        }
+
+        ul {
+            margin: 0 auto;
+            display: flex;
+            width: 120px;
+            gap: 16px;
+
+            li {
+                margin: 0;
+
+                a:focus {
+                    box-shadow: none;
+                    outline: none;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+.splw-green-header-notice {
+    background-color: #148652;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .splw-green-header-notice-content {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+
+        .splw-green-header-notice-text {
+            color: #fff;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            margin-left: 6px;
+        }
+
+        .splw-green-header-notice-link {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            padding-left: 8px;
+            position: relative;
+            gap: 3px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: 8px;
+                right: 0;
+                height: 1px;
+                background-color: #fff;
+            }
+
+            &:hover {
+                text-decoration: none;
+                svg {
+                    transform: translateX(3px) rotate(45deg);
+                }
+            }
+
+            svg {
+                width: 11px;
+                height: 11px;
+                transform: rotate(45deg);
+                transition: all .3s ease-in-out;
+            }
         }
     }
 }
@@ -263,8 +498,12 @@
 
         span {
             padding: 2px 10px;
-            border: 1px solid #fff;
+            border: 1px solid rgba(255, 255, 255, .4);
             border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
         }
 
         .spl-weather-header-changelog-btn {
@@ -317,7 +556,6 @@
             align-items: center;
             gap: 10px;
             border-radius: 5px;
-            width: 100%;
             transition: all 0.2s;
 
             .drop-down-arrow {
@@ -367,7 +605,7 @@
     border-radius: 4px;
     align-items: center;
     transition: width 0.3s ease;
-    width: 18px;
+    width: 14px;
     overflow: hidden;
 
     * {
@@ -439,6 +677,11 @@
             }
         }
     }
+}
+
+.splw-recommended-plugins-wrapper .splw-section-title {
+    margin-bottom: 25px;
+    margin-top: -6px;
 }
 
 // Settings info button.

@@ -147,7 +147,7 @@ const RenderTemplatePreset = ( { blockName, setAttributes } ) => {
 			<div className="spl-weather-layout-modal-skip-button-wrapper sp-d-flex sp-justify-center sp-align-i-center">
 				<ReadyPatternsBtn
 					blockName={ blockName }
-					label={ __( 'Ready Weather Patterns', 'location-weather' ) }
+					label={ __( 'Start with Ready Patterns', 'location-weather' ) }
 				/>
 				<span
 					className="spl-weather-layout-modal-skip-button"

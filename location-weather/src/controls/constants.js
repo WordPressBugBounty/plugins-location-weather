@@ -792,7 +792,7 @@ export const blockRegisterInfo = {
 	},
 	'sp-location-weather-pro/shortcode': {
 		icon: <ShortcodeBlockIcon />,
-		title: __( 'Location Weather Shortcode', 'location-weather' ),
+		title: __( 'Classic Shortcode', 'location-weather' ),
 		description: __(
 			'Insert Location Weather shortcode into any page with one click.',
 			'location-weather'

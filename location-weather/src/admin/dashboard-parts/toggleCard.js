@@ -2,7 +2,7 @@ import Toggle from 'react-toggle';
 import { Demos, DocsFilled, ProIconFill } from '../icons';
 import { blockRegisterInfo, inArray, proBlocks } from '../../controls';
 
-const ToggleCard = ( { attributes, blockShowHideHandler } ) => {
+const ToggleCard = ( { attributes, blockShowHideHandler, onlyLiveDemo = false } ) => {
 	const { show, name } = attributes;
 	if ( ! blockRegisterInfo[ name ] ) {
 		return;
@@ -26,7 +26,7 @@ const ToggleCard = ( { attributes, blockShowHideHandler } ) => {
 				<div className="spl-weather-blocks-settings-card-docs">
 					<h4>{ title }</h4>
 					<ul>
-						{ docLink && (
+						{ ( !onlyLiveDemo && docLink ) && (
 							<li>
 								<a href={ docLink } target="_blank">
 									<DocsFilled /> Docs
@@ -36,7 +36,7 @@ const ToggleCard = ( { attributes, blockShowHideHandler } ) => {
 						{ demoLink && (
 							<li>
 								<a href={ demoLink } target="_blank">
-									<Demos /> Demo
+									<Demos /> {onlyLiveDemo ? "Live " : ""} Demo
 								</a>
 							</li>
 						) }
@@ -45,7 +45,7 @@ const ToggleCard = ( { attributes, blockShowHideHandler } ) => {
 			</div>
 			<div className="spl-weather-blocks-settings-toggle-btn">
 				<Toggle
-					defaultChecked={ show }
+					defaultChecked={ isPro ? false : show }
 					icons={ false }
 					onChange={ () => blockShowHideHandler( name ) }
 					disabled={ isPro }

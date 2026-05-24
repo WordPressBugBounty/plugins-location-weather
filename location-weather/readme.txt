@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather forecast, weather block, block, air quality, live weather
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.0.3
+Stable tag: 3.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -456,24 +456,31 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 == Screenshots ==
 
-1. Vertical Card
-2. Horizontal
-3. Weather Settings
-4. Display Settings - Basic Preference
-5. Display Settings - Current Weather
-6. Display Settings - Control Additional Data
-7. Display Settings - Additional Data Styles
-8. Display Settings - Footer
-9. Style Settings
-10. Typography
-11. API Settings
-12. Advanced Controls
-13. Additional CSS
-14. Export
-15. Import
+1. Weather Card - Template 01
+2. Weather Card - Template 02
+3. Weather Horizontal Template
+4. Air Quality Minimal Card
+5. Weather Grid
+6. Weather Tabs
+7. Weather Table
+8. Windy Map/Radar Map
+9. Section Heading
+10. Weather Pattern Library
+11. Dashboard Panel
+12. Block Control Panel
+13. Saved Template
+14. Classic Weather Generator
 
 
 == Changelog ==
+
+= Version 3.0.4 - May 24, 2026 =
+* New: Elementor Addon introduced to support Location Weather Saved Templates.
+* New: Divi Addon introduced to support Location Weather Saved Templates.
+* New: Default Editor option added in plugin settings to set the preferred editor for creating weather views.
+* New: Shortcode field added to the Saved Template right sidebar for quick one-click copying.
+* Improved: Plugin Dashboard Panel UI has been enhanced for a better experience.
+* Improved: Minor style conflict with the Astra theme has been resolved.
 
 = Version 3.0.3 - May 07, 2026 =
 * Improved: The plugin security has been enhanced.

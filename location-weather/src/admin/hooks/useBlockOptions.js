@@ -1,30 +1,53 @@
 import axios from 'axios';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useRef, useCallback } from '@wordpress/element';
 
-// Use this hook for enable and disabling blocks from the blocks admin page.
-const useBlockOptions = ( blocksSettings ) => {
-	const [ options, setOptions ] = useState( [] );
-	const data = new FormData();
+/**
+ * Custom hook to manage block visibility options.
+ *
+ * Initializes with localized data and syncs changes to the server via AJAX.
+ * Used for toggling block show/hide states in the admin dashboard.
+ *
+ * @returns {Array} [options, setOptions] - Current options and setter function
+ *
+ * @example
+ * const [options, setOptions] = useBlockOptions();
+ */
+const useBlockOptions = () => {
+	const initialData = splw_admin_settings_localize?.blocks_visibility ?? [];
+	const [ options, setOptions ] = useState( initialData );
+	const isInitialMount = useRef( true );
 
-	data.append( 'nonce', splw_admin_settings_localize.nonce );
-	data.append( 'action', 'splw_update_block_options' );
-	data.append( 'optionData', JSON.stringify( blocksSettings ) );
-
-	const fetchApi = async ( data ) => {
-		try {
-			const response = await axios.post( ajaxurl, data );
-			const { options } = response.data;
-			setOptions( options );
-		} catch ( error ) {
-			console.error( 'Error fetching options:', error.message );
+	/**
+	 * Sync block visibility options to the server.
+	 *
+	 * @param {Array} data - Options data to sync
+	 */
+	const syncOptions = useCallback( ( data ) => {
+		if ( ! data?.length ) {
+			return;
 		}
-	};
 
+		const formData = new FormData();
+		formData.append( 'nonce', splw_admin_settings_localize.nonce );
+		formData.append( 'action', 'splw_update_block_options' );
+		formData.append( 'optionData', JSON.stringify( data ) );
+
+		axios.post( ajaxurl, formData ).catch( ( error ) => {
+			console.error( 'Error syncing block visibility options:', error.response?.data?.message || error.message );
+		} );
+	}, [] );
+
+	// Sync to server when options change (skip initial mount)
 	useEffect( () => {
-		fetchApi( data );
-	}, [ blocksSettings ] );
+		if ( isInitialMount.current ) {
+			isInitialMount.current = false;
+			return;
+		}
 
-	return options;
+		syncOptions( options );
+	}, [ options, syncOptions ] );
+
+	return [ options, setOptions ];
 };
 
 export default useBlockOptions;

@@ -12,6 +12,9 @@ import Settings from './pages/settings';
 import Footer from './dashboard-parts/footer';
 import SetupWizard from './setup-wizard';
 import SavedTemplates from './pages/saved-templates';
+import Integrations from './pages/integrations';
+import useIntegrationsOptions from './hooks/useIntegrationsOptions';
+import { OurPluginsIcon } from './icons';
 
 // Function to update the active state of sidebar menu items.
 const updateSidebarActive = ( pageName ) => {
@@ -47,7 +50,7 @@ const Render = () => {
 	);
 
 	useEffect( () => {
-		if ( hashValue === 'about_us' && pluginsContainer ) {
+		if ( hashValue === 'our_plugins' && pluginsContainer ) {
 			pluginsContainer.style.display = 'block';
 		}
 		const postMenu = document.getElementById(
@@ -74,11 +77,10 @@ const Render = () => {
 
 		return () => postMenu.removeEventListener( 'click', postMenuAction );
 	}, [] );
-	const [ blockSettings, setBlockSettings ] = useState( [] );
 
 	const setPageAndHash = ( pageName ) => {
 		setPage( pageName );
-		if ( pageName === 'about_us' ) {
+		if ( pageName === 'our_plugins' ) {
 			pluginsContainer.style.display = 'block';
 		} else {
 			pluginsContainer.style.display = 'none';
@@ -89,7 +91,10 @@ const Render = () => {
 	updateSidebarActive( hashValue );
 
 	// Fetch block settings data from API.
-	const options = useBlockOptions( blockSettings );
+	const [ options, setOptions ] = useBlockOptions();
+
+	// Fetch integration settings data from API.
+	const [ integrationOptions, setIntegrationOptions ] = useIntegrationsOptions();
 
 	const show_notification = ( block ) => {
 		const message = block.show
@@ -112,7 +117,38 @@ const Render = () => {
 			}
 			return item;
 		} );
-		setBlockSettings( newData );
+		setOptions( newData );
+	};
+
+	const integrationToggleHandler = ( id ) => {
+		const integrationIds = [
+			'elementor',
+			'divi',
+			'wpbakery',
+			'oxygen',
+			'beaver',
+			'bricks',
+		];
+
+		const newData = integrationIds.map( ( item ) => {
+			const savedOption = integrationOptions?.find( ( opt ) => opt.id === item );
+			if ( id === item ) {
+				const isEnabled = savedOption?.enabled ?? false;
+				const message = isEnabled
+					? __( 'This addon disabled successfully', 'location-weather' )
+					: __( 'This addon enabled successfully', 'location-weather' );
+				toast.success( message, {
+					style: {
+						marginTop: '28px',
+						fontSize: '15px',
+						padding: '10px 18px',
+					},
+				} );
+				return { id: item, enabled: ! isEnabled };
+			}
+			return { id: item, enabled: savedOption?.enabled ?? true };
+		} );
+		setIntegrationOptions( newData );
 	};
 
 	const menuItems = [
@@ -125,11 +161,17 @@ const Render = () => {
 			label: __( 'Blocks', 'location-weather' ),
 			value: 'blocks',
 			hash: '#blocks',
+			badge: 'new',
 		},
 		{
 			label: __( 'Saved Templates', 'location-weather' ),
 			value: 'saved_templates',
 			hash: '#saved_templates',
+		},
+		{
+			label: __( 'Integrations', 'location-weather' ),
+			value: 'integrations',
+			hash: '#integrations',
 		},
 		{
 			label: __( 'Settings', 'location-weather' ),
@@ -146,6 +188,12 @@ const Render = () => {
 			value: 'about_us',
 			hash: '#about_us',
 		},
+		{
+			label: __( 'Our Plugins', 'location-weather' ),
+			value: 'our_plugins',
+			hash: '#our_plugins',
+			icon: <OurPluginsIcon />,
+		},
 	];
 
 	if ( hashValue === 'setupwizard' ) {
@@ -159,9 +207,9 @@ const Render = () => {
 			<div className="spl-weather-blocks-settings-page-container">
 				{ /* Blocks settings page navigation tab */ }
 				<div className="spl-weather-block-settings-navigation">
-					<ul>
+					<ul className={ page === 'our_plugins' || page === 'about_us' ? 'splwb-hide-our-plugins-border' : '' }>
 						{ menuItems.map( ( item ) => (
-							<li key={ item.value }>
+							<li key={ item.value } className={ `${ item.value === 'our_plugins' ? 'splwb-nav-our-plugins' : '' } ${ page === item.value ? 'active' : '' }` }>
 								<a
 									href={ item.hash }
 									className={
@@ -171,7 +219,11 @@ const Render = () => {
 										setPageAndHash( item.value )
 									}
 								>
+									{ item.icon }
 									{ item.label }
+								{ item.badge && (
+									<span className="splwb-nav-badge">{ __( 'NEW!', 'location-weather' ) }</span>
+								) }
 								</a>
 							</li>
 						) ) }
@@ -180,7 +232,11 @@ const Render = () => {
 				{ /* Render pages based on tab click */ }
 				<div className="spl-weather-blocks-settings-page-wrapper">
 					{ ( page === 'getting-start' || page === '' ) && (
-						<QuickStart />
+						<QuickStart
+							blockSettings={ options }
+							blockShowHideHandler={ blockShowHideHandler }
+							setPageAndHash={ setPageAndHash }
+						/>
 					) }
 					{ page === 'blocks' && (
 						<Blocks
@@ -190,12 +246,18 @@ const Render = () => {
 					) }
 					{ page === 'saved_templates' && <SavedTemplates /> }
 					{ page === 'lw_settings' && <Settings /> }
+						{ page === 'integrations' && (
+							<Integrations
+								integrationSettings={ integrationOptions }
+								integrationToggleHandler={ integrationToggleHandler }
+							/>
+						) }
 					{ page === 'lite_vs_pro' && <LiteVsPro /> }
 					{ page === 'about_us' && <AboutUs /> }
 				</div>
 			</div>
 			{ /* Render footer except about us page */ }
-			{ page && page !== 'about_us' && <Footer /> }
+			{/* { page && page !== 'our_plugins' && <Footer /> } */}
 
 			{ /* React Hot Toast Container for notifications */ }
 			<Toaster

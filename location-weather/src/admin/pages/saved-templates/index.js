@@ -10,6 +10,7 @@ import { copyText, toastErrorMsg, toastSuccessMsg } from '../../functions';
 import { useDispatch, resolveSelect, useSelect } from '@wordpress/data';
 import {
 	SavedTemplatesHeader,
+	SavedTemplatesPromo,
 	SavedTemplatesTable,
 	SavedTemplatesPagination,
 	SavedTemplatesFooter,
@@ -299,47 +300,50 @@ const SavedTemplates = () => {
 	);
 
 	return (
-		<div className="splw-saved-templates-page-container">
-			<SavedTemplatesHeader
-				selectBulkValue={ selectBulkValue }
-				setSelectBulkValue={ setSelectBulkValue }
-				onApplyBulkAction={ bulkActionHandler }
-				onSearch={ searchValueHandler }
-			/>
-			<SavedTemplatesTable
-				tableCol={ tableCol }
-				allCheck={ allCheck }
-				onAllCheckChange={ () => {
-					setAllCheck( ( prev ) => ! prev );
-					setCheckId(
-						! allCheck
-							? savedTemplateList?.map(
-									( listItem ) => listItem.id
-							  )
-							: []
-					);
-				} }
-				savedTemplateList={ savedTemplateList }
-				checkId={ checkId }
-				shortcodeCopied={ shortcodeCopied }
-				noPostText={ noPostText }
-				onCheckIdChange={ checkIdHandler }
-				onCopyShortCode={ copyShortCodeHandler }
-				onDuplicate={ duplicateShortcodeHandler }
-				onDelete={ deleteItemHandler }
-			/>
-			<SavedTemplatesFooter
-				currentPage={ currentPage }
-				totalPages={ totalPages }
-				totalPostCount={ totalPostCount }
-				pages={ pages }
-			>
-				<SavedTemplatesPagination
-					currentPage={ currentPage }
-					pages={ pages }
-					onPageChange={ setCurrentPage }
+		<div className="splw-saved-templates-page-wrapper">
+			<div className="splw-saved-templates-page-container">
+				<SavedTemplatesHeader
+					selectBulkValue={ selectBulkValue }
+					setSelectBulkValue={ setSelectBulkValue }
+					onApplyBulkAction={ bulkActionHandler }
+					onSearch={ searchValueHandler }
 				/>
-			</SavedTemplatesFooter>
+				<SavedTemplatesTable
+					tableCol={ tableCol }
+					allCheck={ allCheck }
+					onAllCheckChange={ () => {
+						setAllCheck( ( prev ) => ! prev );
+						setCheckId(
+							! allCheck
+								? savedTemplateList?.map(
+										( listItem ) => listItem.id
+								  )
+								: []
+						);
+					} }
+					savedTemplateList={ savedTemplateList }
+					checkId={ checkId }
+					shortcodeCopied={ shortcodeCopied }
+					noPostText={ noPostText }
+					onCheckIdChange={ checkIdHandler }
+					onCopyShortCode={ copyShortCodeHandler }
+					onDuplicate={ duplicateShortcodeHandler }
+					onDelete={ deleteItemHandler }
+				/>
+				<SavedTemplatesFooter
+					currentPage={ currentPage }
+					totalPages={ totalPages }
+					totalPostCount={ totalPostCount }
+					pages={ pages }
+				>
+					<SavedTemplatesPagination
+						currentPage={ currentPage }
+						pages={ pages }
+						onPageChange={ setCurrentPage }
+					/>
+				</SavedTemplatesFooter>
+			</div>
+			<SavedTemplatesPromo />
 		</div>
 	);
 };

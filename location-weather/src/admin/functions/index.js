@@ -28,7 +28,8 @@ export const saveSettingOptions = async (
 	settings,
 	actionType = 'save',
 	setSettingsOptions,
-	shareData
+	shareData,
+	editorPreference
 ) => {
 	try {
 		const formData = new FormData();
@@ -38,6 +39,9 @@ export const saveSettingOptions = async (
 		formData.append( 'optionData', JSON.stringify( settings ) );
 		if ( shareData !== undefined ) {
 			formData.append( 'shareData', JSON.stringify( shareData ) );
+		}
+		if ( editorPreference !== undefined ) {
+			formData.append( 'editorPreference', editorPreference );
 		}
 
 		const response = await axios.post( ajaxurl, formData );

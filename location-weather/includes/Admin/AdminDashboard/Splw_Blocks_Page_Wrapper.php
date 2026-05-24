@@ -46,6 +46,7 @@ class Splw_Blocks_Page_Wrapper {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'blocks_page_wrapper' ), 2 );
 		add_action( 'wp_ajax_splw_update_block_options', array( $this, 'splw_update_block_options' ) );
+		add_action( 'wp_ajax_splw_update_integrations_options', array( $this, 'splw_update_integrations_options' ) );
 		add_action( 'wp_ajax_splw_changelog_data', array( $this, 'splw_changelog_data' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
 		add_action( 'wp_ajax_splw_get_user_consent', array( $this, 'splw_get_user_consent' ) );
@@ -71,7 +72,7 @@ class Splw_Blocks_Page_Wrapper {
 		add_submenu_page(
 			'edit.php?post_type=location_weather',
 			__( 'Location Weather Blocks', 'location-weather' ),
-			__( 'Blocks', 'location-weather' ),
+			'Blocks <span class="eap-menu-new-indicator" style="color: #f18200;font-size: 9px; padding-left: 3px;"> NEW!</span>',
 			apply_filters( 'location_weather_access_capability', 'manage_options' ),
 			'edit.php?post_type=location_weather&page=splw_admin_dashboard#blocks'
 		);
@@ -88,6 +89,13 @@ class Splw_Blocks_Page_Wrapper {
 			__( 'Settings', 'location-weather' ),
 			apply_filters( 'location_weather_access_capability', 'manage_options' ),
 			'edit.php?post_type=location_weather&page=splw_admin_dashboard#lw_settings'
+		);
+		add_submenu_page(
+			'edit.php?post_type=location_weather',
+			__( 'Lite vs Pro', 'location-weather' ),
+			'<span style="color: #FF980F;">' . __( 'Lite vs Pro', 'location-weather' ) . '</span>',
+			apply_filters( 'location_weather_access_capability', 'manage_options' ),
+			'edit.php?post_type=location_weather&page=splw_admin_dashboard#lite_vs_pro'
 		);
 		add_submenu_page(
 			'edit.php?post_type=location_weather',
@@ -129,6 +137,7 @@ class Splw_Blocks_Page_Wrapper {
 						'edit.php?post_type=location_weather',
 						'post-new.php?post_type=location_weather',
 						'lw-tools',
+						'edit.php?post_type=location_weather&page=splw_admin_dashboard#lite_vs_pro',
 						'splw_upgrade_to_pro',
 					);
 
@@ -175,7 +184,7 @@ class Splw_Blocks_Page_Wrapper {
 		?>
 		<div id="spl-weather-pro-block-admin-page" class="spl-weather-pro-block-admin-page">
 			<div class="splw-recommended-plugins-wrapper" style="display: none;">
-				<h2 class="splw-section-title"><?php esc_html_e( 'Enhance your Website with our Free Robust Plugins', 'location-weather' ); ?></h2>
+				<h2 class="splw-section-title"><?php esc_html_e( 'Supercharge Your Website with Our Free Plugins — Trusted by 360,050+ Users', 'location-weather' ); ?></h2>
 				<div class="splw-wp-list-table plugin-install-php">
 					<div class="splw-recommended-plugins" id="the-list">
 						<?php
@@ -217,13 +226,17 @@ class Splw_Blocks_Page_Wrapper {
 			'splw-block-setting-page',
 			'splw_admin_settings_localize',
 			array(
-				'homeUrl'           => home_url( '/' ),
-				'pluginVersion'     => LOCATION_WEATHER_VERSION,
-				'pluginUrl'         => LOCATION_WEATHER_URL,
-				'settings'          => get_option( 'location_weather_settings' ),
-				'sp_ua_site_type'   => get_option( 'sp_ua_site_type' ) ?? '',
-				'splw_user_consent' => get_option( 'splw_allow_anonymous_data', 'undefined' ),
-				'nonce'             => wp_create_nonce( 'splw_admin_settings_nonce' ),
+				'homeUrl'                => home_url( '/' ),
+				'pluginVersion'          => LOCATION_WEATHER_VERSION,
+				'pluginUrl'              => LOCATION_WEATHER_URL,
+				'settings'               => get_option( 'location_weather_settings' ),
+				'sp_ua_site_type'        => get_option( 'sp_ua_site_type' ) ?? '',
+				'splw_user_consent'      => get_option( 'splw_allow_anonymous_data', 'undefined' ),
+				'splw_editor_preference' => get_option( 'splw_blocks_promo_modal_choice', '' ),
+				'nonce'                  => wp_create_nonce( 'splw_admin_settings_nonce' ),
+				'current_user'           => wp_get_current_user()->display_name ?? '',
+				'blocks_visibility'      => get_option( 'splw_blocks_visibility_options', array() ),
+				'integrations_options'   => get_option( 'splw_integrations_options', array() ),
 			)
 		);
 	}
@@ -274,6 +287,30 @@ class Splw_Blocks_Page_Wrapper {
 	}
 
 	/**
+	 * Handle AJAX request to update integrations options.
+	 */
+	public function splw_update_integrations_options() {
+		// Check user capabilities, current_user_can() is called internally.
+		location_weather_verify_capability();
+
+		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		if ( ! wp_verify_nonce( $nonce, 'splw_admin_settings_nonce' ) ) {
+			wp_send_json_error( __( 'Invalid nonce.', 'location-weather' ) );
+		}
+
+		$options = isset( $_POST['optionData'] ) ? sanitize_text_field( wp_unslash( $_POST['optionData'] ) ) : '';
+		$options = (array) json_decode( $options, true );
+		if ( ! empty( $options ) ) {
+			update_option( 'splw_integrations_options', $options );
+		}
+		wp_send_json(
+			array(
+				'options' => get_option( 'splw_integrations_options' ),
+			)
+		);
+	}
+
+	/**
 	 * Handle AJAX request to update block settings.
 	 */
 	public function splw_update_setting_options() {
@@ -297,6 +334,16 @@ class Splw_Blocks_Page_Wrapper {
 			$share_data = wp_unslash( $_POST['shareData'] );// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- JSON validated via json_decode() and json_last_error().
 			$consent    = filter_var( $share_data, FILTER_VALIDATE_BOOLEAN );
 			update_option( 'splw_allow_anonymous_data', $consent );
+		}
+
+		if ( isset( $_POST['editorPreference'] ) ) {
+			$editor_preference = sanitize_key( wp_unslash( $_POST['editorPreference'] ) );
+			$allowed_editors   = array( 'block_editor', 'classic_shortcode' );
+			if ( in_array( $editor_preference, $allowed_editors, true ) ) {
+				update_option( 'splw_blocks_promo_modal_choice', $editor_preference, false );
+			} else {
+				delete_option( 'splw_blocks_promo_modal_choice' );
+			}
 		}
 
 		if ( is_array( $options ) ) {
@@ -919,18 +966,36 @@ class Splw_Blocks_Page_Wrapper {
 					.splw-anonymous-data-notice {
 						background-color: #ffffff;
 						border: none;
+						border: 1px solid rgba(204, 204, 204, 1);
 						border-left: 4px solid #FF980F;
 						margin-bottom: 20px;
 						display: flex;
-						padding: 14px 24px 18px 27px;
+						padding: 14px;
 						align-items: flex-start;
-						gap: 20px;
+						gap: 16px;
 						box-shadow: 0 16px 32px -4px rgba(12, 12, 13, 0.05), 0 4px 4px -4px rgba(12, 12, 13, 0.02);
+						position: relative;
+						border-radius: 4px;
+					}
+
+					button.splw_anonymous_data_cross {
+						border: none;
+						background: transparent;
+						position: absolute;
+						top: 0;
+						right: 7px;
+						cursor: pointer;
+						color: #b6b6b6;
+						font-size: 16px;
+					}
+
+					.splw-anonymous-data-notice-wrapper {
+						display: flex;
+						gap: 26px;
 					}
 
 					.splw-anonymous-data-notice img {
-						height: 36px;
-						width: 36px;
+						width: 52px;
 						border-radius: 4px;
 					}
 					.splw-anonymous-data-notice h3 {
@@ -942,7 +1007,7 @@ class Splw_Blocks_Page_Wrapper {
 					.splw-anonymous-data-notice p, .splw-anonymous-data-notice a {
 						color: #6E6F72;
 						font-size: 14px;
-						margin: 0 0 8px 0;
+						margin: 0 0 2px 0;
 					}
 					.splw-anonymous-data-notice a {
 						text-decoration: underline;
@@ -965,47 +1030,54 @@ class Splw_Blocks_Page_Wrapper {
 						color: #6E6F72;
 						background-color: #ffffff;
 					}
-					.splw-anonymous-data-notice .button-primary {
-						background-color: #1A74E4;
-						border: 1px solid #1A74E4;
+					.splw-anonymous-data-notice .splw_anonymous_data_connect {
+						background-color: rgba(30, 30, 30, 1);
+						color: #ffffff;
+						line-height: 14px;
+						border-radius: 4px;
+						font-size: 13px;
+					}
+					.splw-anonymous-data-notice .splw_anonymous_data_connect:hover {
+						background-color: rgb(46, 46, 46);
 						color: #ffffff;
 					}
-					.splw-anonymous-data-notice .button-primary:hover {
-						background-color: #1768CD;
-						color: #ffffff;
-						border: 1px solid #1A74E4;
+					.splw-anonymous-data-notice .splw_anonymous_data_connect:focus {
+						border: none;
+						box-shadow: none;
+						out-line: none;
 					}
 				</style>
 
 				<div class="notice notice-info splw-anonymous-data-notice">
 					<img src="<?php echo esc_url( LOCATION_WEATHER_ASSETS . '/images/location-weather-icon.gif' ); ?>" alt="Location Weather"/>
-					<div>
-						<h3>
-						<?php esc_html_e( 'Contribute to Location Weather Improvements', 'location-weather' ); ?>
-						</h3>
-						<p>
-						<?php
-						esc_html_e(
-							'Help us improve Location Weather Plugin by reporting bugs and issues, so we can resolve problems faster and deliver better performance.',
-							'location-weather'
-						);
-						?>
-						<a href="https://locationweather.io/information-we-collect/" target="_blank"><?php esc_html_e( 'Learn More', 'location-weather' ); ?></a>
-						</p>
+					<div class="splw-anonymous-data-notice-wrapper">
+						<div>
+							<h3>
+							<?php esc_html_e( 'Help us make Location Weather even more awesome?', 'location-weather' ); ?>
+							</h3>
+							<p>
+							<?php
+							esc_html_e(
+								'Allow us to collect non-sensitive diagnostic data to resolve problems faster and improve performance.',
+								'location-weather'
+							);
+							?>
+							<a href="https://locationweather.io/information-we-collect/" target="_blank"><?php esc_html_e( 'Learn More', 'location-weather' ); ?></a>
+							</p>
+						</div>
 						<div style="display:flex; gap:10px;">
 							<form method="post" style="display:inline;">
 							<?php wp_nonce_field( 'splw_anonymous_data_action', 'splw_anonymous_data_nonce' ); ?>
 								<input type="hidden" name="splw_anonymous_data_action" value="allow" />
-								<button type="submit" class="button button-primary">
-								<?php esc_html_e( "I'd like to help", 'location-weather' ); ?>
+								<button type="submit" class="splw_anonymous_data_connect button">
+								<?php esc_html_e( 'Accept & Close', 'location-weather' ); ?>
 								</button>
 							</form>
 
 							<form method="post" style="display:inline;">
 							<?php wp_nonce_field( 'splw_anonymous_data_action', 'splw_anonymous_data_nonce' ); ?>
 								<input type="hidden" name="splw_anonymous_data_action" value="deny" />
-								<button type="submit" class="button">
-								<?php esc_html_e( 'No thanks', 'location-weather' ); ?>
+								<button type="submit" class="splw_anonymous_data_cross dashicons dashicons-dismiss">
 								</button>
 							</form>
 						</div>

@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import InfoText from '../../dashboard-parts/infoText';
 import { VideoTooltipIcon } from '../../../icons';
-import { ProIconFill } from '../../icons';
+import { HalfStarIcon, ProIconLight, StarIcon, WordPressIcon } from '../../icons';
 
 const features = [
 	{
@@ -51,10 +51,7 @@ const features = [
 		pro: 'yes',
 	},
 	{
-		title: __(
-			'Weather AI Assistant',
-			'location-weather'
-		),
+		title: __( 'Weather AI Assistant', 'location-weather' ),
 		new: true,
 		free: 'no',
 		pro: 'yes',
@@ -300,35 +297,43 @@ const features = [
 		pro: 'yes',
 	},
 ];
+
 const testimonials = [
 	{
 		text: __(
 			'The free trial worked great upon testing, but needed the advanced features and upgraded. At first the advanced features (i.e. auto location weather and multiple day forecast) did not work as advertised....',
 			'location-weather'
 		),
+		user: 'wordpress',
 		name: 'Dawie Hanekom',
 		role: 'Managing Director, Newbe Marketing',
 		img: '/assets/images/Dawie-Hanekom-min.png',
 	},
 	{
 		text: __(
-			'Awesome guys and Awesome plugin for getting different city weather updates easily. The plugin works great and is a simple weather app that does exactly what it is suppo....',
+			'I must take a moment to emphasize just how exceptional the support for the product has been. While the product itself is fantastic, it’s the support that truly sets it apart. Every time I reached out with a question or concern...',
 			'location-weather'
 		),
-		name: 'Jeffrey DiFilippo',
-		role: 'Web Developer',
-		img: '/assets/images/Jeffrey-DiFilippo-min.jpeg',
+		user: 'wordpress',
+		name: 'Mike Cruywagen',
+		role: 'Founder & owner at Nudge Studio',
+		img: '/assets/images/mike-cruywagen.png',
 	},
 	{
 		text: __(
-			'A clean and attractive widget that works without any problems. Amazingly helpful customer support who gave me the custom CSS code that I needed without hesitation, 5..',
+			'I am very pleased with ShapedPlugin\'s Location Weather plugin. It does what it promises, and it is frequently updated and improved. It is an excellent product.Whenever I have contacted support the company responds quickly...',
 			'location-weather'
 		),
-		name: 'Swan',
-		role: 'Freelancer, Upwork',
+		user: 'trustpilot',
+		name: 'Anton',
+		role: 'Entrepreneur from Netherland',
 		img: '/assets/images/swan.svg',
 	},
 ];
+
+const TrustpilotIcon = () => (
+	<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m10.5 15.252 4.563-1.164L16.969 20zM21 7.61h-8.031L10.5 0 8.031 7.61H0l6.5 4.717-2.469 7.61 6.5-4.717 4-2.893z" fill="#00b57a"/></svg>
+);
 
 const generateFreeOrProContent = ( content ) => {
 	if ( typeof content === 'number' ) {
@@ -352,13 +357,13 @@ const LiteVsPro = () => {
 					<div>
 						<h2 className="splw-section-title">
 							{ __(
-								'Lite vs Pro Comparison',
+								'Unlock More with Location Weather Pro',
 								'location-weather'
 							) }
 						</h2>
 						<span className="splw-lite-pro-subtitle">
 							{ __(
-								'Get Location Weather Pro Today and Unlock all the Powerful Features',
+								'Unlock Pro features and give your visitors a more accurate weather experience',
 								'location-weather'
 							) }
 						</span>
@@ -368,13 +373,12 @@ const LiteVsPro = () => {
 						href="https://locationweather.io/pricing/?ref=1"
 						className="splw-upgrade-to-pro-btn"
 					>
-						<ProIconFill />
 						{ __( 'Upgrade to Pro Now!', 'location-weather' ) }
 					</a>
 				</div>
 				<div className="splw-lite-pro-table-list">
 					<ul>
-						<li className="splw-lite-pro-table-row splw-header">
+						<li className="splw-lite-pro-table-row splw-header splw-header-bg">
 							<span className="splw-title">
 								{ __( 'FEATURES', 'location-weather' ) }
 							</span>
@@ -382,6 +386,7 @@ const LiteVsPro = () => {
 								{ __( 'LITE', 'location-weather' ) }
 							</span>
 							<span className="splw-pro splw-pro-icon">
+								<ProIconLight />
 								{ __( 'PRO', 'location-weather' ) }
 							</span>
 						</li>
@@ -433,15 +438,15 @@ const LiteVsPro = () => {
 			<div className="splw-upgrade-to-pro-promotion">
 				<h2 className="splw-section-title">
 					{ __(
-						'Upgrade To PRO & Enjoy Advanced Features!',
+						'Ready to Take Your Weather Display to the Next Level?',
 						'location-weather'
 					) }
 				</h2>
 				<span className="splw-section-subtitle">
-					{ __( 'Already, ', 'location-weather' ) }
-					<b>{ __( '16000+', 'location-weather' ) }</b>
+					{ __( 'Join ', 'location-weather' ) }
+					<b>{ __( '20,000+', 'location-weather' ) }</b>
 					{ __(
-						' people are using Location Weather on their websites to create beautiful weather showcase, why won’t you!',
+						' website owners who trust Location Weather Pro for stunning, fully customized weather and air quality index—AQI displays.',
 						'location-weather'
 					) }
 				</span>
@@ -460,59 +465,118 @@ const LiteVsPro = () => {
 					>
 						{ __( 'See All Features', 'location-weather' ) }
 					</a>
-					<a
+					{/* <a
 						target="_blank"
 						className="splw-upgrade-to-pro-btn"
 						href="https://locationweather.io/demos/vertical-card/"
 					>
 						{ __( 'Pro Live Demo', 'location-weather' ) }
-					</a>
+					</a> */}
 				</div>
 			</div>
-			<div className="splw-testimonial">
-				<div className="splw-testimonial-title-section">
-					<span className="splw-testimonial-subtitle">
-						{ __(
-							'NO NEED TO TAKE OUR WORD FOR IT',
-							'location-weather'
-						) }
-					</span>
-					<h2 className="splw-section-title">
-						{ __(
-							'Our Users Love Location Weather Pro!',
-							'location-weather'
-						) }
-					</h2>
-				</div>
-				<div className="splw-testimonial-wrap">
-					{ testimonials?.map( ( item, index ) => (
-						<div className="splw-testimonial-area" key={ index }>
-							<div className="splw-testimonial-content">
-								<p>{ item?.text }</p>
-							</div>
 
-							<div className="splw-testimonial-info">
-								<div className="splw-img">
-									<img
-										src={ `${ splw_admin_settings_localize?.pluginUrl }${ item?.img }` }
-										alt={ item?.name }
-									/>
+
+				<div className="splw-testimonial">
+					<div className="splw-testimonial-header">
+						<div className="splw-testimonial-ratings">
+							<a
+							href='https://wordpress.org/support/plugin/location-weather/reviews/'
+							target='_blank'
+							className="splw-testimonial-rating-item">
+								<div className="splw-testimonial-rating-wordpress">
+									<div className="splw-wp-mark">
+										<WordPressIcon />
+									</div>
+										<div className="splw-wp-text">
+											<StarIcon />
+											<StarIcon />
+											<StarIcon />
+											<StarIcon />
+											<HalfStarIcon />
+										</div>
 								</div>
-
-								<div className="splw-info">
-									<h3>{ item.name }</h3>
-									<p>{ item.role }</p>
-									<div className="splw-star">
-										<i>★★★★★</i>
+								<span className="splw-testimonial-rating-score">4.5</span>
+								<span className="splw-testimonial-review-count">100+ Reviews</span>
+							</a>
+							<a
+							href='https://www.trustpilot.com/review/shapedplugin.com'
+							target='_blank'
+							className="splw-testimonial-rating-item">
+								<div className="splw-testimonial-rating-trustpilot">
+									<div className="splw-trustpilot-mark">
+										<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m10.5 15.252 4.563-1.164L16.969 20zM21 7.61h-8.031L10.5 0 8.031 7.61H0l6.5 4.717-2.469 7.61 6.5-4.717 4-2.893z" fill="#00b57a"/></svg>
 									</div>
 								</div>
-							</div>
+								<div className="splw-trustpilot-stars">
+									<StarIcon color='#fff' />
+									<StarIcon color='#fff' />
+									<StarIcon color='#fff' />
+									<StarIcon color='#fff' />
+									<StarIcon color='#fff' />
+								</div>
+								<span className="splw-testimonial-rating-score">4.9</span>
+								<span className="splw-testimonial-review-count">119+ Reviews</span>
+							</a>
 						</div>
-					) ) }
+						<h2 className="splw-testimonial-title">
+							{ __(
+								'Don\'t Just Take Our Word for It — See What Users Say!',
+								'location-weather'
+							) }
+						</h2>
+					</div>
+					<div className="splw-testimonial-wrap">
+						{ testimonials?.map( ( item, index ) => (
+							<div className={ `splw-testimonial-card ${ item?.user === 'trustpilot' ? 'splw-testimonial-card-trustpilot' : '' }` } key={ index }>
+								<div className="splw-testimonial-card-header">
+									<div className="splw-testimonial-reviewer">
+										<div className="splw-testimonial-avatar">
+											{ item?.user === 'trustpilot' ? (
+												<div className="splw-testimonial-avatar-initials">
+													<span>{ item.name.slice( 0, 2 ).toUpperCase() }</span>
+												</div>
+											) : (
+												<img
+													src={ `${ splw_admin_settings_localize?.pluginUrl }${ item?.img }` }
+													alt={ item?.name }
+												/>
+											) }
+											<div className="splw-testimonial-source-badge">
+												{ item?.user === 'trustpilot' ? (
+													<TrustpilotIcon />
+												) : (
+													<WordPressIcon />
+												) }
+											</div>
+										</div>
+										<div className="splw-testimonial-reviewer-info">
+											<h3>{ item.name }</h3>
+											<p>{ item.role }</p>
+										</div>
+									</div>
+								</div>
+								<div className="splw-testimonial-rating-stars">
+									{ item?.user === 'trustpilot' ? (
+										<div className="splw-testimonial-rating-trustpilot-stars">
+											<span className="splw-trustpilot-star-item"><StarIcon color='#fff' /></span>
+											<span className="splw-trustpilot-star-item"><StarIcon color='#fff' /></span>
+											<span className="splw-trustpilot-star-item"><StarIcon color='#fff' /></span>
+											<span className="splw-trustpilot-star-item"><StarIcon color='#fff' /></span>
+											<span className="splw-trustpilot-star-item"><StarIcon color='#fff' /></span>
+										</div>
+									) : (
+										<span>★★★★★</span>
+									) }
+								</div>
+								<div className="splw-testimonial-card-content">
+									<p>{ item?.text }</p>
+								</div>
+							</div>
+						) ) }
+					</div>
 				</div>
-			</div>
-		</section>
-	);
-};
+			</section>
+		);
+	};
 
-export default LiteVsPro;
+	export default LiteVsPro;

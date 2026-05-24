@@ -15,6 +15,10 @@
         z-index: 10;
         width: 225px;
         height: 100%;
+        ul,
+        ul li {
+            margin: 0;
+        }
     }
 
     .splw-setting-tab {
@@ -113,7 +117,6 @@
 
     .splw-settings-save-wrapper {
         display: flex;
-        justify-content: flex-end;
         gap: 8px;
         margin-top: 36px;
 
@@ -361,4 +364,9 @@
         font-weight: 600;
         text-decoration: underline;
     }
+}
+.splw-weather-api-notice {
+    display: block;
+    margin-left: 0px;
+    margin-bottom: 30px;
 }

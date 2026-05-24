@@ -1519,3 +1519,61 @@ export const AqiForecastTab = () => {
 		</>
 	);
 };
+
+export const AiAssistant = () => {
+	return (
+		<>
+			<div className="spl-block-pro-notice">
+				<div className="spl-pro-only-title">
+					{ __( 'Premium Only', 'location-weather' ) }
+				</div>
+				<div className="spl-pro-notice-heading">
+					{ __(
+						'Upgrade to Pro and give your visitors an AI Weather Assistant, not just a widget.',
+						'location-weather'
+					) }
+				</div>
+
+				<ul>
+					<li>
+						{ __( '— AI chat — visitors ask, it answers', 'location-weather' ) }
+					</li>
+					<li>
+						{ __( '— 7-day weather forecast', 'location-weather' ) }
+					</li>
+					<li>
+						{ __( '— Outdoor activity & health advices', 'location-weather' ) }
+					</li>
+					<li>
+						{ __( '— Outfit tips by age & conditions', 'location-weather' ) }
+					</li>
+					<li>
+						{ __( '— Compare weather across destinations', 'location-weather' ) }
+					</li>
+					<li>
+						{ __( '— Responds in 50+ languages', 'location-weather' ) }
+					</li>
+					<li>
+						{ __( '— Full widget branding & style controls', 'location-weather' ) }
+					</li>
+				</ul>
+				<a
+					href="https://locationweather.io/pricing/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="spl-upgrade-pro-btn"
+				>
+					{ __( 'Upgrade to Pro!', 'location-weather' ) }
+				</a>
+				<a
+					href="https://locationweather.io/ai-weather-assistant/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="spl-upgrade-pro-btn spl-upgrade-pro-btn-light"
+				>
+					{ __( 'See all Pro features', 'location-weather' ) }
+				</a>
+			</div>
+		</>
+	);
+};

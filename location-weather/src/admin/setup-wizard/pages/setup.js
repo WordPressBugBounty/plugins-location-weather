@@ -1,5 +1,4 @@
 import { __ } from '@wordpress/i18n';
-import { useState } from '@wordpress/element';
 import { toastSuccessMsg } from '../../functions';
 import Blocks from '../../pages/blocks';
 import { SelectField } from '../../../components';
@@ -77,8 +76,7 @@ const websiteTypes = [
 ];
 
 const BlocksSetup = ( { websiteType, setWebsiteType, errorMessage } ) => {
-	const [ blockSettings, setBlockSettings ] = useState( [] );
-	const options = useBlockOptions( blockSettings );
+	const [ options, setOptions ] = useBlockOptions();
 
 	const show_notification = ( block ) => {
 		const message = block.show
@@ -95,7 +93,7 @@ const BlocksSetup = ( { websiteType, setWebsiteType, errorMessage } ) => {
 			}
 			return item;
 		} );
-		setBlockSettings( newData );
+		setOptions( newData );
 	};
 	return (
 		<div className="splw-setup-blocks-page">

@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useEffect, useRef } from '@wordpress/element';
 import { useBlockProps } from '@wordpress/block-editor';
 import { fontFamilyToUrlGenerator, jsonStringify } from '../../controls';
-import { InspectorControl } from '../../components';
+import { ApiNotice, InspectorControl } from '../../components';
 import { TogglePanelBodyProvider } from '../../context';
 import Inspector from '../shared/inspector';
 import Render from './render';

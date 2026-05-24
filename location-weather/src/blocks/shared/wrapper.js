@@ -3,7 +3,7 @@ import { memo } from '@wordpress/element';
 import useApiData from '../../hooks/useApiData';
 import { inArray } from '../../controls';
 import SPPreloader from './templates/preloader';
-import { RenderTemplatePreset } from '../../components';
+import { ApiNotice, RenderTemplatePreset } from '../../components';
 import { SplWeatherProvider } from '../../context';
 import { InnerBlocks } from '@wordpress/block-editor';
 
@@ -51,9 +51,12 @@ export const EditorWrapper = memo(
 				? ` weather-status-${ weather_data?.icon }`
 				: '';
 
+		const hasApiKey = splWeatherBlockLocalize?.weather_api_info?.has_api_key;
+
 		return (
 			<>
 				<SplWeatherProvider apiUnit={ unit } attributes={ attributes }>
+					{ (! hasApiKey && ! error_message ) && <ApiNotice /> }
 					<div
 						id={ uniqueId }
 						className={ `spl-weather-${ blockName }-card sp-location-weather-block-wrapper${ weatherBasedImage } ${ customClassName }${

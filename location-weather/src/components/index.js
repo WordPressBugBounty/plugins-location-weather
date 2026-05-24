@@ -1,3 +1,4 @@
+export { default as ApiNotice } from './ApiNotice';
 export { default as InspectorControl } from './inspectorControl';
 export { default as ComponentTopSection } from './componentTopSection';
 export { default as BgButtons } from './bgButtons';

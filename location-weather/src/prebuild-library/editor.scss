@@ -388,7 +388,7 @@
 .splw-patterns-action-btn span {
     height: 36px;
     line-height: 36px;
-    padding: 0 14px;
+    padding: 0 10px;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -424,6 +424,9 @@
     border-radius: 4px;
     background: #EA7E11;
     transition: background-color 400ms;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .splw-patterns-action-btn:has(.splw-pattern-wishlist) {

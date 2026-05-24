@@ -112,6 +112,7 @@ export const WeatherAPIKey = ( {
 
 	return (
 		<div className="splw-settings-weather-api">
+			<span className='splw-weather-api-notice'>To show weather data smoothly, please set at least one Weather API key below.</span>
 			<InputControl
 				label={
 					<>
@@ -261,6 +262,8 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 		shareData:
 			phpToJsBool[ splw_admin_settings_localize?.splw_user_consent ] ||
 			false,
+		editorPreference:
+			splw_admin_settings_localize?.splw_editor_preference || '',
 	} );
 
 	const [ cleanDataOnDelete, setCleanDataOnDelete ] = useState(
@@ -270,6 +273,9 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 	const [ cache, setCache ] = useState( initialValues.cache );
 	const [ cacheTime, setCacheTime ] = useState( initialValues.cacheTime );
 	const [ shareData, setShareData ] = useState( initialValues.shareData );
+	const [ editorPreference, setEditorPreference ] = useState(
+		initialValues.editorPreference
+	);
 	const [ cacheDeletePopup, setCacheDeletePopup ] = useState( false );
 	const [ showConfPopup, setShowConfPopup ] = useState( false );
 
@@ -285,7 +291,8 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 		initialValues.skipCache !== skipCache ||
 		initialValues.cache !== cache ||
 		initialValues.cacheTime !== cacheTime ||
-		initialValues.shareData !== shareData;
+		initialValues.shareData !== shareData ||
+		initialValues.editorPreference !== editorPreference;
 
 	const saveAdvancedControls = ( actionType = 'save' ) => {
 		let newCleanOnDelete = cleanDataOnDelete;
@@ -293,6 +300,7 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 		let newCache = cache;
 		let newCacheTime = cacheTime;
 		let newShareData = shareData;
+		let newEditorPreference = editorPreference;
 
 		if ( actionType === 'reset' ) {
 			newCleanOnDelete = false;
@@ -300,12 +308,14 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 			newCache = false;
 			newCacheTime = 15;
 			newShareData = true;
+			newEditorPreference = '';
 			setCleanDataOnDelete( false );
 			setSkipCache( false );
 			setCache( false );
 			setCacheTime( 15 );
 			setShowConfPopup( false );
 			setShareData( true );
+			setEditorPreference( '' );
 		} else {
 			setIsSaving( true );
 		}
@@ -321,7 +331,8 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 			updatedSettings,
 			actionType,
 			setSettingsOptions,
-			newShareData
+			newShareData,
+			newEditorPreference
 		).then( () => {
 			setInitialValues( {
 				cleanDataOnDelete: newCleanOnDelete,
@@ -329,6 +340,7 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 				cache: newCache,
 				cacheTime: newCacheTime,
 				shareData: newShareData,
+				editorPreference: newEditorPreference,
 			} );
 			setIsSaving( false );
 		} );
@@ -435,6 +447,39 @@ export const AdvancedControls = ( { settingsOptions, setSettingsOptions } ) => {
 						) }
 					/>
 				) }
+			</div>
+			<div className="splw-settings-option">
+				<span className="spl-weather-component-title">
+					{ __( 'Default Editor', 'location-weather' ) }
+					<InfoText
+						text={ __(
+							'Choose which editor opens when you click "Add New Weather". Pick "Ask each time" to keep the welcome popup.',
+							'location-weather'
+						) }
+					/>
+				</span>
+				<SelectField
+					attributes={ editorPreference }
+					onChange={ ( val ) => setEditorPreference( val ) }
+					items={ [
+						{
+							label: __( 'Ask each time', 'location-weather' ),
+							value: '',
+						},
+						{
+							label: __( 'Block Editor', 'location-weather' ),
+							value: 'block_editor',
+						},
+						{
+							label: __(
+								'Classic Shortcode',
+								'location-weather'
+							),
+							value: 'classic_shortcode',
+						},
+					] }
+					styles={ { width: '300px' } }
+				/>
 			</div>
 			<hr />
 			<div className="splw-settings-toggle splw-settings-option">

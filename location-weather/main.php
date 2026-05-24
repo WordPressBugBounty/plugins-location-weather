@@ -13,7 +13,7 @@
  * Plugin URI:        https://locationweather.io/?ref=1
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com/
- * Version:           3.0.3
+ * Version:           3.0.4
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * License:           GPL v2 or later
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'LOCATION_WEATHER_FILE', __FILE__ );
 define( 'LOCATION_WEATHER_URL', plugins_url( '', LOCATION_WEATHER_FILE ) );
 define( 'LOCATION_WEATHER_ASSETS', LOCATION_WEATHER_URL . '/assets' );
-define( 'LOCATION_WEATHER_VERSION', '3.0.3' );
+define( 'LOCATION_WEATHER_VERSION', '3.0.4' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'location-weather-pro/main.php' ) || is_plugin_active_for_network( 'location-weather-pro/main.php' ) ) ) {
@@ -55,7 +55,7 @@ final class Location_Weather {
 	 *
 	 * @var string
 	 */
-	public $version = '3.0.3';
+	public $version = '3.0.4';
 
 	/**
 	 * The unique slug of this plugin.
@@ -310,6 +310,9 @@ final class Location_Weather {
 			new ShapedPlugin\Weather\Admin\Location_Weather_Shortcode_Block();
 		}
 
+		// Page builder integrations.
+		ShapedPlugin\Weather\Admin\PageBuilders\Manager::init();
+
 		// Gutenberg block.
 		if ( version_compare( $GLOBALS['wp_version'], '5.3', '>=' ) ) {
 			// Initialize Shortcode block block.
@@ -414,9 +417,9 @@ final class Location_Weather {
 		$open_api_key    = $plugin_settings['open-api-key'] ?? '';
 		$weather_api_key = $plugin_settings['weather-api-key'] ?? '';
 		// Check if the Location Weather plugin is active and the OpenWeatherMap API key is empty.
-		if ( is_plugin_active( 'location-weather-pro/main.php' ) && empty( $open_api_key ) && empty( $weather_api_key ) ) {
+		if ( is_plugin_active( 'location-weather/main.php' ) && empty( $open_api_key ) && empty( $weather_api_key ) ) {
 			?>
-				<div class="error notice location-api-notice">
+				<div class="notice-warning notice location-api-notice">
 					<p><strong><?php esc_html_e( 'Location Weather', 'location-weather' ); ?>: </strong> Please set your own <a href = "<?php echo esc_url( admin_url( 'edit.php?post_type=location_weather&page=splw_admin_dashboard#lw_settings' ) ); ?>" > <?php esc_html_e( 'Weather API key', 'location-weather' ); ?></a> <?php esc_html_e( 'to show the weather data smoothly.', 'location-weather' ); ?></p>
 				</div>
 			<?php

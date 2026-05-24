@@ -46,13 +46,12 @@ export const SavedTemplatesHeader = ( {
 			</div>
 			<div className="splw-saved-template-header-right">
 				<a
-					href={ `${ splw_admin_settings_localize?.homeUrl }wp-admin/post-new.php?post_type=spl_weather_template` }
-					target="_blank"
+					href={ `${ splw_admin_settings_localize?.homeUrl }wp-admin/post-new.php?post_type=spl_weather_template&splwblock_inserter` }
 					className="splw-saved-template-add-new"
 					rel="noreferrer"
 				>
 					<i className="dashicons dashicons-plus-alt2"></i>
-					{ __( 'Add New', 'location-weather' ) }
+					{ __( 'Add New Template', 'location-weather' ) }
 				</a>
 			</div>
 		</div>

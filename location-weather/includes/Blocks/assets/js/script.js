@@ -270,7 +270,8 @@ function splWeatherTabsFunctionality( block ) {
 	}
 }
 
-document.addEventListener( 'DOMContentLoaded', function () {
+// Initialize all SPL Weather blocks - called on DOMContentLoaded and Elementor changes
+function initializeSplWeatherBlocks() {
 	preloaderInitialize();
 	document
 		.querySelectorAll( '.sp-location-weather-block-wrapper' )
@@ -300,4 +301,59 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				} );
 			}
 		} );
+}
+
+document.addEventListener( 'DOMContentLoaded', function () {
+	initializeSplWeatherBlocks();
+} );
+
+window.locationInit = initializeSplWeatherBlocks;
+
+// Elementor integration using IIFE pattern
+( function() {
+	window.addEventListener( 'elementor/frontend/init', function() {
+		elementorFrontend.hooks.addAction(
+			'frontend/element_ready/location_weather_saved_template.default',
+			function( $scope ) {
+				if ( typeof initializeSplWeatherBlocks === 'function' ) {
+					initializeSplWeatherBlocks();
+				}
+			}
+		);
+	} );
+} )();
+
+// Elementor preview editor specific handler - watch for DOM changes
+if ( typeof ElementorPreview !== 'undefined' || document.body.classList.contains( 'elementor-editor-preview' ) ) {
+	// Watch for DOM changes in Elementor preview
+	const observer = new MutationObserver( function( mutations ) {
+		mutations.forEach( function( mutation ) {
+			if ( mutation.addedNodes.length ) {
+				mutation.addedNodes.forEach( function( node ) {
+					if ( node.nodeType === 1 ) { // Element node
+						if ( node.classList && node.classList.contains( 'sp-location-weather-block-wrapper' ) ) {
+							initializeSplWeatherBlocks();
+						}
+						// Check if added node contains our blocks
+						const blocks = node.querySelectorAll && node.querySelectorAll( '.sp-location-weather-block-wrapper' );
+						if ( blocks && blocks.length > 0 ) {
+							initializeSplWeatherBlocks();
+						}
+					}
+				} );
+			}
+		} );
+	} );
+
+	observer.observe( document.body, {
+		childList: true,
+		subtree: true
+	} );
+}
+
+// Fallback: Re-initialize on window load for Elementor
+window.addEventListener( 'load', function() {
+	if ( document.body.classList.contains( 'elementor-editor-preview' ) ) {
+		initializeSplWeatherBlocks();
+	}
 } );

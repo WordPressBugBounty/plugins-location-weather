@@ -59,6 +59,6 @@ $iframe_src = 'https://embed.windy.com/embed.html?type=map&location=coordinates&
 		title="Location Weather"
 		loading="lazy"
 		src="<?php echo esc_url( $iframe_src ); ?>"
-		frameborder="0">
+		frameBorder="0">
 	</iframe>
 </div>

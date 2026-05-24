@@ -14,6 +14,7 @@ import {
 	AqiQualitySummaryTab,
 	AqiQualityParametersTab,
 	AqiForecastTab,
+	AiAssistant,
 } from './generalTab';
 import {
 	AdditionalDataStyleTab,
@@ -378,7 +379,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 										rel="noopener noreferrer"
 										className="spl-pro-card-link"
 									>
-										{ __( 'PRO', 'location-weather' ) }
+										{/* { __( 'PRO', 'location-weather' ) } */}
 									</a>
 								</span>
 								{ __(
@@ -398,6 +399,34 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					</PanelBody>
 				</>
 			) }
+			{['vertical', 'horizontal' ].includes(blockName) && <PanelBody
+				title={
+					<>
+						<span className="spl-pro-badge">
+							<a
+								href="https://locationweather.io/pricing/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="spl-pro-card-link"
+							>
+								{/* { __( 'PRO', 'location-weather' ) } */}
+							</a>
+						</span>
+						{ __(
+							'AI Weather Assistant',
+							'location-weather'
+						) }
+					</>
+				}
+				icon={ <AqiForecastIcon /> }
+				opened={ openedPanelBody === 'air-quality-forecast' }
+				onToggle={ () =>
+					togglePanelBody( 'air-quality-forecast' )
+				}
+				className="spl-pro-panel"
+			>
+				<AiAssistant />
+			</PanelBody>}
 			{ /* Footer control panel */ }
 			{ inArray(
 				[ 'vertical', 'horizontal', 'tabs', 'table', 'aqi-minimal' ],

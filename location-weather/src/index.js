@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType, updateCategory } from '@wordpress/blocks';
 import domReady from '@wordpress/dom-ready';
-import { CategoryIcon } from './icons';
+import { CategoryIcon, ProBlocksCategoryIcon } from './icons';
 import ShortCodeEdit from './blocks/shortcode/edit';
 import VerticalBlockEdit from './blocks/vertical/edit';
 import HorizontalBlockEdit from './blocks/horizontal/edit';
@@ -20,8 +20,12 @@ import { SectionHeadingAttributes } from './blocks/section-heading/attributes';
 import ProBlockPlaceholder from './blocks/shared/templates/proBlocksPlaceholder';
 import { ToolbarLibrary } from './prebuild-library';
 import './controls/redirectToBlockEditor';
+import './saved-template-sidebar';
 
 updateCategory( 'location-weather', { icon: <CategoryIcon /> } );
+updateCategory( 'location-weather-pro-blocks', {
+	icon: <ProBlocksCategoryIcon />,
+} );
 
 const blocks = [
 	{
@@ -122,15 +126,28 @@ const blocks = [
 	},
 ];
 
+const proBlockList = [
+	'sp-location-weather-pro/combined',
+	'sp-location-weather-pro/aqi-detailed',
+	'sp-location-weather-pro/accordion',
+	'sp-location-weather-pro/map',
+	'sp-location-weather-pro/historical-weather',
+	'sp-location-weather-pro/historical-aqi',
+	'sp-location-weather-pro/sun-moon',
+];
+
 // Register Parent (active) Blocks.
 const registerBlockTypeFn = ( options ) => {
+	const blockCategory = proBlockList.includes( options.name )
+		? 'location-weather-pro-blocks'
+		: 'location-weather';
 	const blockOptions = {
 		...options,
 		name: options.name,
 		title: blockRegisterInfo[ options.name ]?.title,
 		icon: blockRegisterInfo[ options.name ]?.icon,
 		description: blockRegisterInfo[ options.name ]?.description || '',
-		category: 'location-weather',
+		category: blockCategory,
 		textdomain: 'location-weather',
 		supports: {
 			align: [ 'wide', 'full' ],

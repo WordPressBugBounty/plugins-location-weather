@@ -1,9 +1,170 @@
+.splw-saved-templates-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.splw-saved-template-promo {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 30px 48px;
+
+    &__text {
+        flex: 1 0 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 36px;
+        padding: 24px 0;
+        overflow: hidden;
+    }
+
+    &__title-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+        word-break: break-word;
+    }
+
+    &__title {
+        color: #2c2d2f;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0;
+        width: 100%;
+        white-space: pre-wrap;
+    }
+
+    &__title-accent {
+        background: linear-gradient(90deg, #ff512f 0%, #f09819 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    &__desc {
+        color: #4e4f52;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        margin: 0;
+        width: 100%;
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
+    &__cta {
+        background: #f26c0d;
+        border-radius: 4px;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 28px;
+        padding: 10px 24px;
+        text-decoration: none;
+        transition: background 0.2s ease-in-out;
+        white-space: nowrap;
+        gap: 5px;
+
+        &:hover,
+        &:focus {
+            background: #da5b00;
+            color: #ffffff;
+        }
+    }
+
+    &__video {
+        flex-shrink: 0;
+        position: relative;
+        width: 400px;
+        max-width: 100%;
+        aspect-ratio: 1920 / 1080;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    &__video-thumb {
+        all: unset;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background-color: #f26c0d;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    &__video-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    &__video-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+        svg {
+            margin-left: 3px;
+        }
+    }
+
+    &__video-frame {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+}
+
+@media (max-width: 960px) {
+    .splw-saved-template-promo {
+        flex-direction: column;
+        gap: 32px;
+        padding: 32px;
+
+        &__video {
+            width: 100%;
+        }
+    }
+}
+
 .splw-saved-templates-page-container {
     background: #ffffff;
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 32px;
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -58,7 +219,7 @@
         background: #F26C0D;
         color: #ffffff;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 28px;
         cursor: pointer;
 
@@ -121,9 +282,14 @@
 
 .splw-saved-template-table-title {
     width: 504px;
+    a span {
+        color: #2271B1;
+        font-weight: 500;
+    }
+
     a:hover {
         span {
-            color: #135e96;
+            color: #2581c5;
         }
     }
 }
@@ -144,14 +310,19 @@
 
 .splw-saved-template-shortcode-text {
     border-radius: 3px;
-    border: 1px solid #EBDBD0;
-    background: #F8F4F1;
+    border: 1px solid rgba(234, 219, 209, 1);
+    background: rgba(249, 244, 242, 1);
     padding: 6px 16px;
     display: flex;
     gap: 8px;
     align-items: center;
     width: fit-content;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        background: #F5EBE6;
+    }
 }
 
 .splw-saved-template-table-date {

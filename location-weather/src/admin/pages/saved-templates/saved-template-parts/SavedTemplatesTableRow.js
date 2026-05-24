@@ -28,8 +28,7 @@ export const SavedTemplatesTableRow = ( {
 			</td>
 			<td className="splw-saved-template-table-title">
 				<a
-					href={ `${ splw_admin_settings_localize?.homeUrl }wp-admin/post.php?post=${ item?.id }&action=edit` }
-					target="_blank"
+					href={ `${ splw_admin_settings_localize?.homeUrl }wp-admin/post.php?post=${ item?.id }&action=edit&splwblock_inserter` }
 					rel="noreferrer noopener"
 				>
 					<span
@@ -67,8 +66,7 @@ export const SavedTemplatesTableRow = ( {
 					<Tooltip text="Edit" delay={ 300 } placement="top">
 						<a
 							aria-label="Edit"
-							href={ `${ splw_admin_settings_localize?.homeUrl }wp-admin/post.php?post=${ item?.id }&action=edit` }
-							target="_blank"
+							href={ `${ splw_admin_settings_localize?.homeUrl }wp-admin/post.php?post=${ item?.id }&action=edit&splwblock_inserter` }
 							className="splw-saved-template-action sp-action-edit"
 							rel="noreferrer"
 						>

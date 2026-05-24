@@ -3,21 +3,35 @@ import Drawer from '@mui/material/Drawer';
 import { useState } from '@wordpress/element';
 import {
 	Arrow,
+	ArrowRight,
 	Blog,
 	ChangelogIcon,
+	CheckCircleGreen,
 	CloseIcon,
 	Community,
 	DocsStroked,
 	FeatRequest,
 	GetHelp,
 	LWLogo,
+	RightArrow,
+	RightArrowLong,
 	Roadmap,
+	RotateIcon,
 	SetupWizard,
 	TechSupport,
 	Video,
 	WhatsNew,
 } from '../icons';
 import useChangelogData from '../hooks/useChangelogData';
+
+const GreenCheckIcon = () => (
+	<img
+		src={ `${ splw_admin_settings_localize?.pluginUrl }/assets/images/bell-icon.gif` }
+		width={18}
+		height={18}
+		alt=""
+	/>
+);
 
 const GetHelpItems = [
 	{
@@ -80,17 +94,37 @@ const HeaderItems = () => {
 	const changelog = useChangelogData( showSidebar );
 
 	return (
-		<div className="spl-weather-admin-page-header">
+		<>
+			<div className="splw-green-header-notice">
+				<div className="splw-green-header-notice-content">
+					<GreenCheckIcon />
+					<span className="splw-green-header-notice-text">
+						<strong>You're on Lite</strong> — unlock the full power at <strong>50% OFF. Lifetime Deal.</strong> Pay once, Use forever.
+					</span>
+					<a
+						className="splw-green-header-notice-link"
+						href="https://locationweather.io/pricing/?ref=1"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{ __( 'Upgrade to Pro', 'location-weather' ) }
+						<ArrowRight />
+					</a>
+				</div>
+			</div>
+			<div className="spl-weather-admin-page-header">
 			<div className="spl-weather-block-setting-header-wrapper">
 				<div className="spl-weather-admin-page-header-left">
 					<LWLogo />
-					<span>{ splw_admin_settings_localize?.pluginVersion }</span>
-					<button
+					<span
+						onClick={ toggleDrawer( true ) }
+					><RotateIcon />{ splw_admin_settings_localize?.pluginVersion }</span>
+					{/* <button
 						className="spl-weather-header-changelog-btn"
 						onClick={ toggleDrawer( true ) }
 					>
 						<ChangelogIcon />
-					</button>
+					</button> */}
 					<Drawer
 						anchor="right"
 						open={ showSidebar }
@@ -146,6 +180,7 @@ const HeaderItems = () => {
 				</button>
 			</div>
 		</div>
+		</>
 	);
 };
 

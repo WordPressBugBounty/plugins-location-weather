@@ -15,6 +15,16 @@
         bottom: 0;
         width: 100%;
     }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splw-pro-blocks-badge {
+        width: 18px;
+    }
 }
 
 .splw-setup-wizard-content {
@@ -386,7 +396,8 @@
         }
 
         .spl-weather-blocks-settings-card {
-            box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.08) !important;
+            border: 1px solid #ddd !important;
+            box-shadow: none !important;
         }
     }
 }
