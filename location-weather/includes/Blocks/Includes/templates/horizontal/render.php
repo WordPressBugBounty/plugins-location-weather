@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Weather Block Horizontal Template Renderer File.
  *

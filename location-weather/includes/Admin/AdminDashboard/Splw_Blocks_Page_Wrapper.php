@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This is to plugin blocks page.
  *
@@ -821,7 +820,7 @@ class Splw_Blocks_Page_Wrapper {
 			'site_language'  => $site_language,
 			'theme_name'     => $theme->get( 'Name' ),
 			'plugin_version' => LOCATION_WEATHER_VERSION,
-			'wp_version'     => wp_get_wp_version(),
+			'wp_version'     => get_bloginfo( 'version' ),
 			'php_version'    => $php_version,
 			'db_version'     => $db_version,
 			'active_plugins' => $active_plugins,

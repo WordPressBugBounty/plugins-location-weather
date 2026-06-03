@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The Export import file of Location Weather.
  *

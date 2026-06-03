@@ -1,4 +1,9 @@
 <?php
+/**
+ * Main file for Location Weather Blocks.
+ *
+ * @package Location_Weather_Pro/Blocks
+ */
 
 namespace ShapedPlugin\Weather\Blocks;
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Weather Block AQI Template Renderer File.
  *

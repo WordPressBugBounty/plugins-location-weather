@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Weather Block Table Template Renderer File.
  *

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Weather Blocks Helpers.
  *
@@ -644,8 +643,8 @@ class Block_Helpers {
 	/**
 	 * Get AQI Condition based on AQI value.
 	 *
-	 * @param  mixed $iaqi calculate AQI vale.
-	 * @return staring
+	 * @param  mixed $iaqi calculate AQI value.
+	 * @return string
 	 */
 	public static function get_aqi_condition( $iaqi ) {
 		$ranges = array(

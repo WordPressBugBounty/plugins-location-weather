@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Current Weather Card Template.
  *

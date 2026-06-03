@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Weather AQI Block Template Pollutant Details File.
  *
