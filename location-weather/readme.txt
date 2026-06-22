@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather, weather forecast, weather widget, air quality, weather block
 Requires at least: 5.9.0
 Tested up to: 7.0
-Stable tag: 3.0.5
+Stable tag: 3.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -383,6 +383,9 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 
 == Changelog ==
+
+= Version 3.0.6 - June 22, 2026 =
+* Fix: The warning found in the widget editor for the non-block themes.
 
 = Version 3.0.5 - June 03, 2026 =
 * Improved: WordPress minimum version requirement updated from 5.0 to 5.9.0 for better Gutenberg block compatibility.
