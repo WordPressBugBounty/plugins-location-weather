@@ -196,12 +196,12 @@ class Weather_Premade_Patterns {
 			);
 		}
 
-		$response = wp_remote_get(
+		$response = wp_safe_remote_get(
 			'https://demo.locationweather.io/wp-json/location-weather/v1/pattern-list',
 			array( 'timeout' => 150 )
 		);
 
-		if ( is_wp_error( $response ) ) {
+		if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
 			return array(
 				'success' => false,
 				'message' => __( 'Failed to fetch remote data.', 'location-weather' ),

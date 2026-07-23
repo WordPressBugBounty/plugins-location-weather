@@ -109,9 +109,9 @@ class Render_Blocks_Templates {
 
 		if ( $error_message ) {
 			$api_error_message = sprintf(
-				'<div id="%s" class="spl-weather-%s">%s</div>',
-				$attributes['uniqueId'],
-				$attributes['blockName'] . '-card sp-location-weather-block-wrapper spl-weather-api-error align' . $align,
+				'<div id="%s" class="%s">%s</div>',
+				esc_attr( $unique_id ),
+				esc_attr( 'spl-weather-' . $block_name . '-card sp-location-weather-block-wrapper spl-weather-api-error align' . $align ),
 				$error_message
 			);
 			return $api_error_message;

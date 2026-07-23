@@ -3,7 +3,7 @@ Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: weather, weather forecast, weather widget, air quality, weather block
 Requires at least: 5.9.0
 Tested up to: 7.0
-Stable tag: 3.0.6
+Stable tag: 3.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -383,6 +383,12 @@ Both work great. **OpenWeatherMap** provides global coverage and detailed data, 
 
 
 == Changelog ==
+
+= Version 3.0.7 - Jul 23, 2026 =
+* Improved: Added capability checks to all AJAX handlers and admin actions to prevent unauthorized access.
+* Improved: Hardened unserialize() with an is_serialized() guard and an allowed_classes restriction to prevent PHP object injection.
+* Improved: Replaced manual WordPress.org API calls with the core plugins_api() function for better reliability.
+* Fix: Corrected the output escaping on the "invalid weather API key" admin notice.
 
 = Version 3.0.6 - June 22, 2026 =
 * Fix: The warning found in the widget editor for the non-block themes.

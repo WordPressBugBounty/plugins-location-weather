@@ -191,7 +191,7 @@ class Shortcode {
 
 			// Api call error check.
 			if ( is_array( $weather_api_data ) && isset( $weather_api_data['code'] ) && ( 1006 === $weather_api_data['code'] || 1003 === $weather_api_data['code'] || 2006 === $weather_api_data['code'] ) ) {
-				$weather_error_status = sprintf( '<div id="splw-location-weather-%1$s" class="splw-main-wrapper"><div class="splw-weather-title">%2$s</div><div class="splw-lite-wrapper"><div class="splw-warning">%3$s</div> <div class="splw-weather-attribution"><a href = "https://www.weatherapi.com/docs/key.aspx" target="_blank">' . __( 'Weather from WeatherAPI ', 'location-weather' ) . '</a></div></div></div>', esc_attr( $shortcode_id ), esc_html( get_the_title( $shortcode_id ) ), $weather_api_data['message'] );
+				$weather_error_status = sprintf( '<div id="splw-location-weather-%1$s" class="splw-main-wrapper"><div class="splw-weather-title">%2$s</div><div class="splw-lite-wrapper"><div class="splw-warning">%3$s</div> <div class="splw-weather-attribution"><a href = "https://www.weatherapi.com/docs/key.aspx" target="_blank">' . __( 'Weather from WeatherAPI ', 'location-weather' ) . '</a></div></div></div>', esc_attr( $shortcode_id ), esc_html( get_the_title( $shortcode_id ) ), esc_html( $weather_api_data['message'] ) );
 				echo $weather_error_status; // phpcs:ignore
 				return;
 			}
@@ -199,7 +199,7 @@ class Shortcode {
 		}
 
 		if ( is_array( $data ) && isset( $data['code'] ) && ( 401 === $data['code'] || 404 === $data['code'] ) ) {
-			$weather_output = sprintf( '<div id="splw-location-weather-%1$s" class="splw-main-wrapper"><div class="splw-weather-title">%2$s</div><div class="splw-lite-wrapper"><div class="splw-warning">%3$s</div> <div class="splw-weather-attribution"><a href = "https://openweathermap.org/" target="_blank">' . __( 'Weather from OpenWeatherMap', 'location-weather' ) . '</a></div></div></div>', esc_attr( $shortcode_id ), esc_html( get_the_title( $shortcode_id ) ), $data['message'] );
+			$weather_output = sprintf( '<div id="splw-location-weather-%1$s" class="splw-main-wrapper"><div class="splw-weather-title">%2$s</div><div class="splw-lite-wrapper"><div class="splw-warning">%3$s</div> <div class="splw-weather-attribution"><a href = "https://openweathermap.org/" target="_blank">' . __( 'Weather from OpenWeatherMap', 'location-weather' ) . '</a></div></div></div>', esc_attr( $shortcode_id ), esc_html( get_the_title( $shortcode_id ) ), esc_html( $data['message'] ) );
 
 			echo $weather_output; // phpcs:ignore
 			return;

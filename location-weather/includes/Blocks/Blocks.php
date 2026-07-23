@@ -89,8 +89,8 @@ class Blocks {
 			add_filter( 'block_categories_all', array( $this, 'lw_blocks_register_block_category' ), 10, 2 );
 		}
 
+		// Editor-only endpoint (uses the editor nonce splw_block_api_nonce); no nopriv registration.
 		add_action( 'wp_ajax_splw_ajax_block_data', array( $this, 'splw_ajax_block_data' ) );
-		add_action( 'wp_ajax_nopriv_splw_ajax_block_data', array( $this, 'splw_ajax_block_data' ) );
 		// block settings.
 		add_action( 'wp_ajax_splw_block_color_settings_ajax', array( $this, 'splw_block_color_settings_ajax' ) );
 		new Manage_Dynamic_CSS();
@@ -175,7 +175,6 @@ class Blocks {
 				'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
 				'post_id'       => get_the_ID(),
 				'blockAPiNonce' => wp_create_nonce( 'splw_block_frontend_nonce' ),
-				'_key'          => 'f1c3' . $open_api_key,
 			)
 		);
 	}
@@ -252,6 +251,11 @@ class Blocks {
 		$nonce = isset( $_POST['splwBlockApiNonce'] ) ? sanitize_text_field( wp_unslash( $_POST['splwBlockApiNonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'splw_block_api_nonce' ) ) {
 			return;
+		}
+
+		// This is a block-editor preview endpoint; require edit capability.
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Unauthorized', 'location-weather' ) ), 403 );
 		}
 
 		$query_data = isset( $_POST['weatherFormData'] ) ? sanitize_text_field( wp_unslash( $_POST['weatherFormData'] ) ) : '';

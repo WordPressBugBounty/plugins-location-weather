@@ -153,6 +153,17 @@ class Manage_Dynamic_CSS {
 				);
 			}
 
+			// Ensure the current user is allowed to edit this specific post before storing CSS against it.
+			if ( ! current_user_can( 'edit_post', (int) $post_id ) ) {
+				return new \WP_REST_Response(
+					array(
+						'success' => false,
+						'message' => __( 'You are not allowed to save CSS for this post.', 'location-weather' ),
+					),
+					403
+				);
+			}
+
 			// Save CSS to file using WP_Filesystem.
 			global $wp_filesystem;
 			if ( ! $wp_filesystem ) {
